@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--MainViewController-->
+        <!--HomeViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="MainViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="santasWorkshop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="Accepted" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -26,11 +26,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Santa's Workshop" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5L-em-f6d">
-                                <rect key="frame" x="16" y="28" width="343" height="50"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="40"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d04-uL-Qsb">
                                 <rect key="frame" x="77" y="262" width="220" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
@@ -58,6 +53,11 @@
                                     <action selector="createAccountTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ye8-XT-4Cr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Accepted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5L-em-f6d">
+                                <rect key="frame" x="16" y="28" width="343" height="55"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="40"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.7211761445001571" green="0.88450633278871249" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -71,90 +71,69 @@
             </objects>
             <point key="canvasLocation" x="-338.5" y="82.5"/>
         </scene>
-        <!--AccountViewControler-->
-        <scene sceneID="8jT-dZ-TqD">
+        <!--AccountViewController-->
+        <scene sceneID="7Bh-9q-lDN">
             <objects>
-                <viewController storyboardIdentifier="AccountViewController" title="AccountViewControler" id="sqt-Js-SQE" customClass="AccountViewController" customModule="santasWorkshop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountViewController" title="AccountViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jto-Nw-pQP" customClass="AccountViewController" customModule="Accepted" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="BPJ-xR-fzZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="d35-b6-RLB"/>
+                        <viewControllerLayoutGuide type="top" id="npR-IE-rlM"/>
+                        <viewControllerLayoutGuide type="bottom" id="MZ5-ja-54Q"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="O7Q-fe-hZ6">
+                    <view key="view" contentMode="scaleToFill" id="nGG-7Y-zvy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFz-zN-oM2" userLabel="Welcome Label">
-                                <rect key="frame" x="16" y="28" width="343" height="46"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGL-al-0ae">
+                                <rect key="frame" x="16" y="72" width="343" height="72"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKf-eF-9DR">
-                                <rect key="frame" x="16" y="181" width="200" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHj-y4-LvX">
+                                <rect key="frame" x="147" y="232" width="81" height="30"/>
                                 <state key="normal" title="My Schools">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.060231345870000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qu4-GP-Ifz">
-                                <rect key="frame" x="16" y="249" width="200" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="My Academics">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.060231345870000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWK-Jv-lpG">
-                                <rect key="frame" x="16" y="317" width="200" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Interests">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.060231345870000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEE-MV-t4t">
-                                <rect key="frame" x="16" y="385" width="200" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Search">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.060231345870000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0p-QG-qrt">
-                                <rect key="frame" x="16" y="453" width="200" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.060231345870000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wer-Xh-SRb">
-                                <rect key="frame" x="164" y="617" width="35" height="30"/>
-                                <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fZx-Fp-iVx" kind="unwind" unwindAction="close:" id="AFH-r1-nLc"/>
+                                    <action selector="mySchoolsTapped:" destination="jto-Nw-pQP" eventType="touchUpInside" id="uIZ-WE-Eu2"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.7211761445" green="0.88450633280000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Sme-nF-jqA"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="welcomeLabel" destination="FFz-zN-oM2" id="FAb-9r-iwU"/>
+                        <outlet property="welcomeLabel" destination="YGL-al-0ae" id="7ge-3f-oIh"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3dK-TC-oqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="fZx-Fp-iVx" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4qf-eB-QpY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135.5" y="82.5"/>
+            <point key="canvasLocation" x="602.5" y="82.5"/>
+        </scene>
+        <!--MySchoolsViewController-->
+        <scene sceneID="yzq-Em-jYh">
+            <objects>
+                <viewController storyboardIdentifier="MySchoolsViewController" title="MySchoolsViewController" id="30F-VB-LC6" customClass="MySchoolsViewController" customModule="Accepted" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M52-rz-jTA"/>
+                        <viewControllerLayoutGuide type="bottom" id="ERM-o5-UXu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iUz-Mb-Q9G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mg1-6Q-3d9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1059.5" y="82.5"/>
         </scene>
         <!--SchoolMapViewController-->
         <scene sceneID="4oF-UI-XLo">
             <objects>
-                <viewController storyboardIdentifier="SchoolMapViewController" title="SchoolMapViewController" id="xhx-uS-2NI" customClass="SchoolMapViewController" customModule="santasWorkshop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SchoolMapViewController" title="SchoolMapViewController" id="xhx-uS-2NI" customClass="SchoolMapViewController" customModule="Accepted" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ef1-XV-m2y"/>
                         <viewControllerLayoutGuide type="bottom" id="JLO-1P-CT7"/>
@@ -173,7 +152,7 @@
         <!--CreateAccountViewController-->
         <scene sceneID="fed-NI-pMk">
             <objects>
-                <viewController storyboardIdentifier="CreateAccountViewController" title="CreateAccountViewController" id="Fr0-fi-aEZ" customClass="CreateAccountViewController" customModule="santasWorkshop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateAccountViewController" title="CreateAccountViewController" id="Fr0-fi-aEZ" customClass="CreateAccountViewController" customModule="Accepted" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rhe-Va-iok"/>
                         <viewControllerLayoutGuide type="bottom" id="LlM-lF-a2h"/>
@@ -204,7 +183,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cY4-Yp-2vI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RUQ-fM-60b" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="603.5" y="82.5"/>
+            <point key="canvasLocation" x="135.5" y="-665.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PWM-62-Lwk">
+            <objects>
+                <navigationController storyboardIdentifier="AccountNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="7Pw-Fi-UYQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lIO-ic-WOE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jto-Nw-pQP" kind="relationship" relationship="rootViewController" id="OoB-j2-UCL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YxP-iM-FLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.5" y="82.5"/>
         </scene>
     </scenes>
 </document>

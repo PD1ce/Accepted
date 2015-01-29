@@ -27,7 +27,9 @@ class HomeViewController: UIViewController {
         let accountViewController = storyboard?.instantiateViewControllerWithIdentifier("AccountViewController") as AccountViewController
         accountViewController.username = usernameTextField.text?
         accountViewController.password = passwordTextField.text?
-        presentViewController(accountViewController, animated: true, completion: nil)
+        
+        let navController = UINavigationController(rootViewController: accountViewController)
+        presentViewController(navController, animated: true, completion: nil)
     }
     
     @IBAction func createAccountTapped(sender: AnyObject) {
