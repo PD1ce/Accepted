@@ -105,10 +105,21 @@
                                     <action selector="mySchoolsTapped:" destination="jto-Nw-pQP" eventType="touchUpInside" id="uIZ-WE-Eu2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jB-US-0AK">
+                                <rect key="frame" x="137" y="287" width="100" height="30"/>
+                                <state key="normal" title="School Search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="schoolSearchTapped:" destination="jto-Nw-pQP" eventType="touchUpInside" id="0Sy-9R-rsv"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.7211761445" green="0.88450633280000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Sme-nF-jqA"/>
+                    <navigationItem key="navigationItem" id="Sme-nF-jqA">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="u5y-gb-cmV"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="welcomeLabel" destination="YGL-al-0ae" id="7ge-3f-oIh"/>
@@ -131,16 +142,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mg1-6Q-3d9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1059.5" y="82.5"/>
         </scene>
-        <!--SchoolMapViewController-->
+        <!--School Map View Controller-->
         <scene sceneID="4oF-UI-XLo">
             <objects>
-                <viewController storyboardIdentifier="SchoolMapViewController" title="SchoolMapViewController" id="xhx-uS-2NI" customClass="SchoolMapViewController" customModule="Accepted" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SchoolMapViewController" id="xhx-uS-2NI" customClass="SchoolMapViewController" customModule="Accepted" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ef1-XV-m2y"/>
                         <viewControllerLayoutGuide type="bottom" id="JLO-1P-CT7"/>
@@ -148,13 +160,44 @@
                     <view key="view" contentMode="scaleToFill" id="3tb-cd-46p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eRL-hz-U3o">
+                                <rect key="frame" x="16" y="192" width="343" height="400"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="School Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRi-gZ-oaA">
+                                <rect key="frame" x="16" y="72" width="343" height="62"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ue-1D-yia">
+                                <rect key="frame" x="166" y="600" width="43" height="30"/>
+                                <state key="normal" title="Select">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addSchoolTapped:" destination="xhx-uS-2NI" eventType="touchUpInside" id="Mrl-CR-ujQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selected School Test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnN-Yg-k2U">
+                                <rect key="frame" x="106" y="142" width="162" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.7211761445" green="0.88450633280000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="schoolMapView" destination="eRL-hz-U3o" id="i0z-Ho-vlJ"/>
+                        <outlet property="selectedSchoolLabel" destination="hnN-Yg-k2U" id="QCd-VQ-2B1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zhg-hT-YRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135.5" y="863.5"/>
+            <point key="canvasLocation" x="135.5" y="859.5"/>
         </scene>
         <!--CreateAccountViewController-->
         <scene sceneID="fed-NI-pMk">

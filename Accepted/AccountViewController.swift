@@ -19,6 +19,7 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My Account"
+        username = user.valueForKey("username") as String?
         welcomeLabel.text = "Welcome, \(username)!"
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -36,4 +37,8 @@ class AccountViewController: UIViewController {
         //performSegueWithIdentifier("mySchoolsSegue", sender: nil)
     }
     
+    @IBAction func schoolSearchTapped(sender: AnyObject) {
+        let schoolMapViewController = storyboard?.instantiateViewControllerWithIdentifier("SchoolMapViewController") as SchoolMapViewController
+        navigationController?.pushViewController(schoolMapViewController, animated: true)
+    }
 }

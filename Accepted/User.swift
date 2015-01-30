@@ -25,7 +25,7 @@ class User {
     
     var location:Location!
     
-    var favoriteSchools:[School]!
+    var favoriteSchools:[NSManagedObject]!
     
     init(username:String, password:String) {
         self.username = username

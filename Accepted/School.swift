@@ -12,7 +12,8 @@ class School {
     let schoolName:String
     let nickName:String
     let attendance:Int
-    let location:Location
+    let locationX:Float
+    let locationY:Float
     let majorsOffered:[Major]
     let tuition:Int
     let acceptanceRate:Float
@@ -20,13 +21,13 @@ class School {
     func getSchoolName() -> String { return schoolName }
     func getNickName()   -> String { return nickName }
     func getAttendance() -> Int    { return attendance }
-    func getLocation()   -> Location { return location }
     
-    init(schoolName:String, nickName:String, attendance:Int, location:Location, majorsOffered:[Major], tuition:Int, acceptanceRate:Float) {
+    init(schoolName:String, nickName:String, attendance:Int, locationX:Float, locationY:Float, majorsOffered:[Major], tuition:Int, acceptanceRate:Float) {
         self.schoolName     = schoolName
         self.nickName       = nickName
         self.attendance     = attendance
-        self.location       = location
+        self.locationX      = locationX
+        self.locationY      = locationY
         self.majorsOffered  = majorsOffered
         self.tuition        = tuition
         self.acceptanceRate = acceptanceRate
