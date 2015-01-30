@@ -33,12 +33,14 @@ class AccountViewController: UIViewController {
     @IBAction func mySchoolsTapped(sender: AnyObject) {
         
         let mySchoolsViewController = storyboard?.instantiateViewControllerWithIdentifier("MySchoolsViewController") as MySchoolsViewController
+        mySchoolsViewController.user = user
         navigationController?.pushViewController(mySchoolsViewController, animated: true)
         //performSegueWithIdentifier("mySchoolsSegue", sender: nil)
     }
     
     @IBAction func schoolSearchTapped(sender: AnyObject) {
         let schoolMapViewController = storyboard?.instantiateViewControllerWithIdentifier("SchoolMapViewController") as SchoolMapViewController
+        schoolMapViewController.user = user
         navigationController?.pushViewController(schoolMapViewController, animated: true)
     }
 }

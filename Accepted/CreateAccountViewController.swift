@@ -42,6 +42,10 @@ class CreateAccountViewController: UIViewController {
         let user = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
         user.setValue(username, forKey: "username")
         user.setValue(password, forKey: "password")
+        
+        //TEMP # of schools holder!////
+        user.setValue(0, forKey: "age")
+        
         var error: NSError?
         if !managedContext.save(&error) {
             println("Could not save \(error), \(error?.userInfo)")

@@ -28,22 +28,15 @@ class HomeViewController: UIViewController {
         if let results = fetchedResults {
             users = results
         }
+        /* Not correct
+        let numUsers = users!.first?.valueForKey("numberOfUsers") as NSInteger
+        println("Number of Users: \(numUsers)")
+        */
         
         passwordTextField.secureTextEntry = true
     }
     
     override func viewDidAppear(animated: Bool) {
-        /*
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let managedContext = appDelegate.managedObjectContext!
-        let fetchRequest = NSFetchRequest(entityName: "User")
-        var error:NSError?
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
-        
-        if let results = fetchedResults {
-            users = results
-        }
-        */
     }
     
     override func didReceiveMemoryWarning() {

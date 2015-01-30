@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import CoreData
 
 class MySchoolsViewController: UIViewController {
+    
+    var user:NSManagedObject!
+    var numSchools:Int!
+    
+    @IBOutlet weak var numSchoolsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My Schools"
+        if (user!.valueForKey("age")? != nil) {
+            numSchools = user!.valueForKey("age") as NSInteger
+            numSchoolsLabel.text = "Number of Schools: \(numSchools)"
+        } else {
+            numSchoolsLabel.text = "Number of Schools: 0"
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
