@@ -11,12 +11,14 @@ import CoreData
 
 class CreateAccountViewController: UIViewController {
 
-    var users = [NSManagedObject]()
+    var users = [NSManagedObject]() //MODEL
     var username = String()
     var password = String()
+    var parentVC:HomeViewController!
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +30,12 @@ class CreateAccountViewController: UIViewController {
         
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        errorLabel.text = ""
+    }
+    
     //////// This should be moved to the model ////////////
-    func saveUser(user: User) {
+    func saveUser(user: User) -> Bool {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedContext)
@@ -39,13 +45,22 @@ class CreateAccountViewController: UIViewController {
         var error: NSError?
         if !managedContext.save(&error) {
             println("Could not save \(error), \(error?.userInfo)")
+            return false
         }
+        users.append(user)
+        return true
     }
     
     @IBAction func createAccountTapped(sender: AnyObject) {
         username = usernameTextField.text!
         password = passwordTextField.text!
         let newUser = User(username: username, password: password)
-        saveUser(newUser)
+        if saveUser(newUser) {
+            parentVC.users = users
+            dismissViewControllerAnimated(true, completion: nil)
+        } else {
+            errorLabel.text = "Sorry, an error occured."
+        }
+        
     }
 }

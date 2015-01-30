@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class AccountViewController: UIViewController {
     
     var username:String!
     var password:String!
+    var user:NSManagedObject!
     
     @IBOutlet weak var welcomeLabel: UILabel!
     override func viewDidLoad() {

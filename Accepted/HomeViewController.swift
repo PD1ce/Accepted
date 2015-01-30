@@ -11,14 +11,14 @@ import CoreData
 
 class HomeViewController: UIViewController {
     
-    var users:[NSManagedObject]?
+    var users:[NSManagedObject]? // MODEL?
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var incorrectUPLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName: "User")
@@ -30,39 +30,46 @@ class HomeViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        /*
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        var error:NSError?
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
+        
+        if let results = fetchedResults {
+            users = results
+        }
+        */
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+
     @IBAction func loginTapped(sender: AnyObject) {
         //Check for username/Password
+        var foundUser = false
         for user in users! {
             if user.valueForKey("username") as NSString == usernameTextField.text && user.valueForKey("password") as NSString == passwordTextField.text {
+                    foundUser = true
+                    println("Made it here bro")
                     let accountViewController = storyboard?.instantiateViewControllerWithIdentifier("AccountViewController") as AccountViewController
                     accountViewController.username = usernameTextField.text?
                     accountViewController.password = passwordTextField.text?
+                    accountViewController.user = user
                     
                     let navController = UINavigationController(rootViewController: accountViewController)
                     presentViewController(navController, animated: true, completion: nil)
                     break
             }
         }
-    
-    
-
-        
-        
-//        
-//        
-//        let accountViewController = storyboard?.instantiateViewControllerWithIdentifier("AccountViewController") as AccountViewController
-//        accountViewController.username = usernameTextField.text?
-//        accountViewController.password = passwordTextField.text?
-//        
-//        let navController = UINavigationController(rootViewController: accountViewController)
-//        presentViewController(navController, animated: true, completion: nil)
-    
-        
+        if !foundUser {
+            incorrectUPLabel.text = "Sorry, incorrect Username/Password"
+        }
         
     }
     
@@ -70,10 +77,15 @@ class HomeViewController: UIViewController {
         let createAccountViewController = storyboard?.instantiateViewControllerWithIdentifier("CreateAccountViewController") as CreateAccountViewController
         
         createAccountViewController.users = users!
-        
+        createAccountViewController.parentVC = self
         presentViewController(createAccountViewController, animated: true, completion: nil)
     }
    
+    override func viewDidDisappear(animated: Bool) {
+        usernameTextField.text = ""
+        passwordTextField.text = ""
+        incorrectUPLabel.text  = ""
+    }
     
     @IBAction func close(segue:UIStoryboardSegue) {
         println("Close")
