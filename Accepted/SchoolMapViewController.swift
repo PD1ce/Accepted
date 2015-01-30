@@ -65,10 +65,9 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
         //annotationView = MKAnnotationView()
         //let buckyIcon = UIImageView(image: UIImage(named: "bucky-icon"))
         
-        
         let madisonLocation = CLLocationCoordinate2D(latitude: 43.0667, longitude: 89.4000)
         let matcLocation = CLLocationCoordinate2D(latitude: 43.0700, longitude: 89.4010)
-        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let span = MKCoordinateSpanMake(1, 1)
         let madisonRegion = MKCoordinateRegion(center: madisonLocation, span: span)
         schoolMapView.setRegion(madisonRegion, animated: true)
         
