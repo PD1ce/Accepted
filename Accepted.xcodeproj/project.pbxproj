@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A1B56891A7C35F30005A565 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B56881A7C35F30005A565 /* CustomPointAnnotation.swift */; };
 		4A9933711A7ABF1000418141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933701A7ABF1000418141 /* AppDelegate.swift */; };
 		4A9933741A7ABF1000418141 /* Accepted.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933721A7ABF1000418141 /* Accepted.xcdatamodeld */; };
 		4A9933761A7ABF1000418141 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933751A7ABF1000418141 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A1B56881A7C35F30005A565 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		4A99336B1A7ABF1000418141 /* Accepted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Accepted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A99336F1A7ABF1000418141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A9933701A7ABF1000418141 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A1B56861A7C1B7F0005A565 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4A9933991A7AC1D100418141 /* SchoolMapViewController.swift */,
+				4A9933A91A7AC58600418141 /* MySchoolsViewController.swift */,
+				4A9933951A7AC1D100418141 /* HomeViewController.swift */,
+				4A9933941A7AC1D100418141 /* CreateAccountViewController.swift */,
+				4A9933931A7AC1D100418141 /* AccountViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4A1B56871A7C1B880005A565 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4A99339C1A7AC1D100418141 /* UserModel.swift */,
+				4A99339B1A7AC1D100418141 /* User.swift */,
+				4A99339A1A7AC1D100418141 /* SchoolModel.swift */,
+				4A9933981A7AC1D100418141 /* School.swift */,
+				4A9933971A7AC1D100418141 /* Major.swift */,
+				4A9933961A7AC1D100418141 /* Location.swift */,
+				4A1B56881A7C35F30005A565 /* CustomPointAnnotation.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		4A9933621A7ABF1000418141 = {
 			isa = PBXGroup;
 			children = (
@@ -101,17 +129,8 @@
 		4A99336D1A7ABF1000418141 /* Accepted */ = {
 			isa = PBXGroup;
 			children = (
-				4A9933931A7AC1D100418141 /* AccountViewController.swift */,
-				4A9933941A7AC1D100418141 /* CreateAccountViewController.swift */,
-				4A9933951A7AC1D100418141 /* HomeViewController.swift */,
-				4A9933A91A7AC58600418141 /* MySchoolsViewController.swift */,
-				4A9933961A7AC1D100418141 /* Location.swift */,
-				4A9933971A7AC1D100418141 /* Major.swift */,
-				4A9933981A7AC1D100418141 /* School.swift */,
-				4A9933991A7AC1D100418141 /* SchoolMapViewController.swift */,
-				4A99339A1A7AC1D100418141 /* SchoolModel.swift */,
-				4A99339B1A7AC1D100418141 /* User.swift */,
-				4A99339C1A7AC1D100418141 /* UserModel.swift */,
+				4A1B56871A7C1B880005A565 /* Classes */,
+				4A1B56861A7C1B7F0005A565 /* View Controllers */,
 				4A9933701A7ABF1000418141 /* AppDelegate.swift */,
 				4A9933751A7ABF1000418141 /* ViewController.swift */,
 				4A9933A71A7AC1F000418141 /* Main.storyboard */,
@@ -249,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A99339E1A7AC1D100418141 /* CreateAccountViewController.swift in Sources */,
+				4A1B56891A7C35F30005A565 /* CustomPointAnnotation.swift in Sources */,
 				4A9933761A7ABF1000418141 /* ViewController.swift in Sources */,
 				4A9933741A7ABF1000418141 /* Accepted.xcdatamodeld in Sources */,
 				4A99339D1A7AC1D100418141 /* AccountViewController.swift in Sources */,
