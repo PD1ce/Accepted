@@ -7,17 +7,45 @@
 //
 
 import UIKit
+import CoreData
 
 class CreateAccountViewController: UIViewController {
 
+    var users = [NSManagedObject]()
+    var username = String()
+    var password = String()
+    
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
+    //////// This should be moved to the model ////////////
+    func saveUser(user: User) {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedContext)
+        let user = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        user.setValue(username, forKey: "username")
+        user.setValue(password, forKey: "password")
+        var error: NSError?
+        if !managedContext.save(&error) {
+            println("Could not save \(error), \(error?.userInfo)")
+        }
+    }
+    
+    @IBAction func createAccountTapped(sender: AnyObject) {
+        username = usernameTextField.text!
+        password = passwordTextField.text!
+        let newUser = User(username: username, password: password)
+        saveUser(newUser)
+    }
 }

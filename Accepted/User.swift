@@ -7,22 +7,32 @@
 //
 
 import Foundation
+import CoreData
 
 class User {
     struct Static {
         static var numberOfUsers:Int = 0
     }
     
-    let username:String!
-    let firstName:String!
-    let lastName:String!
-    var password:String!
+    var username:String
+    var password:String
+    var firstName:String!
+    var lastName:String!
     var email:String!
     var age:Int!
     var major:Major!
+
     
     var location:Location!
     
     var favoriteSchools:[School]!
+    
+    init(username:String, password:String) {
+        self.username = username
+        self.password = password
+        Static.numberOfUsers++
+    }
+    
+    
     
 }

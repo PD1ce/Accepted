@@ -11,4 +11,9 @@ import Foundation
 class UserModel {
     var users:[User]!
     
+    func compareUsernameAndPassword(username: String, password: String) -> Bool {
+        
+        
+        return true
+    }
 }
