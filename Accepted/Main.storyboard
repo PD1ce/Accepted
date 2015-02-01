@@ -64,6 +64,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bob-QD-INO">
+                                <rect key="frame" x="154" y="617" width="67" height="30"/>
+                                <state key="normal" title="Dev Tools">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="devToolsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ppo-LB-VTD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.7211761445001571" green="0.88450633278871249" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -160,6 +169,73 @@
             </objects>
             <point key="canvasLocation" x="1059.5" y="82.5"/>
         </scene>
+        <!--Dev Tools View Controller-->
+        <scene sceneID="cVa-XI-16T">
+            <objects>
+                <viewController storyboardIdentifier="DevToolsViewController" id="77h-I0-QMU" customClass="DevToolsViewController" customModule="Accepted" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OF9-gh-gzO"/>
+                        <viewControllerLayoutGuide type="bottom" id="BhT-bW-Kul"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K75-pg-zDB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiG-hc-n4x">
+                                <rect key="frame" x="170" y="617" width="35" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Nad-Ar-2xl" kind="unwind" unwindAction="close:" id="Yr4-aa-Y4L"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJB-eC-kuZ">
+                                <rect key="frame" x="143" y="102" width="88" height="30"/>
+                                <state key="normal" title="Delete Users">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.060231345870000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteUsersTapped:" destination="77h-I0-QMU" eventType="touchUpInside" id="egw-lM-wcY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwg-DH-dSA">
+                                <rect key="frame" x="135" y="172" width="104" height="30"/>
+                                <state key="normal" title="Delete Schools">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.060231345870000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteSchoolsTapped:" destination="77h-I0-QMU" eventType="touchUpInside" id="SOs-P6-CPY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecv-E2-UlB">
+                                <rect key="frame" x="109" y="210" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCk-N7-CmR">
+                                <rect key="frame" x="109" y="140" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7211761445" green="0.88450633280000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="deleteSchoolsLabel" destination="ecv-E2-UlB" id="A6O-Es-car"/>
+                        <outlet property="deleteUsersLabel" destination="oCk-N7-CmR" id="bcG-jK-c9j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TAm-ev-AoS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Nad-Ar-2xl" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-338.5" y="859.5"/>
+        </scene>
         <!--School Map View Controller-->
         <scene sceneID="4oF-UI-XLo">
             <objects>
@@ -204,15 +280,6 @@
                                 </state>
                                 <connections>
                                     <action selector="addSchoolTapped:" destination="xhx-uS-2NI" eventType="touchUpInside" id="CGE-ZR-10A"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ue-1D-yia">
-                                <rect key="frame" x="166" y="192" width="43" height="30"/>
-                                <state key="normal" title="Select">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectSchoolTapped:" destination="xhx-uS-2NI" eventType="touchUpInside" id="4QF-op-d8S"/>
                                 </connections>
                             </button>
                         </subviews>

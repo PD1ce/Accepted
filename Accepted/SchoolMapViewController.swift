@@ -56,6 +56,11 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
         return annotationView
     }
     
+    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+        selectedSchoolLabel.text = view.annotation.title
+        selectedSchoolLocationLabel.text = view.annotation.subtitle
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,15 +115,7 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
         selectedSchoolLabel.text = ""
         selectedSchoolLabel.text = ""
     }
-    
-    @IBAction func selectSchoolTapped(sender: AnyObject) {
-        if let schoolLabel = schoolMapView.selectedAnnotations?.first?.title {
-            selectedSchoolLabel.text = schoolLabel
-            selectedSchoolLocationLabel.text = schoolMapView.selectedAnnotations?.first?.subtitle
-        }
-        
-    }
-    
+
     /**!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     *   The school added is messed up with the labeling and selecting
     *   It should add the selected school, not the label!!!

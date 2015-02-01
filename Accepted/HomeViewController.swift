@@ -48,8 +48,9 @@ class HomeViewController: UIViewController {
     @IBAction func loginTapped(sender: AnyObject) {
         //Check for username/Password
         var foundUser = false
-        for user in users! {
-            if user.valueForKey("username") as NSString == usernameTextField.text && user.valueForKey("password") as NSString == passwordTextField.text {
+        if let actualUsers = users? {
+            for user in actualUsers {
+                if user.valueForKey("username") as NSString == usernameTextField.text && user.valueForKey("password") as NSString == passwordTextField.text {
                     foundUser = true
                     let accountViewController = storyboard?.instantiateViewControllerWithIdentifier("AccountViewController") as AccountViewController
                     accountViewController.user = user
@@ -57,12 +58,15 @@ class HomeViewController: UIViewController {
                     let navController = UINavigationController(rootViewController: accountViewController)
                     presentViewController(navController, animated: true, completion: nil)
                     break
+                }
             }
+            if !foundUser {
+                incorrectUPLabel.text = "Sorry, incorrect Username/Password"
+            }
+        } else {
+            //Never gets here
+            incorrectUPLabel.text = "No users found!"
         }
-        if !foundUser {
-            incorrectUPLabel.text = "Sorry, incorrect Username/Password"
-        }
-        
     }
     
     @IBAction func createAccountTapped(sender: AnyObject) {
@@ -73,6 +77,11 @@ class HomeViewController: UIViewController {
         presentViewController(createAccountViewController, animated: true, completion: nil)
     }
    
+    @IBAction func devToolsTapped(sender: AnyObject) {
+        let devToolsViewController = storyboard?.instantiateViewControllerWithIdentifier("DevToolsViewController") as DevToolsViewController
+        devToolsViewController.users = users!
+        presentViewController(devToolsViewController, animated: true, completion: nil)
+    }
     override func viewDidDisappear(animated: Bool) {
         usernameTextField.text = ""
         passwordTextField.text = ""
