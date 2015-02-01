@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A1B56891A7C35F30005A565 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B56881A7C35F30005A565 /* CustomPointAnnotation.swift */; };
 		4A1B568B1A7EA5E90005A565 /* DevToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B568A1A7EA5E90005A565 /* DevToolsViewController.swift */; };
+		4A1B568D1A7EC0A00005A565 /* SchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B568C1A7EC09F0005A565 /* SchoolViewController.swift */; };
 		4A9933711A7ABF1000418141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933701A7ABF1000418141 /* AppDelegate.swift */; };
 		4A9933741A7ABF1000418141 /* Accepted.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933721A7ABF1000418141 /* Accepted.xcdatamodeld */; };
 		4A9933761A7ABF1000418141 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933751A7ABF1000418141 /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		4A1B56881A7C35F30005A565 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		4A1B568A1A7EA5E90005A565 /* DevToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevToolsViewController.swift; sourceTree = "<group>"; };
+		4A1B568C1A7EC09F0005A565 /* SchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolViewController.swift; sourceTree = "<group>"; };
 		4A99336B1A7ABF1000418141 /* Accepted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Accepted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A99336F1A7ABF1000418141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A9933701A7ABF1000418141 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		4A1B56861A7C1B7F0005A565 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4A1B568C1A7EC09F0005A565 /* SchoolViewController.swift */,
 				4A9933991A7AC1D100418141 /* SchoolMapViewController.swift */,
 				4A1B568A1A7EA5E90005A565 /* DevToolsViewController.swift */,
 				4A9933A91A7AC58600418141 /* MySchoolsViewController.swift */,
@@ -277,6 +280,7 @@
 				4A99339D1A7AC1D100418141 /* AccountViewController.swift in Sources */,
 				4A9933AA1A7AC58600418141 /* MySchoolsViewController.swift in Sources */,
 				4A1B568B1A7EA5E90005A565 /* DevToolsViewController.swift in Sources */,
+				4A1B568D1A7EC0A00005A565 /* SchoolViewController.swift in Sources */,
 				4A9933A21A7AC1D100418141 /* School.swift in Sources */,
 				4A9933A61A7AC1D100418141 /* UserModel.swift in Sources */,
 				4A9933711A7ABF1000418141 /* AppDelegate.swift in Sources */,

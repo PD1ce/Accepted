@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName: "User")
@@ -32,6 +33,20 @@ class HomeViewController: UIViewController {
         let numUsers = users!.first?.valueForKey("numberOfUsers") as NSInteger
         println("Number of Users: \(numUsers)")
         */
+    
+        
+        ///// TEST USER 2
+        /*
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        let fetchRequest = NSFetchRequest(entityName: "UserTwo")
+        var error:NSError?
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
+        
+        if let results = fetchedResults {
+            users = results
+        }
+*/
         
         passwordTextField.secureTextEntry = true
     }
@@ -48,8 +63,9 @@ class HomeViewController: UIViewController {
     @IBAction func loginTapped(sender: AnyObject) {
         //Check for username/Password
         var foundUser = false
-        if let actualUsers = users? {
-            for user in actualUsers {
+        let actualUsers = users?
+        if actualUsers != nil {
+            for user in actualUsers! {
                 if user.valueForKey("username") as NSString == usernameTextField.text && user.valueForKey("password") as NSString == passwordTextField.text {
                     foundUser = true
                     let accountViewController = storyboard?.instantiateViewControllerWithIdentifier("AccountViewController") as AccountViewController
@@ -88,8 +104,21 @@ class HomeViewController: UIViewController {
         incorrectUPLabel.text  = ""
     }
     
+    //Exit View Controller option: "Unwind"
     @IBAction func close(segue:UIStoryboardSegue) {
-        println("Close")
+        //println("Close")
+    }
+    
+    @IBAction func closeDevTools(segue:UIStoryboardSegue) {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        var error:NSError?
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
+        
+        if let results = fetchedResults {
+            users = results
+        }
     }
     
     

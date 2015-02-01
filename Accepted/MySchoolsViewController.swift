@@ -35,4 +35,15 @@ class MySchoolsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func schoolButtonTapped(sender: AnyObject) {
+        let schoolViewController = storyboard?.instantiateViewControllerWithIdentifier("SchoolViewController") as SchoolViewController
+        schoolViewController.schoolName = "UW-Madison"
+        schoolViewController.schoolLocation = "Madison, WI"
+        presentViewController(schoolViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func closeSchool(segue: UIStoryboardSegue) {
+        //
+    }
 }

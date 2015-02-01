@@ -59,6 +59,8 @@ class DevToolsViewController : UIViewController {
         
     }
     
+    
+    // Need to make sure this user object is being passed around appropriately!!//
     func deleteUsers() -> Bool {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext = appDelegate.managedObjectContext!
@@ -75,8 +77,20 @@ class DevToolsViewController : UIViewController {
     }
     
     func deleteSchools() -> Bool {
+        /* To be done when schools are instantiated
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        for user in users {
+            managedContext.deleteObject(user)
+        }
         
-        
+        var error : NSError?
+        if !managedContext.save(&error) {
+            println("Could not save \(error), \(error?.userInfo)")
+            return false
+        }
+        return true
+*/
         return false
     }
 

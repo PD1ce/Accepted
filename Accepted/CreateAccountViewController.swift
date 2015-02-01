@@ -22,7 +22,7 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        passwordTextField.secureTextEntry = true
     }
     
     override func didReceiveMemoryWarning() {
