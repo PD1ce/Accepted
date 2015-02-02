@@ -207,6 +207,12 @@
                                     <action selector="schoolButtonTapped:" destination="30F-VB-LC6" eventType="touchUpInside" id="jti-rE-1GX"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR2-FW-q7x">
+                                <rect key="frame" x="67" y="199" width="240" height="283"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.7211761445" green="0.88450633280000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -214,6 +220,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="numSchoolsLabel" destination="YdP-MV-ZoF" id="EeS-o6-ErE"/>
+                        <outlet property="tempSchoolTextView" destination="jR2-FW-q7x" id="lDa-g8-GH5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mg1-6Q-3d9" userLabel="First Responder" sceneMemberID="firstResponder"/>

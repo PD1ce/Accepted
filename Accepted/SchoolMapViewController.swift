@@ -25,8 +25,9 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let managedContext = appDelegate.managedObjectContext!
+//        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+//        let managedContext = appDelegate.managedObjectContext!
+        let managedContext = user.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName: "School")
         var error:NSError?
         let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [School]?
@@ -34,7 +35,7 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
         if let results = fetchedResults {
             schools = results
             for school in schools {
-                let schoolCoordinates = CLLocationCoordinate2D(latitude: school.latitiude as CLLocationDegrees, longitude: school.longitude as CLLocationDegrees)
+                let schoolCoordinates = CLLocationCoordinate2D(latitude: school.latitude as CLLocationDegrees, longitude: school.longitude as CLLocationDegrees)
                 let schoolAnnotation = CustomPointAnnotation()
                 schoolAnnotation.school = school
                 schoolAnnotation.setCoordinate(schoolCoordinates)
@@ -52,7 +53,7 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
         let span = MKCoordinateSpanMake(1, 1)
         let madisonRegion = MKCoordinateRegion(center: madisonLocation, span: span)
         schoolMapView.setRegion(madisonRegion, animated: true)
-        
+       
     }
 
     
@@ -107,24 +108,19 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
     */
     
     @IBAction func addSchoolTapped(sender: AnyObject) {
-        
-        /*
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let managedContext = appDelegate.managedObjectContext!
-        //This will be gotten from the annotation selection!!!!!
-        let school = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
-        */
-        
         if schoolMapView.selectedAnnotations?.first? != nil {
             var selectedSchoolAnnotation = schoolMapView.selectedAnnotations?.first! as CustomPointAnnotation
             var selectedSchool = selectedSchoolAnnotation.school
+
+            //Casting as Mutable sets so it can update!
+            let utwo = user.favoriteSchools.mutableCopy() as NSMutableSet
+            utwo.addObject(selectedSchool)
+            user.favoriteSchools = utwo
+            let stwo = selectedSchool.favoritedByUsers.mutableCopy() as NSMutableSet
+            stwo.addObject(user)
+            selectedSchool.favoritedByUsers = stwo
             
-            // This will save user to school and vice versa!! //
-            
-            //school = School() // Will be instantiated by annotation
-            user.favoriteSchools.addObject(selectedSchool)
-            selectedSchool.favoritedByUsers.addObject(user)
-            if !refreshObjects() {
+            if !refreshObjects(selectedSchool) {
                 println("Error refreshing objects!")
             } else {
                 selectedSchoolLabel.text = "School added!"
@@ -138,14 +134,14 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-    func refreshObjects() -> Bool {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let managedContext = appDelegate.managedObjectContext!
+    func refreshObjects(school: School) -> Bool {
+        let managedContext = user.managedObjectContext!
         var error: NSError?
         if !managedContext.save(&error) {
             println("Could not save \(error), \(error?.userInfo)")
             return false
         }
+        println("User Context Saved (or it should be?)")
 
         return true
     }

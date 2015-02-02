@@ -59,35 +59,35 @@ class DevToolsViewController : UIViewController {
         uwmadison.schoolName = "University of Wisconsin-Madison"
         uwmadison.location = "Madison, Wi"
         uwmadison.nickName = "Badgers"
-        uwmadison.latitiude = 43.076592
+        uwmadison.latitude = 43.076592
         uwmadison.longitude = -89.412487
         /////
         let marquette = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
         marquette.schoolName = "Marquette University"
         marquette.location = "Milwaukee, Wi"
         marquette.nickName = "Golden Eagles"
-        marquette.latitiude = 43.038851
+        marquette.latitude = 43.038851
         marquette.longitude = -87.930424
         /////
         let uwlacrosse = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
         uwlacrosse.schoolName = "University of Wisconsin-La Crosse"
         uwlacrosse.location = "La Crosse, Wi"
         uwlacrosse.nickName = "Eagles"
-        uwlacrosse.latitiude = 43.815731
+        uwlacrosse.latitude = 43.815731
         uwlacrosse.longitude = -91.233002
         /////
         let uwoshkosh = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
         uwoshkosh.schoolName = "University of Wisconsin-Oshkosh"
         uwoshkosh.location = "Oshkosh, Wi"
         uwoshkosh.nickName = "Titans"
-        uwoshkosh.latitiude = 44.021364
+        uwoshkosh.latitude = 44.021364
         uwoshkosh.longitude = -88.550861
         /////
         let uwwhitewater = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
         uwwhitewater.schoolName = "University of Wisconsin-Whitewater"
         uwwhitewater.location = "Whitewater, Wi"
         uwwhitewater.nickName = "Warhawks"
-        uwwhitewater.latitiude = 42.838355
+        uwwhitewater.latitude = 42.838355
         uwwhitewater.longitude = -88.743224
         /////
         

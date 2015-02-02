@@ -18,6 +18,6 @@ class User: NSManagedObject {
     @NSManaged var numberOfUsers: NSNumber
     @NSManaged var password: String
     @NSManaged var username: String
-    @NSManaged var favoriteSchools: NSMutableSet
+    @NSManaged var favoriteSchools: NSSet
 
 }

@@ -16,17 +16,20 @@ class MySchoolsViewController: UIViewController {
     var numSchools:Int!
     
     @IBOutlet weak var numSchoolsLabel: UILabel!
+    @IBOutlet weak var tempSchoolTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My Schools"
-        if (user!.valueForKey("age")? != nil) {
-            numSchools = user!.valueForKey("age") as NSInteger
-            numSchoolsLabel.text = "Number of Schools: \(user.favoriteSchools.count)"
-        } else {
-            numSchoolsLabel.text = "Number of Schools: 0"
-        }
         
+        numSchoolsLabel.text = "Number of Schools: \(user.favoriteSchools.count)"
+        if let madison = user.favoriteSchools.allObjects as? [School] {
+            for school in madison {
+                tempSchoolTextView.text =
+                "School Name: \(school.schoolName)\nSchool Mascot: \(school.nickName)\n Favorited by \(school.favoritedByUsers.count) users"
+            }
+        }
+       
         // Do any additional setup after loading the view, typically from a nib.
     }
     

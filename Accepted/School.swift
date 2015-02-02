@@ -13,12 +13,12 @@ class School: NSManagedObject {
 
     @NSManaged var acceptanceRate: NSNumber
     @NSManaged var attendance: NSNumber
+    @NSManaged var location: String
     @NSManaged var nickName: String
     @NSManaged var schoolName: String
     @NSManaged var tuition: NSNumber
-    @NSManaged var latitiude: NSNumber
+    @NSManaged var latitude: NSNumber
     @NSManaged var longitude: NSNumber
-    @NSManaged var location: String
-    @NSManaged var favoritedByUsers: NSMutableSet
+    @NSManaged var favoritedByUsers: NSSet
 
 }
