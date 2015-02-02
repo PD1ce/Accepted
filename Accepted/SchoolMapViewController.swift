@@ -78,9 +78,7 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
         //the view is dequeued or created...
         
         let cpa = annotation as CustomPointAnnotation
-        let cgSize = CGSize(width: 10.0, height: 10.0)
         annotationView.image = UIImage(named: cpa.imageName)
-        annotationView.sizeThatFits(cgSize)
         
         return annotationView
     }

@@ -23,6 +23,6 @@
     </entity>
     <elements>
         <element name="School" positionX="-36" positionY="9" width="128" height="180"/>
-        <element name="User" positionX="-18" positionY="9" width="128" height="163"/>
+        <element name="User" positionX="-18" positionY="9" width="128" height="165"/>
     </elements>
 </model>
