@@ -38,7 +38,7 @@ class CreateAccountViewController: UIViewController {
     func saveUser() -> Bool {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext = appDelegate.managedObjectContext!
-        let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedContext)
+//        let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedContext)
         let user = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: managedContext) as User
         //User(entity: entity!, insertIntoManagedObjectContext: managedContext)
         

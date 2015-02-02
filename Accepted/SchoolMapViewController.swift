@@ -12,13 +12,8 @@ import CoreData
 
 class SchoolMapViewController: UIViewController, MKMapViewDelegate {
     
-    var user: NSManagedObject!
-    
-    var madisonAnnotation:  MKPointAnnotation!
-    var matcAnnotation:     MKPointAnnotation!
-    
-    var customMadisonAnnotation: CustomPointAnnotation!
-    var customMatcAnnotation: CustomPointAnnotation!
+    var user: User!
+    var schools: [School]!
     
     var annotationView: MKAnnotationView!
     
@@ -27,6 +22,39 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var selectedSchoolLabel: UILabel!
     @IBOutlet weak var selectedSchoolLocationLabel: UILabel!
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        let fetchRequest = NSFetchRequest(entityName: "School")
+        var error:NSError?
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [School]?
+        
+        if let results = fetchedResults {
+            schools = results
+            for school in schools {
+                let schoolCoordinates = CLLocationCoordinate2D(latitude: school.latitiude as CLLocationDegrees, longitude: school.longitude as CLLocationDegrees)
+                let schoolAnnotation = CustomPointAnnotation()
+                schoolAnnotation.school = school
+                schoolAnnotation.setCoordinate(schoolCoordinates)
+                schoolAnnotation.title = "\(school.schoolName)"
+                schoolAnnotation.subtitle  = "\(school.location)"
+                schoolAnnotation.imageName = "\(school.schoolName)"
+                schoolMapView.addAnnotation(schoolAnnotation)
+            }
+        }
+        
+        selectedSchoolLabel.text = ""
+        selectedSchoolLocationLabel.text = ""
+        
+        let madisonLocation = CLLocationCoordinate2D(latitude: 43.076592, longitude:   -89.412487)
+        let span = MKCoordinateSpanMake(1, 1)
+        let madisonRegion = MKCoordinateRegion(center: madisonLocation, span: span)
+        schoolMapView.setRegion(madisonRegion, animated: true)
+        
+    }
+
     
     /* Imported, figure this out! */
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
@@ -62,49 +90,6 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        selectedSchoolLabel.text = ""
-        selectedSchoolLocationLabel.text = ""
-        
-        //annotationView = MKAnnotationView()
-        //let buckyIcon = UIImageView(image: UIImage(named: "bucky-icon"))
-        
-        let madisonLocation = CLLocationCoordinate2D(latitude: 43.0667, longitude: 89.4000)
-        let matcLocation = CLLocationCoordinate2D(latitude: 43.0700, longitude: 89.4010)
-        let span = MKCoordinateSpanMake(1, 1)
-        let madisonRegion = MKCoordinateRegion(center: madisonLocation, span: span)
-        schoolMapView.setRegion(madisonRegion, animated: true)
-        
-        customMadisonAnnotation = CustomPointAnnotation()
-        customMadisonAnnotation.setCoordinate(madisonLocation)
-        customMadisonAnnotation.title = "University of Wisconsin-Madison"
-        customMadisonAnnotation.subtitle = "Madison, WI"
-        customMadisonAnnotation.imageName = "bucky-icon"
-        
-        
-        
-        schoolMapView.addAnnotation(customMadisonAnnotation)
-        
-        customMatcAnnotation = CustomPointAnnotation()
-
-        
-        
-        /*
-        madisonAnnotation = MKPointAnnotation()
-        madisonAnnotation.setCoordinate(madisonLocation)
-        madisonAnnotation.title = "University of Wisconsin-Madison"
-        madisonAnnotation.subtitle = "Madison, WI"
-        
-        matcAnnotation = MKPointAnnotation()
-        matcAnnotation.setCoordinate(matcLocation)
-        matcAnnotation.title = "Madison Area Technical College"
-        matcAnnotation.subtitle = "Madison, WI"
-
-        schoolMapView.addAnnotation(madisonAnnotation)
-        schoolMapView.addAnnotation(matcAnnotation)
-        */
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -122,44 +107,46 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
     */
     
     @IBAction func addSchoolTapped(sender: AnyObject) {
-        //Update Data
-        //Necessary? Just update this user?
+        
+        /*
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        //This will be gotten from the annotation selection!!!!!
+        let school = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
+        */
+        
         if schoolMapView.selectedAnnotations?.first? != nil {
-            var users: [NSManagedObject]!
-            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-            let managedContext = appDelegate.managedObjectContext!
-            let fetchRequest = NSFetchRequest()
-            let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedContext)
-            fetchRequest.entity = entity
-            var error: NSError?
-            var fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
+            var selectedSchoolAnnotation = schoolMapView.selectedAnnotations?.first! as CustomPointAnnotation
+            var selectedSchool = selectedSchoolAnnotation.school
             
-            if let results = fetchedResults {
-                users = results
+            // This will save user to school and vice versa!! //
+            
+            //school = School() // Will be instantiated by annotation
+            user.favoriteSchools.addObject(selectedSchool)
+            selectedSchool.favoritedByUsers.addObject(user)
+            if !refreshObjects() {
+                println("Error refreshing objects!")
+            } else {
+                selectedSchoolLabel.text = "School added!"
+                selectedSchoolLocationLabel.text = ""
+                schoolMapView.deselectAnnotation(schoolMapView.selectedAnnotations.first? as MKAnnotation, animated: true)
             }
             
-            for thisUser in users! {
-                if thisUser.valueForKey("username") as NSString == user.valueForKey("username") as NSString {
-                    var numSchools = user.valueForKey("age") as NSInteger
-                    numSchools++
-                    user.setValue(numSchools, forKey: "age")
-                    thisUser.setValue(numSchools, forKey: "age")
-                    
-                    if !managedContext.save(&error) {
-                        println("Could not save \(error), \(error?.userInfo)")
-                    } else {
-                        selectedSchoolLabel.text = "School added!"
-                        selectedSchoolLocationLabel.text = ""
-                        schoolMapView.deselectAnnotation(schoolMapView.selectedAnnotations.first? as MKAnnotation, animated: true)
-                        break
-                    }
-                }
-            }
         } else {
             selectedSchoolLabel.text = "No School selected"
         }
         
-        
-        
+    }
+    
+    func refreshObjects() -> Bool {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        var error: NSError?
+        if !managedContext.save(&error) {
+            println("Could not save \(error), \(error?.userInfo)")
+            return false
+        }
+
+        return true
     }
 }

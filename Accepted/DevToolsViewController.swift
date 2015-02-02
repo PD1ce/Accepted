@@ -16,6 +16,8 @@ class DevToolsViewController : UIViewController {
     
     @IBOutlet weak var deleteUsersLabel: UILabel!
     @IBOutlet weak var deleteSchoolsLabel: UILabel!
+    @IBOutlet weak var populateUsersLabel: UILabel!
+    @IBOutlet weak var populateSchoolsLabel: UILabel!
     
     var alertController: UIAlertController!
     
@@ -30,6 +32,73 @@ class DevToolsViewController : UIViewController {
     }
     
     
+    @IBAction func populateUsersTapped(sender: AnyObject) {
+        
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        deleteUsersLabel.text = ""
+        deleteSchoolsLabel.text = ""
+        populateUsersLabel.text = ""
+        populateSchoolsLabel.text = ""
+    }
+    
+    
+    /**
+    *
+    *  This should eventually take server/Wiki data
+    *   Or perhaps an imported JSON docutment
+    *   For now, all is hard coded because too bad
+    */
+    @IBAction func populateSchoolsTapped(sender: AnyObject) {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        
+        /////
+        let uwmadison = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
+        uwmadison.schoolName = "University of Wisconsin-Madison"
+        uwmadison.location = "Madison, Wi"
+        uwmadison.nickName = "Badgers"
+        uwmadison.latitiude = 43.076592
+        uwmadison.longitude = -89.412487
+        /////
+        let marquette = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
+        marquette.schoolName = "Marquette University"
+        marquette.location = "Milwaukee, Wi"
+        marquette.nickName = "Golden Eagles"
+        marquette.latitiude = 43.038851
+        marquette.longitude = -87.930424
+        /////
+        let uwlacrosse = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
+        uwlacrosse.schoolName = "University of Wisconsin-La Crosse"
+        uwlacrosse.location = "La Crosse, Wi"
+        uwlacrosse.nickName = "Eagles"
+        uwlacrosse.latitiude = 43.815731
+        uwlacrosse.longitude = -91.233002
+        /////
+        let uwoshkosh = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
+        uwoshkosh.schoolName = "University of Wisconsin-Oshkosh"
+        uwoshkosh.location = "Oshkosh, Wi"
+        uwoshkosh.nickName = "Titans"
+        uwoshkosh.latitiude = 44.021364
+        uwoshkosh.longitude = -88.550861
+        /////
+        let uwwhitewater = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
+        uwwhitewater.schoolName = "University of Wisconsin-Whitewater"
+        uwwhitewater.location = "Whitewater, Wi"
+        uwwhitewater.nickName = "Warhawks"
+        uwwhitewater.latitiude = 42.838355
+        uwwhitewater.longitude = -88.743224
+        /////
+        
+        var error : NSError?
+        if !managedContext.save(&error) {
+            println("Could not save \(error), \(error?.userInfo)")
+            populateSchoolsLabel.text = "Error Populating"
+        } else {
+            populateSchoolsLabel.text = "Schools Populated!"
+        }
+    }
     
     @IBAction func deleteUsersTapped(sender: AnyObject) {
         alertController = UIAlertController(title: "Delete Users", message: "Are you sure you want to delete all users?", preferredStyle: UIAlertControllerStyle.Alert)

@@ -3,6 +3,9 @@
     <entity name="School" representedClassName="Accepted.School" syncable="YES">
         <attribute name="acceptanceRate" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="attendance" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="schoolName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tuition" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -19,7 +22,7 @@
         <relationship name="favoriteSchools" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="School" inverseName="favoritedByUsers" inverseEntity="School" syncable="YES"/>
     </entity>
     <elements>
-        <element name="School" positionX="-36" positionY="9" width="128" height="133"/>
+        <element name="School" positionX="-36" positionY="9" width="128" height="180"/>
         <element name="User" positionX="-18" positionY="9" width="128" height="163"/>
     </elements>
 </model>

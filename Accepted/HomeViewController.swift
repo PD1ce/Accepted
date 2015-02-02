@@ -65,10 +65,7 @@ class HomeViewController: UIViewController {
         var foundUser = false
         let actualUsers = users?
         if actualUsers != nil {
-            println("\(actualUsers)")
             for user in actualUsers! {
-                println("\(user)")
-                println("\(user.username)")
                 if user.username  == usernameTextField.text && user.password  == passwordTextField.text {
                     foundUser = true
                     let accountViewController = storyboard?.instantiateViewControllerWithIdentifier("AccountViewController") as AccountViewController

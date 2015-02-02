@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A0467E31A7F147E00E3DA6B /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0467E21A7F147E00E3DA6B /* School.swift */; };
 		4A0467E51A7F147F00E3DA6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0467E41A7F147F00E3DA6B /* User.swift */; };
+		4A0467E71A7FEFC600E3DA6B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0467E61A7FEFC600E3DA6B /* SettingsViewController.swift */; };
+		4A0467EB1A7FFAD900E3DA6B /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0467EA1A7FFAD900E3DA6B /* School.swift */; };
 		4A1B56891A7C35F30005A565 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B56881A7C35F30005A565 /* CustomPointAnnotation.swift */; };
 		4A1B568B1A7EA5E90005A565 /* DevToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B568A1A7EA5E90005A565 /* DevToolsViewController.swift */; };
 		4A1B568D1A7EC0A00005A565 /* SchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B568C1A7EC09F0005A565 /* SchoolViewController.swift */; };
@@ -41,8 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A0467E21A7F147E00E3DA6B /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = School.swift; path = ../School.swift; sourceTree = "<group>"; };
 		4A0467E41A7F147F00E3DA6B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
+		4A0467E61A7FEFC600E3DA6B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4A0467EA1A7FFAD900E3DA6B /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		4A1B56881A7C35F30005A565 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		4A1B568A1A7EA5E90005A565 /* DevToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevToolsViewController.swift; sourceTree = "<group>"; };
 		4A1B568C1A7EC09F0005A565 /* SchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				4A9933951A7AC1D100418141 /* HomeViewController.swift */,
 				4A9933941A7AC1D100418141 /* CreateAccountViewController.swift */,
 				4A9933931A7AC1D100418141 /* AccountViewController.swift */,
+				4A0467E61A7FEFC600E3DA6B /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -103,8 +106,8 @@
 		4A1B56871A7C1B880005A565 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4A0467EA1A7FFAD900E3DA6B /* School.swift */,
 				4A0467E41A7F147F00E3DA6B /* User.swift */,
-				4A0467E21A7F147E00E3DA6B /* School.swift */,
 				4A99339C1A7AC1D100418141 /* UserModel.swift */,
 				4A99339A1A7AC1D100418141 /* SchoolModel.swift */,
 				4A9933971A7AC1D100418141 /* Major.swift */,
@@ -281,6 +284,7 @@
 				4A9933AA1A7AC58600418141 /* MySchoolsViewController.swift in Sources */,
 				4A1B568B1A7EA5E90005A565 /* DevToolsViewController.swift in Sources */,
 				4A0467E51A7F147F00E3DA6B /* User.swift in Sources */,
+				4A0467EB1A7FFAD900E3DA6B /* School.swift in Sources */,
 				4A1B568D1A7EC0A00005A565 /* SchoolViewController.swift in Sources */,
 				4A9933A61A7AC1D100418141 /* UserModel.swift in Sources */,
 				4A9933711A7ABF1000418141 /* AppDelegate.swift in Sources */,
@@ -289,7 +293,7 @@
 				4A9933A41A7AC1D100418141 /* SchoolModel.swift in Sources */,
 				4A9933A01A7AC1D100418141 /* Location.swift in Sources */,
 				4A9933A11A7AC1D100418141 /* Major.swift in Sources */,
-				4A0467E31A7F147E00E3DA6B /* School.swift in Sources */,
+				4A0467E71A7FEFC600E3DA6B /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

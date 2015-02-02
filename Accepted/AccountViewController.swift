@@ -11,9 +11,9 @@ import CoreData
 
 class AccountViewController: UIViewController {
     
-    var username:String!
-    var password:String!
-    var user:NSManagedObject!
+    var username: String!
+    var password: String!
+    var user: User!
     
     @IBOutlet weak var welcomeLabel: UILabel!
     override func viewDidLoad() {
@@ -43,4 +43,30 @@ class AccountViewController: UIViewController {
         schoolMapViewController.user = user
         navigationController?.pushViewController(schoolMapViewController, animated: true)
     }
+    @IBAction func settingsTapped(sender: AnyObject) {
+        
+        let settingsViewContoller = storyboard?.instantiateViewControllerWithIdentifier("SettingsViewController") as SettingsViewController
+        settingsViewContoller.user = user
+        navigationController?.pushViewController(settingsViewContoller, animated: true)
+        
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

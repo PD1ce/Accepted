@@ -9,9 +9,10 @@
 import UIKit
 import CoreData
 
+//Need to add DataSource and Delegate of tableview as well, find the overridden methods
 class MySchoolsViewController: UIViewController {
     
-    var user:NSManagedObject!
+    var user: User!
     var numSchools:Int!
     
     @IBOutlet weak var numSchoolsLabel: UILabel!
@@ -21,7 +22,7 @@ class MySchoolsViewController: UIViewController {
         title = "My Schools"
         if (user!.valueForKey("age")? != nil) {
             numSchools = user!.valueForKey("age") as NSInteger
-            numSchoolsLabel.text = "Number of Schools: \(numSchools)"
+            numSchoolsLabel.text = "Number of Schools: \(user.favoriteSchools.count)"
         } else {
             numSchoolsLabel.text = "Number of Schools: 0"
         }

@@ -1,8 +1,8 @@
 //
-//  School.swift
+//  Accepted.swift
 //  Accepted
 //
-//  Created by Philip Deisinger on 2/1/15.
+//  Created by Philip Deisinger on 2/2/15.
 //  Copyright (c) 2015 PDice. All rights reserved.
 //
 
@@ -16,6 +16,9 @@ class School: NSManagedObject {
     @NSManaged var nickName: String
     @NSManaged var schoolName: String
     @NSManaged var tuition: NSNumber
-    @NSManaged var favoritedByUsers: NSSet
+    @NSManaged var latitiude: NSNumber
+    @NSManaged var longitude: NSNumber
+    @NSManaged var location: String
+    @NSManaged var favoritedByUsers: NSMutableSet
 
 }

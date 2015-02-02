@@ -10,5 +10,6 @@ import Foundation
 import MapKit
 
 class CustomPointAnnotation : MKPointAnnotation {
+    var school: School!
     var imageName: String!
 }
