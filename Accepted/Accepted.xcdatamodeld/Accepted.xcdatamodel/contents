@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="School" syncable="YES">
+    <entity name="School" representedClassName="Accepted.School" syncable="YES">
         <attribute name="acceptanceRate" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="attendance" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="schoolName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tuition" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="favoritedByUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="favoriteSchools" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="User" syncable="YES">
+    <entity name="User" representedClassName="Accepted.User" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,9 +16,10 @@
         <attribute name="numberOfUsers" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="favoriteSchools" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="School" inverseName="favoritedByUsers" inverseEntity="School" syncable="YES"/>
     </entity>
     <elements>
-        <element name="School" positionX="-36" positionY="9" width="128" height="120"/>
-        <element name="User" positionX="-18" positionY="9" width="128" height="150"/>
+        <element name="School" positionX="-36" positionY="9" width="128" height="133"/>
+        <element name="User" positionX="-18" positionY="9" width="128" height="163"/>
     </elements>
 </model>

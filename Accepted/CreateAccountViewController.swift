@@ -11,7 +11,7 @@ import CoreData
 
 class CreateAccountViewController: UIViewController {
 
-    var users = [NSManagedObject]() //MODEL
+    var users = [User]() //MODEL
     var username = String()
     var password = String()
     var parentVC:HomeViewController!
@@ -35,16 +35,24 @@ class CreateAccountViewController: UIViewController {
     }
     
     //////// This should be moved to the model ////////////
-    func saveUser(user: User) -> Bool {
+    func saveUser() -> Bool {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedContext)
-        let user = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        user.setValue(username, forKey: "username")
-        user.setValue(password, forKey: "password")
+        let user = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: managedContext) as User
+        //User(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        
+        
+
+        
+        user.username = username
+        user.password = password
+        
+        println("User: \(user)")
+        println("username: \(user.username)")
         
         //TEMP # of schools holder!////
-        user.setValue(0, forKey: "age")
+        //user.setValue(0, forKey: "age")
         
         var error: NSError?
         if !managedContext.save(&error) {
@@ -58,9 +66,9 @@ class CreateAccountViewController: UIViewController {
     @IBAction func createAccountTapped(sender: AnyObject) {
         username = usernameTextField.text!
         password = passwordTextField.text!
-        let newUser = User(username: username, password: password)
-        if saveUser(newUser) {
+        if saveUser() {
             parentVC.users = users
+            println("parentVC.users: \(parentVC.users!)")
             dismissViewControllerAnimated(true, completion: nil)
         } else {
             errorLabel.text = "Sorry, an error occured."

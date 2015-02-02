@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A0467E31A7F147E00E3DA6B /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0467E21A7F147E00E3DA6B /* School.swift */; };
+		4A0467E51A7F147F00E3DA6B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0467E41A7F147F00E3DA6B /* User.swift */; };
 		4A1B56891A7C35F30005A565 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B56881A7C35F30005A565 /* CustomPointAnnotation.swift */; };
 		4A1B568B1A7EA5E90005A565 /* DevToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B568A1A7EA5E90005A565 /* DevToolsViewController.swift */; };
 		4A1B568D1A7EC0A00005A565 /* SchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B568C1A7EC09F0005A565 /* SchoolViewController.swift */; };
@@ -21,10 +23,8 @@
 		4A99339F1A7AC1D100418141 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933951A7AC1D100418141 /* HomeViewController.swift */; };
 		4A9933A01A7AC1D100418141 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933961A7AC1D100418141 /* Location.swift */; };
 		4A9933A11A7AC1D100418141 /* Major.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933971A7AC1D100418141 /* Major.swift */; };
-		4A9933A21A7AC1D100418141 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933981A7AC1D100418141 /* School.swift */; };
 		4A9933A31A7AC1D100418141 /* SchoolMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933991A7AC1D100418141 /* SchoolMapViewController.swift */; };
 		4A9933A41A7AC1D100418141 /* SchoolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99339A1A7AC1D100418141 /* SchoolModel.swift */; };
-		4A9933A51A7AC1D100418141 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99339B1A7AC1D100418141 /* User.swift */; };
 		4A9933A61A7AC1D100418141 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99339C1A7AC1D100418141 /* UserModel.swift */; };
 		4A9933A81A7AC1F000418141 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9933A71A7AC1F000418141 /* Main.storyboard */; };
 		4A9933AA1A7AC58600418141 /* MySchoolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933A91A7AC58600418141 /* MySchoolsViewController.swift */; };
@@ -41,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A0467E21A7F147E00E3DA6B /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = School.swift; path = ../School.swift; sourceTree = "<group>"; };
+		4A0467E41A7F147F00E3DA6B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
 		4A1B56881A7C35F30005A565 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		4A1B568A1A7EA5E90005A565 /* DevToolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevToolsViewController.swift; sourceTree = "<group>"; };
 		4A1B568C1A7EC09F0005A565 /* SchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolViewController.swift; sourceTree = "<group>"; };
@@ -59,10 +61,8 @@
 		4A9933951A7AC1D100418141 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4A9933961A7AC1D100418141 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		4A9933971A7AC1D100418141 /* Major.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Major.swift; sourceTree = "<group>"; };
-		4A9933981A7AC1D100418141 /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		4A9933991A7AC1D100418141 /* SchoolMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolMapViewController.swift; sourceTree = "<group>"; };
 		4A99339A1A7AC1D100418141 /* SchoolModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolModel.swift; sourceTree = "<group>"; };
-		4A99339B1A7AC1D100418141 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4A99339C1A7AC1D100418141 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		4A9933A71A7AC1F000418141 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4A9933A91A7AC58600418141 /* MySchoolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySchoolsViewController.swift; sourceTree = "<group>"; };
@@ -103,10 +103,10 @@
 		4A1B56871A7C1B880005A565 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4A0467E41A7F147F00E3DA6B /* User.swift */,
+				4A0467E21A7F147E00E3DA6B /* School.swift */,
 				4A99339C1A7AC1D100418141 /* UserModel.swift */,
-				4A99339B1A7AC1D100418141 /* User.swift */,
 				4A99339A1A7AC1D100418141 /* SchoolModel.swift */,
-				4A9933981A7AC1D100418141 /* School.swift */,
 				4A9933971A7AC1D100418141 /* Major.swift */,
 				4A9933961A7AC1D100418141 /* Location.swift */,
 				4A1B56881A7C35F30005A565 /* CustomPointAnnotation.swift */,
@@ -280,16 +280,16 @@
 				4A99339D1A7AC1D100418141 /* AccountViewController.swift in Sources */,
 				4A9933AA1A7AC58600418141 /* MySchoolsViewController.swift in Sources */,
 				4A1B568B1A7EA5E90005A565 /* DevToolsViewController.swift in Sources */,
+				4A0467E51A7F147F00E3DA6B /* User.swift in Sources */,
 				4A1B568D1A7EC0A00005A565 /* SchoolViewController.swift in Sources */,
-				4A9933A21A7AC1D100418141 /* School.swift in Sources */,
 				4A9933A61A7AC1D100418141 /* UserModel.swift in Sources */,
 				4A9933711A7ABF1000418141 /* AppDelegate.swift in Sources */,
 				4A99339F1A7AC1D100418141 /* HomeViewController.swift in Sources */,
 				4A9933A31A7AC1D100418141 /* SchoolMapViewController.swift in Sources */,
-				4A9933A51A7AC1D100418141 /* User.swift in Sources */,
 				4A9933A41A7AC1D100418141 /* SchoolModel.swift in Sources */,
 				4A9933A01A7AC1D100418141 /* Location.swift in Sources */,
 				4A9933A11A7AC1D100418141 /* Major.swift in Sources */,
+				4A0467E31A7F147E00E3DA6B /* School.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

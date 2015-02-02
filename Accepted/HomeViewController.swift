@@ -11,7 +11,7 @@ import CoreData
 
 class HomeViewController: UIViewController {
     
-    var users:[NSManagedObject]? // MODEL?
+    var users:[User]? // MODEL?
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
         let managedContext = appDelegate.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName: "User")
         var error:NSError?
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [User]?
         
         if let results = fetchedResults {
             users = results
@@ -65,8 +65,11 @@ class HomeViewController: UIViewController {
         var foundUser = false
         let actualUsers = users?
         if actualUsers != nil {
+            println("\(actualUsers)")
             for user in actualUsers! {
-                if user.valueForKey("username") as NSString == usernameTextField.text && user.valueForKey("password") as NSString == passwordTextField.text {
+                println("\(user)")
+                println("\(user.username)")
+                if user.username  == usernameTextField.text && user.password  == passwordTextField.text {
                     foundUser = true
                     let accountViewController = storyboard?.instantiateViewControllerWithIdentifier("AccountViewController") as AccountViewController
                     accountViewController.user = user
@@ -114,7 +117,7 @@ class HomeViewController: UIViewController {
         let managedContext = appDelegate.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName: "User")
         var error:NSError?
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [User]?
         
         if let results = fetchedResults {
             users = results
