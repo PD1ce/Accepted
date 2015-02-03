@@ -10,43 +10,111 @@ import UIKit
 import CoreData
 
 //Need to add DataSource and Delegate of tableview as well, find the overridden methods
-class MySchoolsViewController: UIViewController {
+class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var user: User!
     var numSchools:Int!
+    var schools: [School]!
+    var currentSchool: School!
     
-    @IBOutlet weak var numSchoolsLabel: UILabel!
-    @IBOutlet weak var tempSchoolTextView: UITextView!
+    
+    @IBOutlet weak var mySchoolsLabel: UILabel!
+    @IBOutlet weak var adjustRanksOutlet: UIButton!
+    @IBOutlet weak var schoolTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My Schools"
-        
-        numSchoolsLabel.text = "Number of Schools: \(user.favoriteSchools.count)"
-        if let madison = user.favoriteSchools.allObjects as? [School] {
-            for school in madison {
-                tempSchoolTextView.text =
-                "School Name: \(school.schoolName)\nSchool Mascot: \(school.nickName)\n Favorited by \(school.favoritedByUsers.count) users"
-            }
-        }
-       
-        // Do any additional setup after loading the view, typically from a nib.
+        mySchoolsLabel.text = "\(user.username)\'s Schools"
+        schools = user.favoriteSchools.allObjects as? [School]
+        schoolTableView?.rowHeight = 50
+        //Gets rid of extra white space in top
+        self.automaticallyAdjustsScrollViewInsets = false
+        println("\(schoolTableView!.numberOfSections())")
     }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = SchoolTableViewCell(style: UITableViewCellStyle.Value2, reuseIdentifier: nil)
+        cell.school = schools[indexPath.row]
+        cell.rank = indexPath.row
+        let bgcolor = UIColor(red: 5, green: 5, blue: 5, alpha: 1)
+        cell.backgroundColor = self.view.backgroundColor
+        //cell.textLabel?.text = "\(name)"
+        //cell.textLabel?.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+        cell.detailTextLabel?.text = "\(cell.school.schoolName)" //Maybe display Rank
+        return cell
+    }
+    //Making header title
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Schools by Rank"
+        } else {
+            return ""
+        }
+    }
+    //Ranks will also need to be adjusted and saved for the user here so it can order it properly
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let thisSchool = schools[sourceIndexPath.row]
+        schools.removeAtIndex(sourceIndexPath.row)
+        schools.insert(thisSchool, atIndex: destinationIndexPath.row)
+        println("Index path moved")
+        
+    }
+    //Header detail
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let myView = UIView()
+        myView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        for subview in myView.subviews {
+            if subview.isKindOfClass(UILabel) {
+                subview.textLabel??.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+            }
+        }
+        return myView
+        
+    }
+    //Stops the indent from happening
+    func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return false
+    }
+    //Makes it so there is no delete button (viewed)
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.None
+    }
+    //Allows ALL cells to be moved
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    //Row selected - > go to school page, perhaps make dropdown, then select go
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //probably can just use tableView instead of schoolTableView
+        let thisCell = schoolTableView.cellForRowAtIndexPath(indexPath) as SchoolTableViewCell
+        let schoolViewController = storyboard?.instantiateViewControllerWithIdentifier("SchoolViewController") as SchoolViewController
+        schoolViewController.school = thisCell.school
+        navigationController?.pushViewController(schoolViewController, animated: true)
+    }
+    //Returns all schools favorited by user
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return user.favoriteSchools.count
+    }
+    
+    @IBAction func adjustRanksTapped(sender: AnyObject) {
+        if schoolTableView.editing { //Currently in edit mode
+            schoolTableView.setEditing(false, animated: true)
+            adjustRanksOutlet.setTitle("Adjust Ranks", forState: .Normal)
+            
+        } else { //Not editing
+            schoolTableView.setEditing(true, animated: true)
+            adjustRanksOutlet.setTitle("Save Ranks", forState: .Normal)
+        }
+       
+    }
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    @IBAction func schoolButtonTapped(sender: AnyObject) {
-        let schoolViewController = storyboard?.instantiateViewControllerWithIdentifier("SchoolViewController") as SchoolViewController
-        schoolViewController.schoolName = "UW-Madison"
-        schoolViewController.schoolLocation = "Madison, WI"
-        presentViewController(schoolViewController, animated: true, completion: nil)
-    }
-    
+
     @IBAction func closeSchool(segue: UIStoryboardSegue) {
         //
     }

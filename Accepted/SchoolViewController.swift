@@ -10,22 +10,23 @@ import UIKit
 
 class SchoolViewController : UIViewController {
     
-    var schoolName: String!
-    var schoolLocation: String!
+    var user: User!
+    var school: School!
     
     @IBOutlet weak var schoolIconImageView: UIImageView!
     @IBOutlet weak var schoolNameLabel: UILabel!
     @IBOutlet weak var schoolLocationLabel: UILabel!
-    
+    @IBOutlet weak var schoolDescTextView: UITextView!
     
     ///****  ALL OF THIS WILL BE AUTOMATED FROM COREDATA ****///
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        schoolIconImageView.image = UIImage(named: "bucky-icon")
-        schoolNameLabel.text = schoolName
-        schoolLocationLabel.text = schoolLocation
+        schoolIconImageView.image = UIImage(named: "\(school.schoolName)")
+        schoolNameLabel.text = school.schoolName
+        schoolLocationLabel.text = school.location
+        schoolDescTextView.text = "School Team: \(school.nickName)\n\(school.favoritedByUsers.count) users have favorited this school"
     }
     
     override func viewDidAppear(animated: Bool) {

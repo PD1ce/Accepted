@@ -23,6 +23,8 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var selectedSchoolLocationLabel: UILabel!
     
     
+    //DESELECTING THE ANNOTATION SHOULD REMOVE THE TEXT LABELS
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
