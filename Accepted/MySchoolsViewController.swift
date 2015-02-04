@@ -60,18 +60,18 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
         println("Index path moved")
         
     }
-    //Header detail
+    /*Header detail  ----- Implement later
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let myView = UIView()
-        myView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        for subview in myView.subviews {
-            if subview.isKindOfClass(UILabel) {
-                subview.textLabel??.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
-            }
-        }
+        var myView = UIView()
+        //myView.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
+        //let myLabel = UILabel()
+        //myLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        //myView.addSubview(myLabel)
         return myView
         
     }
+    */
+    
     //Stops the indent from happening
     func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
