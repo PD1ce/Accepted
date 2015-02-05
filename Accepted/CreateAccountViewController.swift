@@ -12,9 +12,13 @@ import CoreData
 class CreateAccountViewController: UIViewController {
 
     var users = [User]() //MODEL
+    var user: User!
     var username = String()
     var password = String()
     var parentVC:HomeViewController!
+    
+    //Ugly, used to dismiss this as well
+    var detailsUpdated: Bool!
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -22,12 +26,20 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailsUpdated = false
         passwordTextField.secureTextEntry = true
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let details = detailsUpdated!
+        if details {
+            dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -39,11 +51,18 @@ class CreateAccountViewController: UIViewController {
     @IBAction func createAccountTapped(sender: AnyObject) {
         username = usernameTextField.text!
         password = passwordTextField.text!
+        
+        //This is terrible and needs to be changed
         if username != "" && password != "" {
             if saveUser() {
                 parentVC.users = users
                 println("parentVC.users: \(parentVC.users!)")
-                dismissViewControllerAnimated(true, completion: nil)
+                
+                let createDetailsVC = storyboard?.instantiateViewControllerWithIdentifier("CreateDetailsViewContoller") as CreateDetailsViewContoller
+                createDetailsVC.user = self.user
+                createDetailsVC.parentVC = self
+                presentViewController(createDetailsVC, animated: true, completion: nil)
+                //dismissViewControllerAnimated(true, completion: nil)
             } else {
                 errorLabel.text = "Sorry, an error occured."
             }
@@ -63,8 +82,9 @@ class CreateAccountViewController: UIViewController {
         //User(entity: entity!, insertIntoManagedObjectContext: managedContext)
         
         
-        
-        
+        self.user = user
+        self.user.username = username
+        self.user.password = password
         user.username = username
         user.password = password
         

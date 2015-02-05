@@ -20,7 +20,7 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         title = "My Account"
         username = user.valueForKey("username") as String?
-        welcomeLabel.text = "Welcome, \(username)!"
+        welcomeLabel.text = "Welcome, \(user.firstName)!"
         // Do any additional setup after loading the view, typically from a nib.
     }
     

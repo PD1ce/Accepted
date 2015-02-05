@@ -25,7 +25,7 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My Schools"
-        mySchoolsLabel.text = "\(user.username)\'s Schools"
+        mySchoolsLabel.text = "\(user.firstName)\'s Schools"
         schools = user.favoriteSchools.allObjects as? [School]
         schoolTableView?.rowHeight = 50
         //Gets rid of extra white space in top
