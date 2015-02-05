@@ -2,27 +2,46 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="School" representedClassName="Accepted.School" syncable="YES">
         <attribute name="acceptanceRate" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="athleticDivision" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="attendance" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="colors" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="establishedDate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logoName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="mascot" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="motto" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="presidentOrChancellor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="schoolName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="studentsPostgrad" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="studentsTotal" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="studentsUndergrad" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="tuition" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tuitionUndergrad" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="varsityTeams" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="dream" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="dreamSchool" inverseEntity="User" syncable="YES"/>
         <relationship name="favoritedByUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="favoriteSchools" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="Accepted.User" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="grade" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="intendedMajor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numberOfUsers" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="dreamSchool" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="School" inverseName="dream" inverseEntity="School" syncable="YES"/>
         <relationship name="favoriteSchools" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="School" inverseName="favoritedByUsers" inverseEntity="School" syncable="YES"/>
     </entity>
     <elements>
-        <element name="School" positionX="-36" positionY="9" width="128" height="180"/>
-        <element name="User" positionX="-18" positionY="9" width="128" height="165"/>
+        <element name="School" positionX="-36" positionY="9" width="128" height="388"/>
+        <element name="User" positionX="-18" positionY="9" width="128" height="238"/>
     </elements>
 </model>

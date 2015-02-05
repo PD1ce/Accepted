@@ -8,6 +8,7 @@
 
 
 import UIKit
+import Foundation
 import CoreData
 
 class DevToolsViewController : UIViewController {
@@ -18,6 +19,7 @@ class DevToolsViewController : UIViewController {
     @IBOutlet weak var deleteSchoolsLabel: UILabel!
     @IBOutlet weak var populateUsersLabel: UILabel!
     @IBOutlet weak var populateSchoolsLabel: UILabel!
+    @IBOutlet weak var importSchoolsLabel: UILabel!
     
     var alertController: UIAlertController!
     
@@ -162,5 +164,35 @@ class DevToolsViewController : UIViewController {
 */
         return false
     }
+    
+    @IBAction func importSchoolsTapped(sender: AnyObject) {
+        makeWikiRequest()
+    }
+    
+    func makeWikiRequest() {
+        
+        var url = "http://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Madison"
+        var request = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler: { (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            
+            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+            
+            if (jsonResult != nil) {
+            // process jsonResult
+                println("\(jsonResult)")
+            } else {
+                println("error loading JSON")
+            // couldn't load JSON, look at error
+            }
+            
+            
+            }
+        )
+    }
+
 
 }

@@ -14,6 +14,7 @@
 		4A1B568D1A7EC0A00005A565 /* SchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B568C1A7EC09F0005A565 /* SchoolViewController.swift */; };
 		4A7A93AD1A81466B0091352D /* SchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A93AC1A81466B0091352D /* SchoolTableViewCell.swift */; };
 		4A7A93AF1A81AA4A0091352D /* UpdateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A93AE1A81AA4A0091352D /* UpdateUserViewController.swift */; };
+		4A7A9EE11A83E116009DD663 /* CreateDetailsViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A9EE01A83E116009DD663 /* CreateDetailsViewContoller.swift */; };
 		4A966D9D1A8009BB0050F847 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A966D9C1A8009BB0050F847 /* School.swift */; };
 		4A9933711A7ABF1000418141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933701A7ABF1000418141 /* AppDelegate.swift */; };
 		4A9933741A7ABF1000418141 /* Accepted.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933721A7ABF1000418141 /* Accepted.xcdatamodeld */; };
@@ -51,6 +52,7 @@
 		4A1B568C1A7EC09F0005A565 /* SchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolViewController.swift; sourceTree = "<group>"; };
 		4A7A93AC1A81466B0091352D /* SchoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolTableViewCell.swift; sourceTree = "<group>"; };
 		4A7A93AE1A81AA4A0091352D /* UpdateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserViewController.swift; sourceTree = "<group>"; };
+		4A7A9EE01A83E116009DD663 /* CreateDetailsViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDetailsViewContoller.swift; sourceTree = "<group>"; };
 		4A966D9C1A8009BB0050F847 /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		4A99336B1A7ABF1000418141 /* Accepted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Accepted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A99336F1A7ABF1000418141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				4A9933931A7AC1D100418141 /* AccountViewController.swift */,
 				4A9933941A7AC1D100418141 /* CreateAccountViewController.swift */,
+				4A7A9EE01A83E116009DD663 /* CreateDetailsViewContoller.swift */,
 				4A1B568A1A7EA5E90005A565 /* DevToolsViewController.swift */,
 				4A9933951A7AC1D100418141 /* HomeViewController.swift */,
 				4A9933A91A7AC58600418141 /* MySchoolsViewController.swift */,
@@ -291,6 +294,7 @@
 				4A7A93AF1A81AA4A0091352D /* UpdateUserViewController.swift in Sources */,
 				4A1B568B1A7EA5E90005A565 /* DevToolsViewController.swift in Sources */,
 				4A0467E51A7F147F00E3DA6B /* User.swift in Sources */,
+				4A7A9EE11A83E116009DD663 /* CreateDetailsViewContoller.swift in Sources */,
 				4A966D9D1A8009BB0050F847 /* School.swift in Sources */,
 				4A1B568D1A7EC0A00005A565 /* SchoolViewController.swift in Sources */,
 				4A9933A61A7AC1D100418141 /* UserModel.swift in Sources */,

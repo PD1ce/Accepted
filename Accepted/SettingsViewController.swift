@@ -24,33 +24,32 @@ class SettingsViewController : UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     
+    
+    override func viewWillAppear(animated: Bool) {
+        if !user.username.isEmpty   { usernameLabel.text    = user.username }
+        if !user.password.isEmpty   { passwordLabel.text    = user.password }
+        if !user.firstName.isEmpty  { firstNameLabel.text   = user.firstName }
+        if !user.lastName.isEmpty   { lastNameLabel.text    = user.lastName }
+        if !user.email.isEmpty      { emailLabel.text       = user.email }
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = user.username
         
-        if !user.username.isEmpty {
-            usernameLabel.text = user.username
-        }
-        if !user.password.isEmpty {
-            passwordLabel.text = user.password
-        }
-        /*
-        if !user.firstName.isEmpty {
-            firstNameLabel.text = user.firstName
-        }
-        if !user.lastName.isEmpty {
-            lastNameLabel.text = user.lastName
-        }
-        if !user.email.isEmpty {
-            emailLabel.text = user.email
-        }
-    */
+        //// Likely all of this will be scrapped when create account is more complete
+        if !user.username.isEmpty   { usernameLabel.text    = user.username }
+        if !user.password.isEmpty   { passwordLabel.text    = user.password }
+        if !user.firstName.isEmpty  { firstNameLabel.text   = user.firstName }
+        if !user.lastName.isEmpty   { lastNameLabel.text    = user.lastName }
+        if !user.email.isEmpty      { emailLabel.text       = user.email }
+        
         /* major
         if !user.username.isEmpty {
             usernameLabel.text = user.username
         } */
         /* dream school
-        if username.isEmpty {
+        if !user.dreamSchool.isEmpty {
             usernameLabel.text = user.username
         } */
         
@@ -69,12 +68,7 @@ class SettingsViewController : UIViewController {
         updateUserVC.user = user
         updateUserVC.parent = self
         navigationController?.pushViewController(updateUserVC, animated: true)
-        
     }
-    
-    
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

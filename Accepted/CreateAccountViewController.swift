@@ -34,16 +34,36 @@ class CreateAccountViewController: UIViewController {
         errorLabel.text = ""
     }
     
+  
+    
+    @IBAction func createAccountTapped(sender: AnyObject) {
+        username = usernameTextField.text!
+        password = passwordTextField.text!
+        if username != "" && password != "" {
+            if saveUser() {
+                parentVC.users = users
+                println("parentVC.users: \(parentVC.users!)")
+                dismissViewControllerAnimated(true, completion: nil)
+            } else {
+                errorLabel.text = "Sorry, an error occured."
+            }
+        } else {
+            errorLabel.text = "Please enter a username and password"
+        }
+        
+        
+    }
+    
     //////// This should be moved to the model ////////////
     func saveUser() -> Bool {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext = appDelegate.managedObjectContext!
-//        let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedContext)
+        //        let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedContext)
         let user = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: managedContext) as User
         //User(entity: entity!, insertIntoManagedObjectContext: managedContext)
         
         
-
+        
         
         user.username = username
         user.password = password
@@ -61,18 +81,5 @@ class CreateAccountViewController: UIViewController {
         }
         users.append(user)
         return true
-    }
-    
-    @IBAction func createAccountTapped(sender: AnyObject) {
-        username = usernameTextField.text!
-        password = passwordTextField.text!
-        if saveUser() {
-            parentVC.users = users
-            println("parentVC.users: \(parentVC.users!)")
-            dismissViewControllerAnimated(true, completion: nil)
-        } else {
-            errorLabel.text = "Sorry, an error occured."
-        }
-        
     }
 }

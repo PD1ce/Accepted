@@ -64,6 +64,7 @@ class HomeViewController: UIViewController {
         //Check for username/Password
         var foundUser = false
         let actualUsers = users?
+        //let predicate = NSPredicate(format: "username EQUALS %@", usernameTextField.text)
         if actualUsers != nil {
             for user in actualUsers! {
                 if user.username  == usernameTextField.text && user.password  == passwordTextField.text {
