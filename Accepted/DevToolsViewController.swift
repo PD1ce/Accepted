@@ -193,6 +193,20 @@ class DevToolsViewController : UIViewController {
             }
         )
     }
+    
+   
+    @IBAction func regexSchoolTapped(sender: AnyObject) {
+        let location = "/Users/Phil/Desktop/Swift/Accepted/Accepted/SchoolCurls.txt"
+        var schoolString = NSString(contentsOfFile: location, encoding: NSUTF8StringEncoding, error: nil) as String
+     
+        
+        let regex = NSRegularExpression(pattern: "infobox vcard(.*?)</table>", options: NSRegularExpressionOptions.DotMatchesLineSeparators, error: nil)
+       
+        
+        let range = NSMakeRange(0, countElements(schoolString))
+        let newString = regex?.stringByReplacingMatchesInString(schoolString, options: nil, range: range, withTemplate: "")
+        println(newString)
+    }
 
 
 }

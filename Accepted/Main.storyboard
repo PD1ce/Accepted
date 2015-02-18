@@ -581,19 +581,16 @@
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D5x-Ee-byC">
-                                <rect key="frame" x="16" y="209" width="343" height="363"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k7Y-qd-SuF">
+                                <rect key="frame" x="16" y="209" width="343" height="197"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.7211761445" green="0.88450633280000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="schoolDescTextView" destination="D5x-Ee-byC" id="K2b-E3-CRE"/>
+                        <outlet property="mainScrollView" destination="k7Y-qd-SuF" id="82Z-fy-gv9"/>
                         <outlet property="schoolIconImageView" destination="fZD-fg-ueO" id="sVE-8b-htg"/>
                         <outlet property="schoolLocationLabel" destination="Oq8-9I-IDA" id="fVM-bf-eiT"/>
                         <outlet property="schoolNameLabel" destination="YG3-tx-2yk" id="Acu-3H-rKX"/>
@@ -712,6 +709,15 @@
                                 </state>
                                 <connections>
                                     <action selector="importSchoolsTapped:" destination="77h-I0-QMU" eventType="touchUpInside" id="Ou2-eV-nV6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2D5-27-WnQ">
+                                <rect key="frame" x="139" y="515" width="96" height="30"/>
+                                <state key="normal" title="Regex School">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="regexSchoolTapped:" destination="77h-I0-QMU" eventType="touchUpInside" id="sNy-s3-2n5"/>
                                 </connections>
                             </button>
                         </subviews>
