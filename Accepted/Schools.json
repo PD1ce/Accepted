@@ -1,5 +1,673 @@
  [
   {
+  "schoolName": "University at Albany - SUNY",
+  "latitude": 42.686992,
+  "longitude": -73.822831,
+  "athleticConference": "America East Conference",
+  "city": "Albany",
+  "state": "New York",
+  "nickname": "Great Danes"
+  },
+  {
+  "schoolName": "Binghamton University",
+  "latitude": 42.089047,
+  "longitude": -75.967015,
+  "athleticConference": "America East Conference",
+  "city": "Vestal",
+  "state": "New York",
+  "nickname": "Bearcats"
+  },
+  {
+  "schoolName": "University of Hartford",
+  "latitude": 41.800269,
+  "longitude": -72.715054,
+  "athleticConference": "America East Conference",
+  "city": "West Hartford",
+  "state": "Connecticut",
+  "nickname": "Hawks"
+  },
+  {
+  "schoolName": "University of Maine",
+  "latitude": 44.897918,
+  "longitude": -68.668665,
+  "athleticConference": "America East Conference",
+  "city": "Orono",
+  "state": "Maine",
+  "nickname": "Black Bears"
+  },
+  {
+  "schoolName": "University of Maryland - Baltimore County",
+  "latitude": 39.25632,
+  "longitude": -76.710685,
+  "athleticConference": "America East Conference",
+  "city": "Catonsville",
+  "state": "Maryland",
+  "nickname": "Retrievers"
+  },
+  {
+  "schoolName": "University of New Hampshire",
+  "latitude": 43.139226,
+  "longitude": -70.936993,
+  "athleticConference": "America East Conference",
+  "city": "Durham",
+  "state": "New Hampshire",
+  "nickname": "Wildcats"
+  },
+  {
+  "schoolName": "Stony Brook University",
+  "latitude": 40.91251,
+  "longitude": -73.123389,
+  "athleticConference": "America East Conference",
+  "city": "Stony Brook",
+  "state": "New York",
+  "nickname": "Seawolves"
+  },
+  {
+  "dataName": "universityOfVermont",
+  "schoolName": "University of Vermont",
+  "latitude": 44.478048,
+  "longitude": -73.196464,
+  "athleticConference": "America East Conference",
+  "city": "Burlington",
+  "state": "Vermont",
+  "publicprivate": "Public",
+  "mascot": "Rally",
+  "nickname": "Catamounts"
+  },
+  {
+  "schoolName": "University of Central Florida",
+  "latitude": 28.602686,
+  "longitude": -81.200028,
+  "athleticConference": "American Athletic Conference",
+  "city": "Orlando",
+  "state": "Florida",
+  "nickname": "Knights"
+  },
+  {
+  "schoolName": "University of Cincinnati",
+  "latitude": 39.133134,
+  "longitude": -84.514918,
+  "athleticConference": "American Athletic Conference",
+  "city": "Cincinnati",
+  "state": "Ohio",
+  "nickname": "Bearcats"
+  },
+  {
+  "schoolName": "University of Connecticut",
+  "latitude": 41.807969,
+  "longitude": -72.25398,
+  "athleticConference": "American Athletic Conference",
+  "city": "Storrs",
+  "state": "Connecticut",
+  "nickname": "Huskies"
+  },
+  {
+  "schoolName": "East Carolina University",
+  "latitude": 35.607687,
+  "longitude": -77.366991,
+  "athleticConference": "American Athletic Conference",
+  "city": "Greenville",
+  "state": "North Carolina",
+  "nickname": "Pirates and Lady Pirates"
+  },
+  {
+  "schoolName": "University of Houston",
+  "latitude": 29.720205,
+  "longitude": -95.342287,
+  "athleticConference": "American Athletic Conference",
+  "city": "Houston",
+  "state": "Texas",
+  "nickname": "Cougars"
+  },
+  {
+  "schoolName": "University of Memphis",
+  "latitude": 35.119202,
+  "longitude": -89.937146,
+  "athleticConference": "American Athletic Conference",
+  "city": "Memphis",
+  "state": "Tennessee",
+  "nickname": "Tigers"
+  },
+  {
+  "schoolName": "University of South Florida",
+  "latitude": 28.058925,
+  "longitude": -82.413854,
+  "athleticConference": "American Athletic Conference",
+  "city": "Tampa",
+  "state": "Florida",
+  "nickname": "Bulls"
+  },
+  {
+  "schoolName": "Southern Methodist University",
+  "latitude": 32.841502,
+  "longitude": -96.784497,
+  "athleticConference": "American Athletic Conference",
+  "city": "University Park",
+  "state": "Texas",
+  "nickname": "Mustangs"
+  },
+  {
+  "schoolName": "Temple University",
+  "latitude": 39.98232,
+  "longitude": -75.1547,
+  "athleticConference": "American Athletic Conference",
+  "city": "Philadelphia",
+  "state": "Pennsylvania",
+  "nickname": "Owls"
+  },
+  {
+  "schoolName": "Tulane University",
+  "latitude": 29.940585,
+  "longitude": -90.120771,
+  "athleticConference": "American Athletic Conference",
+  "city": "New Orleans",
+  "state": "Louisiana",
+  "nickname": "Green Wave"
+  },
+  {
+  "schoolName": "University of Tulsa",
+  "latitude": 36.151165,
+  "longitude": -95.94368,
+  "athleticConference": "American Athletic Conference",
+  "city": "Tulsa",
+  "state": "Oklahoma",
+  "nickname": "Golden Hurricane"
+  },
+  {
+  "schoolName": "Davidson College",
+  "latitude": 35.50246,
+  "longitude": -80.847497,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "Davidson",
+  "state": "North Carolina",
+  "nickname": "Wildcats"
+  },
+  {
+  "schoolName": "University of Dayton",
+  "latitude": 39.740947,
+  "longitude": -84.179242,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "Dayton",
+  "state": "Ohio",
+  "nickname": "Flyers"
+  },
+  {
+  "schoolName": "Duquesne University",
+  "latitude": 40.437471,
+  "longitude": -79.991473,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "Pittsburgh",
+  "state": "Pennsylvania",
+  "nickname": "Dukes"
+  },
+  {
+  "schoolName": "Fordham University",
+  "latitude": 40.862206,
+  "longitude": -73.885645,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "Bronx",
+  "state": "New York",
+  "nickname": "Rams"
+  },
+  {
+  "schoolName": "George Mason University",
+  "latitude": 38.832365,
+  "longitude": -77.308037,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "Fairfax",
+  "state": "Virginia",
+  "nickname": "Patriots"
+  },
+  {
+  "schoolName": "George Washington University",
+  "latitude": 38.899919,
+  "longitude": -77.048567,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "Washington",
+  "state": "District of Columbia",
+  "nickname": "Colonials"
+  },
+  {
+  "schoolName": "La Salle University",
+  "latitude": 40.039459,
+  "longitude": -75.155187,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "Philadelphia",
+  "state": "Pennsylvania",
+  "nickname": "Explorers"
+  },
+  {
+  "schoolName": "University of Massachusetts Amherst",
+  "latitude": 42.391399,
+  "longitude": -72.526669,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "Amherst",
+  "state": "Massachusetts",
+  "nickname": "Minutemen and Minutewomen"
+  },
+  {
+  "schoolName": "University of Rhode Island",
+  "latitude": 41.486557,
+  "longitude": -71.531712,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "Kingston",
+  "state": "Rhode Island",
+  "nickname": "Rams"
+  },
+  {
+  "schoolName": "University of Richmond",
+  "latitude": 37.574169,
+  "longitude": -77.539582,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "Richmond",
+  "state": "Virginia",
+  "nickname": "Spiders"
+  },
+  {
+  "schoolName": "St. Bonaventure University",
+  "latitude": 42.080105,
+  "longitude": -78.484553,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "St. Bonaventure",
+  "state": "New York",
+  "nickname": "Bonnies"
+  },
+  {
+  "schoolName": "Saint Joseph's University",
+  "latitude": 39.99547,
+  "longitude": -75.238873,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "Philadelphia",
+  "state": "Pennsylvania",
+  "nickname": "Hawks"
+  },
+  {
+  "schoolName": "Saint Louis University",
+  "latitude": 38.636733,
+  "longitude": -90.233121,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "St. Louis",
+  "state": "Missouri",
+  "nickname": "Billikens"
+  },
+  {
+  "schoolName": "Virginia Commonwealth University",
+  "latitude": 37.549179,
+  "longitude": -77.45341,
+  "athleticConference": "Atlantic 10 Conference",
+  "city": "Richmond",
+  "state": "Virginia",
+  "nickname": "Rams"
+  },
+  {
+  "schoolName": "Boston College",
+  "latitude": 42.335767,
+  "longitude": -71.168484,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Chestnut Hill",
+  "state": "Massachusetts",
+  "nickname": "Eagles"
+  },
+  {
+  "schoolName": "Clemson University",
+  "latitude": 34.677654,
+  "longitude": -82.836202,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Clemson",
+  "state": "South Carolina",
+  "nickname": "Tigers"
+  },
+  {
+  "schoolName": "Duke University",
+  "latitude": 36.001621,
+  "longitude": -78.938186,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Durham",
+  "state": "North Carolina",
+  "nickname": "Blue Devils"
+  },
+  {
+  "schoolName": "Florida State University",
+  "latitude": 30.442142,
+  "longitude": -84.298543,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Tallahassee",
+  "state": "Florida",
+  "nickname": "Seminoles"
+  },
+  {
+  "schoolName": "Georgia Institute of Technology",
+  "latitude": 33.775854,
+  "longitude": -84.396242,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Atlanta",
+  "state": "Georgia",
+  "nickname": "Yellow Jackets"
+  },
+  {
+  "schoolName": "University of Louisville",
+  "latitude": 38.216892,
+  "longitude": -85.759594,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Louisville",
+  "state": "Kentucky",
+  "nickname": "Cardinals"
+  },
+  {
+  "schoolName": "University of Miami",
+  "latitude": 25.723918,
+  "longitude": -80.279971,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Coral Gables",
+  "state": "Florida",
+  "nickname": "Hurricanes"
+  },
+  {
+  "schoolName": "University of North Carolina at Chapel Hill",
+  "latitude": 35.905151,
+  "longitude": -79.046934,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Chapel Hill",
+  "state": "North Carolina",
+  "nickname": "Tar Heels"
+  },
+  {
+  "schoolName": "North Carolina State University",
+  "latitude": 35.784885,
+  "longitude": -78.682116,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Raleigh",
+  "state": "North Carolina",
+  "nickname": "Wolfpack"
+  },
+  {
+  "schoolName": "University of Notre Dame",
+  "latitude": 41.7058,
+  "longitude": -86.235318,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "South Bend",
+  "state": "Indiana",
+  "nickname": "Fighting Irish"
+  },
+  {
+  "schoolName": "University of Pittsburgh",
+  "latitude": 40.444569,
+  "longitude": -79.960814,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Pittsburgh",
+  "state": "Pennsylvania",
+  "nickname": "Panthers"
+  },
+  {
+  "schoolName": "Syracuse University",
+  "latitude": 43.039361,
+  "longitude": -76.135094,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Syracuse",
+  "state": "New York",
+  "nickname": "Orange"
+  },
+  {
+  "schoolName": "University of Virginia",
+  "latitude": 38.033768,
+  "longitude": -78.507945,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Charlottesville",
+  "state": "Virginia",
+  "nickname": "Cavaliers"
+  },
+  {
+  "schoolName": "Virginia Tech",
+  "latitude": 37.228645,
+  "longitude": -80.42346,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Blacksburg",
+  "state": "Virginia",
+  "nickname": "Hokies"
+  },
+  {
+  "schoolName": "Wake Forest University",
+  "latitude": 36.130002,
+  "longitude": -80.281461,
+  "athleticConference": "Atlantic Coast Conference",
+  "city": "Winston-Salem",
+  "state": "North Carolina",
+  "nickname": "Demon Deacons"
+  },
+  {
+  "schoolName": "Florida Gulf Coast University",
+  "latitude": 26.464294,
+  "longitude": -81.77366,
+  "athleticConference": "Atlantic Sun Conference",
+  "city": "Fort Myers",
+  "state": "Florida",
+  "nickname": "Eagles"
+  },
+  {
+  "schoolName": "Jacksonville University",
+  "latitude": 30.359323,
+  "longitude": -81.606532,
+  "athleticConference": "Atlantic Sun Conference",
+  "city": "Jacksonville",
+  "state": "Florida",
+  "nickname": "Dolphins"
+  },
+  {
+  "schoolName": "Kennesaw State University",
+  "latitude": 34.035218,
+  "longitude": -84.584082,
+  "athleticConference": "Atlantic Sun Conference",
+  "city": "Kennesaw",
+  "state": "Georgia",
+  "nickname": "Owls and Lady Owls"
+  },
+  {
+  "schoolName": "Lipscomb University",
+  "latitude": 36.105805,
+  "longitude": -86.80006,
+  "athleticConference": "Atlantic Sun Conference",
+  "city": "Nashville",
+  "state": "Tennessee",
+  "nickname": "Bisons and Lady Bisons"
+  },
+  {
+  "schoolName": "University of North Florida",
+  "latitude": 30.271407,
+  "longitude": -81.508601,
+  "athleticConference": "Atlantic Sun Conference",
+  "city": "Jacksonville",
+  "state": "Florida",
+  "nickname": "Ospreys and Lady Ospreys"
+  },
+  {
+  "schoolName": "University of South Carolina Upstate",
+  "latitude": 34.995817,
+  "longitude": -81.970008,
+  "athleticConference": "Atlantic Sun Conference",
+  "city": "Spartanburg",
+  "state": "South Carolina",
+  "nickname": "Spartans"
+  },
+  {
+  "schoolName": "Stetson University",
+  "latitude": 29.035707,
+  "longitude": -81.303415,
+  "athleticConference": "Atlantic Sun Conference",
+  "city": "DeLand",
+  "state": "Florida",
+  "nickname": "Hatters"
+  },
+  {
+  "schoolName": "Baylor University",
+  "latitude": 31.548453,
+  "longitude": -97.118492,
+  "founded": "1905-01-18T06:00:00.000Z",
+  "athleticConference": "Big 12 Conference",
+  "city": "Waco",
+  "state": "Texas",
+  "publicprivate": "Private",
+  "inStateTuition": 32574,
+  "outOfStateTuition": 32574,
+  "studentPopulation": 16263,
+  "mascot": "Judge /Bruiser",
+  "nickname": "Bears and Lady Bears",
+  "endowment": 1153626000,
+  "usNewsRanking": "80 (National)"
+  },
+  {
+  "schoolName": "Iowa State University",
+  "latitude": 42.026782,
+  "longitude": -93.646476,
+  "founded": "1905-01-31T06:00:00.000Z",
+  "athleticConference": "Big 12 Conference",
+  "city": "Ames",
+  "state": "Iowa",
+  "publicprivate": "Public",
+  "inStateTuition": 6648,
+  "outOfStateTuition": 19200,
+  "studentPopulation": 34732,
+  "mascot": "Cy the Cardinal",
+  "nickname": "Cyclones",
+  "endowment": 777018000,
+  "usNewsRanking": "88 (National)"
+  },
+  {
+  "schoolName": "University of Kansas",
+  "latitude": 38.954498,
+  "longitude": -95.255775,
+  "founded": "1905-02-07T06:00:00.000Z",
+  "athleticConference": "Big 12 Conference",
+  "city": "Lawrence",
+  "state": "Kansas",
+  "publicprivate": "Public",
+  "inStateTuition": 8396,
+  "outOfStateTuition": 21875,
+  "studentPopulation": 26968,
+  "mascot": "Big Jay /Baby Jay",
+  "nickname": "Jayhawks",
+  "endowment": 1470786000,
+  "usNewsRanking": "Tier 3"
+  },
+  {
+  "schoolName": "Kansas State University",
+  "latitude": 39.197581,
+  "longitude": -96.584704,
+  "founded": "1905-02-05T06:00:00.000Z",
+  "athleticConference": "Big 12 Conference",
+  "city": "Manhattan",
+  "state": "Kansas",
+  "publicprivate": "Public",
+  "inStateTuition": 7830,
+  "outOfStateTuition": 20775,
+  "studentPopulation": 24378,
+  "mascot": "Willie the Wildcat",
+  "nickname": "Wildcats",
+  "endowment": 473987000,
+  "usNewsRanking": "Tier 3"
+  },
+  {
+  "schoolName": "University of Oklahoma",
+  "latitude": 35.206056,
+  "longitude": -97.445725,
+  "founded": "1905-03-04T06:00:00.000Z",
+  "athleticConference": "Big 12 Conference",
+  "city": "Norman",
+  "state": "Oklahoma",
+  "publicprivate": "Public",
+  "inStateTuition": 3957,
+  "outOfStateTuition": 16146,
+  "studentPopulation": 29721,
+  "mascot": "Sooner Schooner /Boomer and Sooner",
+  "nickname": "Sooners",
+  "endowment": "$1,493,466,000 (System-wide)",
+  "usNewsRanking": "61 (National)"
+  },
+  {
+  "schoolName": "Oklahoma State University–Stillwater",
+  "latitude": 36.127141,
+  "longitude": -97.073722,
+  "founded": "1905-03-04T06:00:00.000Z",
+  "athleticConference": "Big 12 Conference",
+  "city": "Stillwater",
+  "state": "Oklahoma",
+  "publicprivate": "Public",
+  "inStateTuition": 4425,
+  "outOfStateTuition": 17010,
+  "studentPopulation": 23307,
+  "mascot": "Pistol Pete /Bullet",
+  "nickname": "Cowboys and Cowgirls",
+  "endowment": 579421000,
+  "usNewsRanking": "Tier 3"
+  },
+  {
+  "schoolName": "University of Texas at Austin",
+  "latitude": 30.285182,
+  "longitude": -97.7341,
+  "founded": "1905-02-25T06:00:00.000Z",
+  "athleticConference": "Big 12 Conference",
+  "city": "Austin",
+  "state": "Texas",
+  "publicprivate": "Public",
+  "inStateTuition": 9798,
+  "outOfStateTuition": 33842,
+  "studentPopulation": 51195,
+  "mascot": "Bevo / Hook 'em",
+  "nickname": "Longhorns",
+  "endowment": "$25,425,922,000 (System-wide)",
+  "usNewsRanking": "77 (National)"
+  },
+  {
+  "schoolName": "Texas Christian University",
+  "latitude": 32.708065,
+  "longitude": -97.363696,
+  "founded": "1905-02-15T06:00:00.000Z",
+  "athleticConference": "Big 12 Conference",
+  "city": "Fort Worth",
+  "state": "Texas",
+  "publicprivate": "Private",
+  "inStateTuition": 36500,
+  "outOfStateTuition": 36500,
+  "studentPopulation": 9142,
+  "mascot": "Super Frog",
+  "nickname": "Horned Frogs and Lady Frogs",
+  "endowment": 1442518000,
+  "usNewsRanking": "96 (National)"
+  },
+  {
+  "schoolName": "Texas Tech University",
+  "latitude": 33.584505,
+  "longitude": -101.878261,
+  "founded": "1905-04-06T06:00:00.000Z",
+  "athleticConference": "Big 12 Conference",
+  "city": "Lubbock",
+  "state": "Texas",
+  "publicprivate": "Public",
+  "inStateTuition": 4862,
+  "outOfStateTuition": 13358,
+  "studentPopulation": 35134,
+  "mascot": "Masked Rider /Raider Red",
+  "nickname": "Red Raiders",
+  "endowment": "$1,195,363,000(System-wide)",
+  "usNewsRanking": "102 (National)"
+  },
+  {
+  "schoolName": "West Virginia University",
+  "latitude": 39.636342,
+  "longitude": -79.955947,
+  "founded": "1905-02-09T06:00:00.000Z",
+  "athleticConference": "Big 12 Conference",
+  "city": "Morgantown",
+  "state": "West Virginia",
+  "publicprivate": "Public",
+  "inStateTuition": 6456,
+  "outOfStateTuition": 19632,
+  "studentPopulation": 29466,
+  "mascot": "The Mountaineer",
+  "nickname": "Mountaineers",
+  "endowment": 533627000,
+  "usNewsRanking": "96 (National)"
+  },
+  {
   "dataName": "butlerUniversity",
   "schoolName": "Butler University",
   "latitude": 39.839827,
@@ -16,7 +684,7 @@
   "endowment": "157549000",
   "acceptanceRate": 0.66,
   "yearGraduationRate": 0.56,
-  "usNewsRanking": "2 (Midwest)"
+  "usNewsRanking": "102 (National)"
   },
   {
   "dataName": "creightonUniversity",
@@ -34,7 +702,7 @@
   "nickname": "Bluejays",
   "endowment": 375221000,
   "acceptanceRate": 0.77,
-  "usNewsRanking": "1 (Midwest)"
+  "usNewsRanking": 47
   },
   {
   "dataName": "dePaulUniversity",
@@ -57,8 +725,8 @@
   {
   "dataName": "gerogetownUniversity",
   "schoolName": "Georgetown University",
-  "latitude": 39.839827,
-  "longitude": -86.169704,
+  "latitude": 38.907609,
+  "longitude": -77.072258,
   "founded": 1789,
   "athleticConference": "Big East Conference",
   "city": "Washington",

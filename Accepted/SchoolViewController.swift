@@ -12,33 +12,28 @@ class SchoolViewController : UIViewController {
     
     var user: User!
     var school: School!
+    var isFavorite: Bool!
     
     @IBOutlet weak var schoolIconImageView: UIImageView!
     @IBOutlet weak var schoolNameLabel: UILabel!
     @IBOutlet weak var schoolLocationLabel: UILabel!
     @IBOutlet weak var mainScrollView: UIScrollView!
-    
+    @IBOutlet weak var favButtonView: UIButton!
     ///****  ALL OF THIS WILL BE AUTOMATED FROM COREDATA ****///
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var textView = UITextView(frame: CGRectMake(20, 50, 330, 700))
-        textView.text = "Test text"
-        textView.scrollEnabled = true
-        textView.textColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
-        textView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        textView.editable = false
+        if user.favoriteSchools.containsObject(school) {
+            isFavorite = true
+            favButtonView.setImage(UIImage(named: "favSchoolYes"), forState: nil)
+            println("Contains school!")
+        } else {
+            isFavorite = false
+            favButtonView.setImage(UIImage(named: "favSchoolNo"), forState: nil)
+            println("Does not contain school!")
+        }
         
-        var textView2 = UITextView(frame: CGRectMake(20, 500, 330, 700))
-        textView2.text = "Test text2"
-        textView2.scrollEnabled = true
-        textView2.textColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
-        textView2.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        textView2.editable = false
-        
-        //mainScrollView.addSubview(textView)
-        //mainScrollView.addSubview(textView2)
         schoolIconImageView.image = UIImage(named: "\(school.schoolName)")
         schoolNameLabel.text = school.schoolName
         //schoolLocationLabel.text = school.location
@@ -56,5 +51,16 @@ class SchoolViewController : UIViewController {
         schoolNameLabel.text = ""
         schoolLocationLabel.text = ""
         
+    }
+    @IBAction func favSchoolTapped(sender: AnyObject) {
+        if isFavorite! {
+            favButtonView.setImage(UIImage(named: "favSchoolNo"), forState: nil)
+            println("School unfavorited.")
+            isFavorite = !isFavorite
+        } else {
+            favButtonView.setImage(UIImage(named: "favSchoolYes"), forState: nil)
+            println("School favorited!")
+            isFavorite = !isFavorite
+        }
     }
 }
