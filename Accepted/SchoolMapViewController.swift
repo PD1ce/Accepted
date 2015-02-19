@@ -42,7 +42,7 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
                 schoolAnnotation.school = school
                 schoolAnnotation.setCoordinate(schoolCoordinates)
                 schoolAnnotation.title = "\(school.schoolName)"
-                schoolAnnotation.subtitle  = "\(school.location)"
+                //schoolAnnotation.subtitle  = "\(school.location)"
                 schoolAnnotation.imageName = "\(school.schoolName)"
                 schoolMapView.addAnnotation(schoolAnnotation)
             }
@@ -60,6 +60,7 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
 
     
     /* Imported, figure this out! */
+    /*
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if !(annotation is CustomPointAnnotation) {
             return nil
@@ -84,10 +85,11 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
         
         return annotationView
     }
+*/
     
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
         selectedSchoolLabel.text = view.annotation.title
-        selectedSchoolLocationLabel.text = view.annotation.subtitle
+        //selectedSchoolLocationLabel.text = view.annotation.subtitle
     }
     
     

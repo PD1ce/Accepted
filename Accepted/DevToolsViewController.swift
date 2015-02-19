@@ -56,42 +56,29 @@ class DevToolsViewController : UIViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         
-        /////
-        let uwmadison = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
-        uwmadison.schoolName = "University of Wisconsin-Madison"
-        uwmadison.location = "Madison, WI"
-        uwmadison.nickName = "Badgers"
-        uwmadison.latitude = 43.076592
-        uwmadison.longitude = -89.412487
-        /////
-        let marquette = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
-        marquette.schoolName = "Marquette University"
-        marquette.location = "Milwaukee, WI"
-        marquette.nickName = "Golden Eagles"
-        marquette.latitude = 43.038851
-        marquette.longitude = -87.930424
-        /////
-        let uwlacrosse = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
-        uwlacrosse.schoolName = "University of Wisconsin-La Crosse"
-        uwlacrosse.location = "La Crosse, WI"
-        uwlacrosse.nickName = "Eagles"
-        uwlacrosse.latitude = 43.815731
-        uwlacrosse.longitude = -91.233002
-        /////
-        let uwoshkosh = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
-        uwoshkosh.schoolName = "University of Wisconsin-Oshkosh"
-        uwoshkosh.location = "Oshkosh, WI"
-        uwoshkosh.nickName = "Titans"
-        uwoshkosh.latitude = 44.021364
-        uwoshkosh.longitude = -88.550861
-        /////
-        let uwwhitewater = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
-        uwwhitewater.schoolName = "University of Wisconsin-Whitewater"
-        uwwhitewater.location = "Whitewater, WI"
-        uwwhitewater.nickName = "Warhawks"
-        uwwhitewater.latitude = 42.838355
-        uwwhitewater.longitude = -88.743224
-        /////
+        let data = NSData(contentsOfFile: "/Users/Phil/Desktop/Swift/Accepted/Accepted/Schools.json")
+        let parsedObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments,error: nil)
+        let schoolArray = parsedObject as NSArray
+        for school in schoolArray {
+            
+            let newSchool = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
+            newSchool.schoolName = school.valueForKey("schoolName") as String
+            
+            newSchool.latitude = school.valueForKey("latitude") as Float
+            newSchool.longitude = school.valueForKey("longitude") as Float
+            /*
+            newSchool.establishedDate = school.valueForKey("founded") as NSNumber
+            newSchool.athleticConference = school.valueForKey("athleticConference") as String
+            newSchool.city = school.valueForKey("city") as String
+            newSchool.state = school.valueForKey("state") as String
+            newSchool.publicPrivate = school.valueForKey("publicprivate") as String
+            newSchool.inStateTuition = school.valueForKey("inStateTuition") as NSNumber
+            newSchool.outOfStateTuition = school.valueForKey("outOfStateTuition") as NSNumber
+            newSchool.studentsTotal = school.valueForKey("studentPopulation") as NSNumber
+            //newSchool.endowment = school.valueForKey("endowment") as String // Number!!
+            newSchool.acceptanceRate = school.valueForKey("acceptanceRate") as Float
+            */
+        }
         
         var error : NSError?
         if !managedContext.save(&error) {

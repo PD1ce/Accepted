@@ -41,7 +41,7 @@ class SchoolViewController : UIViewController {
         //mainScrollView.addSubview(textView2)
         schoolIconImageView.image = UIImage(named: "\(school.schoolName)")
         schoolNameLabel.text = school.schoolName
-        schoolLocationLabel.text = school.location
+        //schoolLocationLabel.text = school.location
     }
     
     override func viewDidAppear(animated: Bool) {

@@ -1,5 +1,5 @@
 //
-//  Accepted.swift
+//  User.swift
 //  Accepted
 //
 //  Created by Philip Deisinger on 2/5/15.
@@ -23,7 +23,7 @@ class User: NSManagedObject {
     @NSManaged var password: String
     @NSManaged var username: String
     
-    @NSManaged var dreamSchool: Accepted.School
+    @NSManaged var dreamSchool: School
     @NSManaged var favoriteSchools: NSSet
 
 }

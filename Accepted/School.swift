@@ -1,8 +1,8 @@
 //
-//  Accepted.swift
+//  School.swift
 //  Accepted
 //
-//  Created by Philip Deisinger on 2/5/15.
+//  Created by Philip Deisinger on 2/18/15.
 //  Copyright (c) 2015 PDice. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ import CoreData
 class School: NSManagedObject {
 
     @NSManaged var acceptanceRate: NSNumber
-    @NSManaged var athleticDivision: String
+    @NSManaged var athleticConference: String
     @NSManaged var attendance: NSNumber
     @NSManaged var colors: String
     @NSManaged var establishedDate: NSNumber
@@ -28,11 +28,17 @@ class School: NSManagedObject {
     @NSManaged var studentsPostgrad: NSNumber
     @NSManaged var studentsTotal: NSNumber
     @NSManaged var studentsUndergrad: NSNumber
-    @NSManaged var tuition: NSNumber
+    @NSManaged var tuitionGrad: NSNumber
     @NSManaged var tuitionUndergrad: NSNumber
     @NSManaged var varsityTeams: NSNumber
     @NSManaged var website: String
-    
+    @NSManaged var city: String
+    @NSManaged var state: String
+    @NSManaged var inStateTuition: NSNumber
+    @NSManaged var usNewsRanking: NSNumber
+    @NSManaged var publicPrivate: String
+    @NSManaged var outOfStateTuition: NSNumber
+    @NSManaged var endowment: String
     @NSManaged var dream: NSSet
     @NSManaged var favoritedByUsers: NSSet
 
