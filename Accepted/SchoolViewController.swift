@@ -20,6 +20,7 @@ class SchoolViewController : UIViewController {
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var favButtonView: UIButton!
     ///****  ALL OF THIS WILL BE AUTOMATED FROM COREDATA ****///
+    @IBOutlet weak var favoritedLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -33,6 +34,13 @@ class SchoolViewController : UIViewController {
             favButtonView.setImage(UIImage(named: "favSchoolNo"), forState: nil)
             println("Does not contain school!")
         }
+        
+        self.view.backgroundColor = UIColor(red: CGFloat(school.primaryRed), green: CGFloat(school.primaryGreen), blue: CGFloat(school.primaryBlue), alpha: 1)
+        let textColor = UIColor(red: CGFloat(school.secondaryRed), green: CGFloat(school.secondaryGreen), blue: CGFloat(school.secondaryBlue), alpha: 1)
+        
+        schoolNameLabel.textColor = textColor
+        schoolLocationLabel.textColor = textColor
+        favoritedLabel.textColor = textColor
         
         schoolIconImageView.image = UIImage(named: "\(school.schoolName)")
         schoolNameLabel.text = school.schoolName
@@ -56,10 +64,12 @@ class SchoolViewController : UIViewController {
         if isFavorite! {
             favButtonView.setImage(UIImage(named: "favSchoolNo"), forState: nil)
             println("School unfavorited.")
+            favoritedLabel.text = "School Unfavorited."
             isFavorite = !isFavorite
         } else {
             favButtonView.setImage(UIImage(named: "favSchoolYes"), forState: nil)
             println("School favorited!")
+            favoritedLabel.text = "School Favorited!"
             isFavorite = !isFavorite
         }
     }

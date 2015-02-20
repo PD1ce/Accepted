@@ -18,8 +18,14 @@
         <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="outOfStateTuition" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="presidentOrChancellor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="primaryBlue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="primaryGreen" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="primaryRed" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="publicPrivate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="schoolName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="secondaryBlue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="secondaryGreen" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="secondaryRed" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="studentsPostgrad" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="studentsTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -48,7 +54,7 @@
         <relationship name="favoriteSchools" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="School" inverseName="favoritedByUsers" inverseEntity="School" syncable="YES"/>
     </entity>
     <elements>
-        <element name="School" positionX="-36" positionY="9" width="128" height="495"/>
+        <element name="School" positionX="-36" positionY="9" width="128" height="585"/>
         <element name="User" positionX="-18" positionY="9" width="128" height="238"/>
     </elements>
 </model>

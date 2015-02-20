@@ -1,5 +1,5 @@
 //
-//  Accepted.swift
+//  School.swift
 //  Accepted
 //
 //  Created by Philip Deisinger on 2/20/15.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Accepted: NSManagedObject {
+class School: NSManagedObject {
 
     @NSManaged var acceptanceRate: NSNumber
     @NSManaged var athleticConference: String
