@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SchoolViewController : UIViewController {
+class SchoolViewController : UIViewController, UIScrollViewDelegate {
     
     var user: User!
     var school: School!
@@ -21,6 +21,8 @@ class SchoolViewController : UIViewController {
     @IBOutlet weak var favButtonView: UIButton!
     ///****  ALL OF THIS WILL BE AUTOMATED FROM COREDATA ****///
     @IBOutlet weak var favoritedLabel: UILabel!
+    
+    var scrollImageView: UIImageView!
     
     
     override func viewDidLoad() {
@@ -35,6 +37,12 @@ class SchoolViewController : UIViewController {
             println("Does not contain school!")
         }
         
+        let image = UIImage(named: "mountainTest")!
+        scrollImageView = UIImageView(image: image)
+        scrollImageView.frame = CGRect(origin: CGPointMake(0, 0), size: image.size)
+        mainScrollView.addSubview(scrollImageView)
+        mainScrollView.contentSize = image.size
+        
         self.view.backgroundColor = UIColor(red: CGFloat(school.primaryRed), green: CGFloat(school.primaryGreen), blue: CGFloat(school.primaryBlue), alpha: 1)
         let textColor = UIColor(red: CGFloat(school.secondaryRed), green: CGFloat(school.secondaryGreen), blue: CGFloat(school.secondaryBlue), alpha: 1)
         
@@ -47,17 +55,10 @@ class SchoolViewController : UIViewController {
         //schoolLocationLabel.text = school.location
     }
     
-    override func viewDidAppear(animated: Bool) {
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     override func viewDidDisappear(animated: Bool) {
         schoolNameLabel.text = ""
         schoolLocationLabel.text = ""
+        favoritedLabel.text = ""
         
     }
     @IBAction func favSchoolTapped(sender: AnyObject) {
