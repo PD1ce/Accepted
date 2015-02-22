@@ -14,6 +14,7 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
     
     var user: User!
     var schools: [School]!
+    var mapBorder: UIView!
     
     var annotationView: MKAnnotationView!
     
@@ -45,6 +46,13 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
                 schoolMapView.addAnnotation(schoolAnnotation)
             }
         }
+        
+        mapBorder = UIView(frame: CGRect(x: 12, y: 226, width: 351, height: 425))
+        mapBorder.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1)
+        mapBorder.layer.cornerRadius = 7.5
+        schoolMapView.layer.cornerRadius = 7.5
+        self.view.addSubview(mapBorder)
+        self.view.bringSubviewToFront(schoolMapView)
         
         selectedSchoolLabel.text = ""
         selectedSchoolLocationLabel.text = ""
