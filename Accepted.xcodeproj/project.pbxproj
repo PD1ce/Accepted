@@ -16,6 +16,7 @@
 		4A7A93AD1A81466B0091352D /* SchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A93AC1A81466B0091352D /* SchoolTableViewCell.swift */; };
 		4A7A93AF1A81AA4A0091352D /* UpdateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A93AE1A81AA4A0091352D /* UpdateUserViewController.swift */; };
 		4A7A9EE11A83E116009DD663 /* CreateDetailsViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A9EE01A83E116009DD663 /* CreateDetailsViewContoller.swift */; };
+		4A83F9541A9AC9290068472B /* SchoolCardTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83F9531A9AC9290068472B /* SchoolCardTextView.swift */; };
 		4A9933711A7ABF1000418141 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933701A7ABF1000418141 /* AppDelegate.swift */; };
 		4A9933741A7ABF1000418141 /* Accepted.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933721A7ABF1000418141 /* Accepted.xcdatamodeld */; };
 		4A9933761A7ABF1000418141 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933751A7ABF1000418141 /* ViewController.swift */; };
@@ -57,6 +58,7 @@
 		4A7A93AC1A81466B0091352D /* SchoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolTableViewCell.swift; sourceTree = "<group>"; };
 		4A7A93AE1A81AA4A0091352D /* UpdateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserViewController.swift; sourceTree = "<group>"; };
 		4A7A9EE01A83E116009DD663 /* CreateDetailsViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDetailsViewContoller.swift; sourceTree = "<group>"; };
+		4A83F9531A9AC9290068472B /* SchoolCardTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolCardTextView.swift; sourceTree = "<group>"; };
 		4A99336B1A7ABF1000418141 /* Accepted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Accepted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A99336F1A7ABF1000418141 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A9933701A7ABF1000418141 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				4A7A93AC1A81466B0091352D /* SchoolTableViewCell.swift */,
 				4AC1A97C1A83ED8800C083C0 /* User.swift */,
 				4A99339C1A7AC1D100418141 /* UserModel.swift */,
+				4A83F9531A9AC9290068472B /* SchoolCardTextView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				4AAE3CC21A97BC4500AF26CC /* School.swift in Sources */,
 				4A9933A31A7AC1D100418141 /* SchoolMapViewController.swift in Sources */,
 				4A9933A41A7AC1D100418141 /* SchoolModel.swift in Sources */,
+				4A83F9541A9AC9290068472B /* SchoolCardTextView.swift in Sources */,
 				4A9933A01A7AC1D100418141 /* Location.swift in Sources */,
 				4A9933A11A7AC1D100418141 /* Major.swift in Sources */,
 				4A0467E71A7FEFC600E3DA6B /* SettingsViewController.swift in Sources */,
