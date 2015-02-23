@@ -575,7 +575,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k7Y-qd-SuF">
-                                <rect key="frame" x="0.0" y="216" width="375" height="451"/>
+                                <rect key="frame" x="0.0" y="257" width="375" height="410"/>
                                 <connections>
                                     <outlet property="delegate" destination="KWj-ve-xEb" id="Usn-zq-slP"/>
                                 </connections>

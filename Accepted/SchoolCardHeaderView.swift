@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
+class SchoolCardHeaderView : UITextView {
+    var associatedCard: SchoolCardTextView!
+}
