@@ -56,42 +56,60 @@ class DevToolsViewController : UIViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         
-        /////
-        let uwmadison = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
-        uwmadison.schoolName = "University of Wisconsin-Madison"
-        uwmadison.location = "Madison, WI"
-        uwmadison.nickName = "Badgers"
-        uwmadison.latitude = 43.076592
-        uwmadison.longitude = -89.412487
-        /////
-        let marquette = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
-        marquette.schoolName = "Marquette University"
-        marquette.location = "Milwaukee, WI"
-        marquette.nickName = "Golden Eagles"
-        marquette.latitude = 43.038851
-        marquette.longitude = -87.930424
-        /////
-        let uwlacrosse = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
-        uwlacrosse.schoolName = "University of Wisconsin-La Crosse"
-        uwlacrosse.location = "La Crosse, WI"
-        uwlacrosse.nickName = "Eagles"
-        uwlacrosse.latitude = 43.815731
-        uwlacrosse.longitude = -91.233002
-        /////
-        let uwoshkosh = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
-        uwoshkosh.schoolName = "University of Wisconsin-Oshkosh"
-        uwoshkosh.location = "Oshkosh, WI"
-        uwoshkosh.nickName = "Titans"
-        uwoshkosh.latitude = 44.021364
-        uwoshkosh.longitude = -88.550861
-        /////
-        let uwwhitewater = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
-        uwwhitewater.schoolName = "University of Wisconsin-Whitewater"
-        uwwhitewater.location = "Whitewater, WI"
-        uwwhitewater.nickName = "Warhawks"
-        uwwhitewater.latitude = 42.838355
-        uwwhitewater.longitude = -88.743224
-        /////
+        let data = NSData(contentsOfFile: "/Users/Phil/Desktop/Swift/Accepted/Accepted/Schools.json")
+        let parsedObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments,error: nil)
+        let schoolArray = parsedObject as NSArray
+        for school in schoolArray {
+            
+            let newSchool = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
+            newSchool.schoolName = school.valueForKey("schoolName") as String
+            
+            newSchool.latitude = school.valueForKey("latitude") as Float
+            newSchool.longitude = school.valueForKey("longitude") as Float
+            
+            //newSchool.establishedDate = school.valueForKey("founded") as NSNumber
+            newSchool.athleticConference = school.valueForKey("athleticConference") as String
+            /*
+            newSchool.city = school.valueForKey("city") as String
+            newSchool.state = school.valueForKey("state") as String
+            newSchool.publicPrivate = school.valueForKey("publicprivate") as String
+            newSchool.inStateTuition = school.valueForKey("inStateTuition") as NSNumber
+            newSchool.outOfStateTuition = school.valueForKey("outOfStateTuition") as NSNumber
+            newSchool.studentsTotal = school.valueForKey("studentPopulation") as NSNumber
+            //newSchool.endowment = school.valueForKey("endowment") as String // Number!!
+            newSchool.acceptanceRate = school.valueForKey("acceptanceRate") as Float
+            */
+            
+            //Parsing school colors - Test
+            /**********************************/
+            let primaryColorString = school.valueForKey("primaryColor") as NSString
+            let secondaryColorString = school.valueForKey("secondaryColor") as NSString
+            var primaryRed: String; var primaryGreen: String; var primaryBlue: String; var secRed: String; var secGreen: String; var secBlue: String;
+            primaryRed = primaryColorString.substringWithRange(NSRange(location: 0, length: 2))
+            primaryGreen = primaryColorString.substringWithRange(NSRange(location: 2, length: 2))
+            primaryBlue = primaryColorString.substringWithRange(NSRange(location: 4, length: 2))
+            secRed = secondaryColorString.substringWithRange(NSRange(location: 0, length: 2))
+            secGreen = secondaryColorString.substringWithRange(NSRange(location: 2, length: 2))
+            secBlue = secondaryColorString.substringWithRange(NSRange(location: 4, length: 2))
+            
+            let red1     = hexToDec(primaryRed)
+            let green1   = hexToDec(primaryGreen)
+            let blue1    = hexToDec(primaryBlue)
+            let red2     = hexToDec(secRed)
+            let green2   = hexToDec(secGreen)
+            let blue2    = hexToDec(secBlue)
+            
+            newSchool.primaryRed = red1
+            newSchool.primaryGreen = green1
+            newSchool.primaryBlue = blue1
+            newSchool.secondaryRed = red2
+            newSchool.secondaryGreen = green2
+            newSchool.secondaryBlue = blue2
+            /***********************************/
+            
+            
+            
+        }
         
         var error : NSError?
         if !managedContext.save(&error) {
@@ -192,6 +210,68 @@ class DevToolsViewController : UIViewController {
             
             }
         )
+    }
+    
+   
+    @IBAction func regexSchoolTapped(sender: AnyObject) {
+        let location = "/Users/Phil/Desktop/Swift/Accepted/Accepted/SchoolCurls.txt"
+        var schoolString = NSString(contentsOfFile: location, encoding: NSUTF8StringEncoding, error: nil) as String
+     
+        
+        let regex = NSRegularExpression(pattern: "infobox vcard(.*?)</table>", options: NSRegularExpressionOptions.DotMatchesLineSeparators, error: nil)
+       
+        
+        let range = NSMakeRange(0, countElements(schoolString))
+        let newString = regex?.stringByReplacingMatchesInString(schoolString, options: nil, range: range, withTemplate: "")
+        println(newString)
+    }
+    
+    func hexToDec(hex: NSString) -> Float {
+        var firstDigit: Int
+        var secondDigit: Int
+        let firstHex = hex.substringWithRange(NSRange(location: 0, length: 1))
+        let secondHex = hex.substringWithRange(NSRange(location: 1, length: 1))
+        switch firstHex {
+            case "0": firstDigit = 0
+            case "1": firstDigit = 1
+            case "2": firstDigit = 2
+            case "3": firstDigit = 3
+            case "4": firstDigit = 4
+            case "5": firstDigit = 5
+            case "6": firstDigit = 6
+            case "7": firstDigit = 7
+            case "8": firstDigit = 8
+            case "9": firstDigit = 9
+            case "a": firstDigit = 10
+            case "b": firstDigit = 11
+            case "c": firstDigit = 12
+            case "d": firstDigit = 13
+            case "e": firstDigit = 14
+            case "f": firstDigit = 15
+        	default : firstDigit = firstHex.toInt()!
+        }
+        switch secondHex {
+            case "0": secondDigit = 0
+            case "1": secondDigit = 1
+            case "2": secondDigit = 2
+            case "3": secondDigit = 3
+            case "4": secondDigit = 4
+            case "5": secondDigit = 5
+            case "6": secondDigit = 6
+            case "7": secondDigit = 7
+            case "8": secondDigit = 8
+        	case "9": secondDigit = 9
+        	case "a": secondDigit = 10
+            case "b": secondDigit = 11
+            case "c": secondDigit = 12
+            case "d": secondDigit = 13
+        	case "e": secondDigit = 14
+            case "f": secondDigit = 15
+            default : secondDigit = firstHex.toInt()!
+        }
+        
+        
+        return Float(firstDigit * 16 + secondDigit) / 256
     }
 
 

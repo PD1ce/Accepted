@@ -14,6 +14,7 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
     
     var user: User!
     var schools: [School]!
+    var mapBorder: UIView!
     
     var annotationView: MKAnnotationView!
     
@@ -27,8 +28,6 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-//        let managedContext = appDelegate.managedObjectContext!
         let managedContext = user.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName: "School")
         var error:NSError?
@@ -42,11 +41,18 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
                 schoolAnnotation.school = school
                 schoolAnnotation.setCoordinate(schoolCoordinates)
                 schoolAnnotation.title = "\(school.schoolName)"
-                schoolAnnotation.subtitle  = "\(school.location)"
-                schoolAnnotation.imageName = "\(school.schoolName)"
+                //schoolAnnotation.subtitle  = "\(school.location)"
+                schoolAnnotation.imageName = "\(school.athleticConference)"
                 schoolMapView.addAnnotation(schoolAnnotation)
             }
         }
+        
+        mapBorder = UIView(frame: CGRect(x: 12, y: 226, width: 351, height: 425))
+        mapBorder.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1)
+        mapBorder.layer.cornerRadius = 7.5
+        schoolMapView.layer.cornerRadius = 7.5
+        self.view.addSubview(mapBorder)
+        self.view.bringSubviewToFront(schoolMapView)
         
         selectedSchoolLabel.text = ""
         selectedSchoolLocationLabel.text = ""
@@ -60,6 +66,7 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
 
     
     /* Imported, figure this out! */
+    // @ROYALTY - The images in these annotations are not royalty free 
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if !(annotation is CustomPointAnnotation) {
             return nil
@@ -84,10 +91,11 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
         
         return annotationView
     }
+
     
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
         selectedSchoolLabel.text = view.annotation.title
-        selectedSchoolLocationLabel.text = view.annotation.subtitle
+        //selectedSchoolLocationLabel.text = view.annotation.subtitle
     }
     
     
@@ -113,6 +121,14 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
             var selectedSchool = selectedSchoolAnnotation.school
 
             //Casting as Mutable sets so it can update!
+            // Probably should do this in core data
+            let schoolViewController = storyboard?.instantiateViewControllerWithIdentifier("SchoolViewController") as SchoolViewController
+            schoolViewController.school = selectedSchool
+            schoolViewController.user = user
+            navigationController?.pushViewController(schoolViewController, animated: true)
+            
+            /* Going to move this to the actual school page!
+            
             let utwo = user.favoriteSchools.mutableCopy() as NSMutableSet
             utwo.addObject(selectedSchool)
             user.favoriteSchools = utwo
@@ -127,7 +143,7 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
                 selectedSchoolLocationLabel.text = ""
                 schoolMapView.deselectAnnotation(schoolMapView.selectedAnnotations.first? as MKAnnotation, animated: true)
             }
-            
+            */
         } else {
             selectedSchoolLabel.text = "No School selected"
         }

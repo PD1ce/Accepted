@@ -89,6 +89,7 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
         //probably can just use tableView instead of schoolTableView
         let thisCell = schoolTableView.cellForRowAtIndexPath(indexPath) as SchoolTableViewCell
         let schoolViewController = storyboard?.instantiateViewControllerWithIdentifier("SchoolViewController") as SchoolViewController
+        schoolViewController.user = user
         schoolViewController.school = thisCell.school
         navigationController?.pushViewController(schoolViewController, animated: true)
     }

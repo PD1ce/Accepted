@@ -11,6 +11,7 @@ import UIKit
 import CoreData
 
 class UpdateUserViewController : UIViewController {
+    
     var user: User!
     var parent: SettingsViewController!
     

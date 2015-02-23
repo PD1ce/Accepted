@@ -51,7 +51,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iN-Ra-nZm">
                                 <rect key="frame" x="16" y="366" width="343" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -198,13 +198,13 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.060231345870000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="locationLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2D-Gl-CT0">
-                                <rect key="frame" x="166" y="380" width="193" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="addressLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2D-Gl-CT0">
+                                <rect key="frame" x="166" y="380" width="193" height="24"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f56-zg-QB9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f56-zg-QB9">
                                 <rect key="frame" x="16" y="376" width="90" height="30"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.060231345870000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -234,18 +234,43 @@
                                     <action selector="updateButtonTapped:" destination="eDJ-pP-2s2" eventType="touchUpInside" id="KAa-HW-RI2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Grade:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O54-F5-46d">
+                                <rect key="frame" x="16" y="452" width="76" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.060231345870000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="gradeLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtd-I1-KbX">
+                                <rect key="frame" x="166" y="455" width="193" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aS2-fv-bZH">
+                                <rect key="frame" x="16" y="490" width="58" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.060231345870000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="cityLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUY-Gd-RjY">
+                                <rect key="frame" x="166" y="494" width="193" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.7211761445" green="0.88450633280000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="addressLabel" destination="Z2D-Gl-CT0" id="2dt-7Z-JRV"/>
                         <outlet property="ageLabel" destination="lHl-Es-5ce" id="TEQ-He-aXM"/>
+                        <outlet property="cityLabel" destination="pUY-Gd-RjY" id="I6X-7I-3Ta"/>
                         <outlet property="dreamSchoolLabel" destination="2vT-eP-FhT" id="Z5c-aR-UFc"/>
                         <outlet property="emailLabel" destination="xso-yL-DhH" id="7Px-Qx-tNJ"/>
                         <outlet property="firstNameLabel" destination="SKA-Jn-3aF" id="s2a-ge-ZSp"/>
+                        <outlet property="gradeLabel" destination="gtd-I1-KbX" id="ldJ-8o-hM9"/>
                         <outlet property="lastNameLabel" destination="SJo-B7-16e" id="Kiu-pR-8aS"/>
-                        <outlet property="locationLabel" destination="Z2D-Gl-CT0" id="tD5-EW-sW9"/>
                         <outlet property="majorsLabel" destination="hf3-NB-cfH" id="zjX-KL-RdW"/>
                         <outlet property="numSchoolsLabel" destination="gAb-FD-Van" id="d2v-M1-FPw"/>
                         <outlet property="passwordLabel" destination="FmE-my-6KW" id="ih5-VX-O8X"/>
@@ -543,32 +568,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="School Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oq8-9I-IDA">
-                                <rect key="frame" x="16" y="139" width="235" height="21"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwb-v1-hHr">
+                                <rect key="frame" x="217" y="164" width="142" height="40"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k7Y-qd-SuF">
+                                <rect key="frame" x="0.0" y="257" width="375" height="410"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KWj-ve-xEb" id="Usn-zq-slP"/>
+                                </connections>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="School Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oq8-9I-IDA">
+                                <rect key="frame" x="144" y="121" width="215" height="40"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOn-Ep-iVO">
+                                <rect key="frame" x="144" y="160" width="48" height="48"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="favSchoolTapped:" destination="KWj-ve-xEb" eventType="touchUpInside" id="6a4-HH-U0Y"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZD-fg-ueO">
-                                <rect key="frame" x="259" y="72" width="100" height="100"/>
+                                <rect key="frame" x="16" y="81" width="120" height="120"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="School Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YG3-tx-2yk">
-                                <rect key="frame" x="16" y="97" width="235" height="21"/>
+                                <rect key="frame" x="144" y="72" width="215" height="50"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D5x-Ee-byC">
-                                <rect key="frame" x="16" y="209" width="343" height="363"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.7211761445" green="0.88450633280000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="schoolDescTextView" destination="D5x-Ee-byC" id="K2b-E3-CRE"/>
+                        <outlet property="favButtonView" destination="oOn-Ep-iVO" id="Lyt-WN-asa"/>
+                        <outlet property="favoritedLabel" destination="lwb-v1-hHr" id="fRr-Vd-e1h"/>
+                        <outlet property="mainScrollView" destination="k7Y-qd-SuF" id="82Z-fy-gv9"/>
                         <outlet property="schoolIconImageView" destination="fZD-fg-ueO" id="sVE-8b-htg"/>
                         <outlet property="schoolLocationLabel" destination="Oq8-9I-IDA" id="fVM-bf-eiT"/>
                         <outlet property="schoolNameLabel" destination="YG3-tx-2yk" id="Acu-3H-rKX"/>
@@ -689,6 +731,15 @@
                                     <action selector="importSchoolsTapped:" destination="77h-I0-QMU" eventType="touchUpInside" id="Ou2-eV-nV6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2D5-27-WnQ">
+                                <rect key="frame" x="139" y="515" width="96" height="30"/>
+                                <state key="normal" title="Regex School">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="regexSchoolTapped:" destination="77h-I0-QMU" eventType="touchUpInside" id="sNy-s3-2n5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.7211761445" green="0.88450633280000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -737,11 +788,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vb-J2-3Ov">
-                                <rect key="frame" x="258" y="127" width="101" height="50"/>
+                                <rect key="frame" x="249" y="127" width="110" height="50"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Add School">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.060231345870000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="View School">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
