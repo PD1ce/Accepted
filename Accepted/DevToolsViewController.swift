@@ -63,22 +63,20 @@ class DevToolsViewController : UIViewController {
             
             let newSchool = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
             newSchool.schoolName = school.valueForKey("schoolName") as String
-            
             newSchool.latitude = school.valueForKey("latitude") as Float
             newSchool.longitude = school.valueForKey("longitude") as Float
-            
-            //newSchool.establishedDate = school.valueForKey("founded") as NSNumber
+            newSchool.establishedDate = school.valueForKey("founded") as NSNumber
             newSchool.athleticConference = school.valueForKey("athleticConference") as String
-            /*
             newSchool.city = school.valueForKey("city") as String
             newSchool.state = school.valueForKey("state") as String
             newSchool.publicPrivate = school.valueForKey("publicprivate") as String
             newSchool.inStateTuition = school.valueForKey("inStateTuition") as NSNumber
             newSchool.outOfStateTuition = school.valueForKey("outOfStateTuition") as NSNumber
             newSchool.studentsTotal = school.valueForKey("studentPopulation") as NSNumber
+            newSchool.nickName = school.valueForKey("nickname") as String
             //newSchool.endowment = school.valueForKey("endowment") as String // Number!!
             newSchool.acceptanceRate = school.valueForKey("acceptanceRate") as Float
-            */
+            
             
             //Parsing school colors - Test
             /**********************************/

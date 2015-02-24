@@ -15,6 +15,8 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
     var isFavorite: Bool!
     
     var testBool: Bool!
+    var textColor: UIColor!
+    var backgroundColor: UIColor!
     
     @IBOutlet weak var schoolIconImageView: UIImageView!
     @IBOutlet weak var schoolNameLabel: UILabel!
@@ -30,7 +32,7 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
     var scrollTextView3: UITextView!
     var scrollTextView4: UITextView!
     
-    var scrollTextViews: [SchoolCardTextView]!
+    var infoViews: [UIView]!
     var headerViews: [SchoolCardHeaderView]!
     var selectedColor: UIColor!
     var unselectedColor: UIColor!
@@ -45,16 +47,17 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
             favButtonView.setImage(UIImage(named: "favSchoolNo"), forState: nil)
         }
         
-        let backgroundColor = UIColor(red: CGFloat(school.primaryRed), green: CGFloat(school.primaryGreen), blue: CGFloat(school.primaryBlue), alpha: 1)
+        backgroundColor = UIColor(red: CGFloat(school.primaryRed), green: CGFloat(school.primaryGreen), blue: CGFloat(school.primaryBlue), alpha: 1)
         self.view.backgroundColor = backgroundColor
-        let textColor = UIColor(red: CGFloat(school.secondaryRed), green: CGFloat(school.secondaryGreen), blue: CGFloat(school.secondaryBlue), alpha: 1)
+        textColor = UIColor(red: CGFloat(school.secondaryRed), green: CGFloat(school.secondaryGreen), blue: CGFloat(school.secondaryBlue), alpha: 1)
         
         selectedColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         unselectedColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
         
         mainScrollView.bounces = false
+        mainScrollView.backgroundColor = backgroundColor
         
-        scrollTextViews = [SchoolCardTextView]()
+        infoViews = [UIView]()
         headerViews = [SchoolCardHeaderView]()
         
         let image = UIImage(named: "universityOfWisconsinMadisonLogo")!
@@ -62,6 +65,7 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
         scrollImageView.frame = CGRect(origin: CGPointMake(0, 0), size: image.size)
         //mainScrollView.addSubview(scrollImageView)
                 //Data into scrollView
+
 
         //Instantiating GRs
         let generalViewTap = UITapGestureRecognizer(target: self, action: "generalViewTapped:")
@@ -76,6 +80,9 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
         let studentLifeViewTap = UITapGestureRecognizer(target: self, action: "studentLifeViewTapped:")
         studentLifeViewTap.numberOfTapsRequired = 1
         studentLifeViewTap.numberOfTouchesRequired = 1
+        let ratingViewTap = UITapGestureRecognizer(target: self, action: "ratingViewTapped:")
+        ratingViewTap.numberOfTapsRequired = 1
+        ratingViewTap.numberOfTouchesRequired = 1
         
         
         //General Subview
@@ -142,50 +149,237 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
         studentLifeView.addGestureRecognizer(studentLifeViewTap)
         self.view.addSubview(studentLifeView)
         headerViews.append(studentLifeView)
+        //Rating
+        let ratingView = SchoolCardHeaderView(frame: CGRect(x: 325, y: 227, width: 50, height: 30))
+        ratingView.text = "Rate"
+        ratingView.editable = false
+        ratingView.selectable = false
+        ratingView.backgroundColor = unselectedColor
+        ratingView.textAlignment = NSTextAlignment(rawValue: 1)!
+        ratingView.font = UIFont(name: "Avenir Heavy", size: 14.0)
+        ratingView.textColor = textColor
         
-        for var i = 0; i < 4; i++ {
-            var textView = SchoolCardTextView(frame: CGRect(x: 0, y: 0, width: 375, height: 1000))
-            textView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
-            textView.layer.cornerRadius = 10.0
-            textView.position = i
-            textView.open = false
-            textView.textAlignment = NSTextAlignment(rawValue: 1)!
-            textView.font = UIFont(name: "Avenir Heavy", size: 20)
-            textView.layer.borderWidth = 2
-            textView.editable = false
-            textView.selectable = false
-            scrollTextViews.append(textView)
-            mainScrollView.addSubview(textView)
+        /* ugh
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: ratingView.bounds, byRoundingCorners: UIRectCornerTopLeft | UIRectCornerTopRight, cornerRadii: CGSize(width: CGFloat(10.0), height: CGFloat(10.0)))
+        */
+        
+        ratingView.layer.cornerRadius = 10.0
+        ratingView.layer.zPosition = -1
+        ratingView.layer.borderWidth = 2
+        ratingView.layer.borderColor = textColor.CGColor
+        ratingView.addGestureRecognizer(ratingViewTap)
+        self.view.addSubview(ratingView)
+        headerViews.append(ratingView)
+        
+        //School cards under the headers
+        for var i = 0; i < 5; i++ {
+            var infoCardView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 1000))
             
-            if i == 0 {
-                generalView.associatedCard = textView
+            if i == 0 { // General
+                var textView = SchoolCardTextView(frame: CGRect(x: 5, y: 5, width: 365, height: 500))
+                
+                //View Properties!
+                infoCardView.layer.borderColor = textColor.CGColor
+                infoCardView.layer.borderWidth = 2
+                infoCardView.layer.cornerRadius = 10.0
+                
+                //Textview Properties!
+                textView.backgroundColor = backgroundColor
+                textView.textColor = textColor
+                textView.layer.cornerRadius = 10.0
+                textView.position = i
+                textView.open = false
+                textView.textAlignment = NSTextAlignment(rawValue: 1)!
+                textView.font = UIFont(name: "Avenir Heavy", size: 20)
+                textView.layer.borderWidth = 2
+                textView.layer.borderColor = textColor.CGColor
+                textView.editable = false
+                textView.selectable = false
+                infoViews.append(infoCardView)
+                mainScrollView.addSubview(infoCardView)
+
+                generalView.associatedCard = infoCardView
                 textView.text = "General"
-            } else if i == 1 {
-                academicView.associatedCard = textView
+                infoCardView.addSubview(textView)
+            } else if i == 1 { // Academics
+                var textView = SchoolCardTextView(frame: CGRect(x: 5, y: 5, width: 365, height: 500))
+                
+                //View Properties!
+                infoCardView.layer.borderColor = textColor.CGColor
+                infoCardView.layer.borderWidth = 2
+                infoCardView.layer.cornerRadius = 10.0
+                
+                //Textview Properties!
+                textView.backgroundColor = backgroundColor
+                textView.textColor = textColor
+                textView.layer.cornerRadius = 10.0
+                textView.position = i
+                textView.open = false
+                textView.textAlignment = NSTextAlignment(rawValue: 1)!
+                textView.font = UIFont(name: "Avenir Heavy", size: 20)
+                textView.layer.borderWidth = 2
+                textView.layer.borderColor = textColor.CGColor
+                textView.editable = false
+                textView.selectable = false
+                infoViews.append(infoCardView)
+                mainScrollView.addSubview(infoCardView)
+
+                academicView.associatedCard = infoCardView
                 textView.text = "Academics"
-            } else if i == 2 {
-                athleticView.associatedCard = textView
+                infoCardView.addSubview(textView)
+            } else if i == 2 { // Athletics
+                var textView = SchoolCardTextView(frame: CGRect(x: 5, y: 5, width: 365, height: 500))
+                
+                //View Properties!
+                infoCardView.layer.borderColor = textColor.CGColor
+                infoCardView.layer.borderWidth = 2
+                infoCardView.layer.cornerRadius = 10.0
+                
+                //Textview Properties!
+                textView.backgroundColor = backgroundColor
+                textView.textColor = textColor
+                textView.layer.cornerRadius = 10.0
+                textView.position = i
+                textView.open = false
+                textView.textAlignment = NSTextAlignment(rawValue: 1)!
+                textView.font = UIFont(name: "Avenir Heavy", size: 20)
+                textView.layer.borderWidth = 2
+                textView.layer.borderColor = textColor.CGColor
+                textView.editable = false
+                textView.selectable = false
+                infoViews.append(infoCardView)
+                mainScrollView.addSubview(infoCardView)
+
+                athleticView.associatedCard = infoCardView
                 textView.text = "Athletics"
-            } else if i == 3 {
-                studentLifeView.associatedCard = textView
+                infoCardView.addSubview(textView)
+            } else if i == 3 { //Student Life
+                var textView = SchoolCardTextView(frame: CGRect(x: 5, y: 5, width: 365, height: 500))
+                
+                //View Properties!
+                infoCardView.layer.borderColor = textColor.CGColor
+                infoCardView.layer.borderWidth = 2
+                infoCardView.layer.cornerRadius = 10.0
+                
+                //Textview Properties!
+                textView.backgroundColor = backgroundColor
+                textView.textColor = textColor
+                textView.layer.cornerRadius = 10.0
+                textView.position = i
+                textView.open = false
+                textView.textAlignment = NSTextAlignment(rawValue: 1)!
+                textView.font = UIFont(name: "Avenir Heavy", size: 20)
+                textView.layer.borderWidth = 2
+                textView.layer.borderColor = textColor.CGColor
+                textView.editable = false
+                textView.selectable = false
+                infoViews.append(infoCardView)
+                mainScrollView.addSubview(infoCardView)
+
+                studentLifeView.associatedCard = infoCardView
                 textView.text = "Student Life"
+                infoCardView.addSubview(textView)
+            } else if i == 4 { // Ratings
+                infoCardView.backgroundColor = backgroundColor
+                let titleLabel = UILabel(frame: CGRect(x: 5, y: 5, width: 365, height: 30))
+                titleLabel.text = "Ratings"
+                titleLabel.font = UIFont(name: "Avenir Heavy", size: 20)
+                titleLabel.textColor = textColor
+                titleLabel.textAlignment = NSTextAlignment(rawValue: 1)!
+                infoCardView.addSubview(titleLabel)
+                
+                ///// Food Rating /////
+                let foodRatingLabel = RatingLabel(frame: CGRect(x: 10, y: 60, width: 160, height: 20))
+                foodRatingLabel.textColor = textColor
+                foodRatingLabel.text = "Food"
+                infoCardView.addSubview(foodRatingLabel)
+                //Stars!
+                let foodStarRating = StarRating(frame: CGRect(x: 200, y: 50, width: 160, height: 40))
+                infoCardView.addSubview(foodStarRating)
+                let foodGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
+                foodGestureRec.numberOfTouchesRequired = 1
+                foodGestureRec.minimumPressDuration = 0.01
+                foodStarRating.addGestureRecognizer(foodGestureRec)
+                
+                ///// School Size Rating /////
+                let schoolSizeRatingLabel = RatingLabel(frame: CGRect(x: 10, y: 120, width: 160, height: 20))
+                schoolSizeRatingLabel.textColor = textColor
+                schoolSizeRatingLabel.text = "School Size"
+                infoCardView.addSubview(schoolSizeRatingLabel)
+                //Stars!
+                let schoolSizeStarRating = StarRating(frame: CGRect(x: 200, y: 110, width: 160, height: 40))
+                infoCardView.addSubview(schoolSizeStarRating)
+                let schoolSizeGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
+                schoolSizeGestureRec.numberOfTouchesRequired = 1
+                schoolSizeGestureRec.minimumPressDuration = 0.01
+                schoolSizeStarRating.addGestureRecognizer(schoolSizeGestureRec)
+                
+                ///// Location Rating /////
+                let locationRatingLabel = RatingLabel(frame: CGRect(x: 10, y: 180, width: 160, height: 20))
+                locationRatingLabel.textColor = textColor
+                locationRatingLabel.text = "Location"
+                infoCardView.addSubview(locationRatingLabel)
+                //Stars!
+                let locationStarRating = StarRating(frame: CGRect(x: 200, y: 170, width: 160, height: 40))
+                infoCardView.addSubview(locationStarRating)
+                let locationGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
+                locationGestureRec.numberOfTouchesRequired = 1
+                locationGestureRec.minimumPressDuration = 0.01
+                locationStarRating.addGestureRecognizer(locationGestureRec)
+                
+                ///// Residence Halls Rating /////
+                let residenceHallsRatingLabel = RatingLabel(frame: CGRect(x: 10, y: 240, width: 160, height: 20))
+                residenceHallsRatingLabel.textColor = textColor
+                residenceHallsRatingLabel.text = "Residence Halls"
+                infoCardView.addSubview(residenceHallsRatingLabel)
+                //Stars!
+                let residenceHallsStarRating = StarRating(frame: CGRect(x: 200, y: 230, width: 160, height: 40))
+                infoCardView.addSubview(residenceHallsStarRating)
+                let residenceHallsGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
+                residenceHallsGestureRec.numberOfTouchesRequired = 1
+                residenceHallsGestureRec.minimumPressDuration = 0.01
+                residenceHallsStarRating.addGestureRecognizer(residenceHallsGestureRec)
+                
+                ///// School Cost Rating /////
+                let schoolCostRatingLabel = RatingLabel(frame: CGRect(x: 10, y: 300, width: 160, height: 20))
+                schoolCostRatingLabel.textColor = textColor
+                schoolCostRatingLabel.text = "Cost"
+                infoCardView.addSubview(schoolCostRatingLabel)
+                //Stars!
+                let schoolCostStarRating = StarRating(frame: CGRect(x: 200, y: 290, width: 160, height: 40))
+                infoCardView.addSubview(schoolCostStarRating)
+                let costGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
+                costGestureRec.numberOfTouchesRequired = 1
+                costGestureRec.minimumPressDuration = 0.01
+                schoolCostStarRating.addGestureRecognizer(costGestureRec)
+
+                //View Properties!
+                infoCardView.layer.borderColor = textColor.CGColor
+                infoCardView.layer.borderWidth = 2
+                infoCardView.layer.cornerRadius = 10.0
+                
+                infoViews.append(infoCardView)
+                mainScrollView.addSubview(infoCardView)
+
+                ratingView.associatedCard = infoCardView
+                
             }
+            
         }
         mainScrollView.contentSize = CGSize(width: 375, height: 1000)
-        mainScrollView.bringSubviewToFront(scrollTextViews[0])
+        mainScrollView.bringSubviewToFront(infoViews[0])
         
         //test
         testBool = false
-        
-        
-        
+
         schoolNameLabel.textColor = textColor
         schoolLocationLabel.textColor = textColor
         favoritedLabel.textColor = textColor
         
         schoolIconImageView.image = UIImage(named: "\(school.schoolName)")
         schoolNameLabel.text = school.schoolName
-        //schoolLocationLabel.text = school.location
+        schoolLocationLabel.text = "\(school.city), \(school.state)"
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -194,17 +388,51 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
         favoritedLabel.text = ""
         
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        //Save ratings!!
+    }
+    
     @IBAction func favSchoolTapped(sender: AnyObject) {
         if isFavorite! {
             favButtonView.setImage(UIImage(named: "favSchoolNo"), forState: nil)
             println("School unfavorited.")
             favoritedLabel.text = "School Unfavorited."
             isFavorite = !isFavorite
+            
+            let utwo = user.favoriteSchools.mutableCopy() as NSMutableSet
+            utwo.removeObject(school)
+            user.favoriteSchools = utwo
+            let stwo = school.favoritedByUsers.mutableCopy() as NSMutableSet
+            stwo.removeObject(user)
+            school.favoritedByUsers = stwo
+            
+            if !saveObjects() {
+                println("Error saving objects!")
+            } else {
+        
+            }
+
+            
         } else {
             favButtonView.setImage(UIImage(named: "favSchoolYes"), forState: nil)
             println("School favorited!")
             favoritedLabel.text = "School Favorited!"
             isFavorite = !isFavorite
+            
+            let utwo = user.favoriteSchools.mutableCopy() as NSMutableSet
+            utwo.addObject(school)
+            user.favoriteSchools = utwo
+            let stwo = school.favoritedByUsers.mutableCopy() as NSMutableSet
+            stwo.addObject(user)
+            school.favoritedByUsers = stwo
+            
+            if !saveObjects() {
+                println("Error saving objects!")
+            } else {
+                
+            }
+            
         }
     }
     
@@ -252,5 +480,46 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
             }
         }
         mainScrollView.bringSubviewToFront((gr.view as SchoolCardHeaderView).associatedCard)
+    }
+    func ratingViewTapped(gr: UITapGestureRecognizer) {
+        println("tappedRV!")
+        for header in headerViews {
+            if header != gr.view {
+                header.backgroundColor = unselectedColor
+            } else {
+                header.backgroundColor = selectedColor
+            }
+        }
+        mainScrollView.bringSubviewToFront((gr.view as SchoolCardHeaderView).associatedCard)
+    }
+    
+    func saveObjects() -> Bool {
+        let managedContext = user.managedObjectContext!
+        var error: NSError?
+        if !managedContext.save(&error) {
+            println("Could not save \(error), \(error?.userInfo)")
+            return false
+        }
+        println("User Context Saved (or it should be?)")
+        
+        return true
+    }
+    
+    func starRatingPressed(gr: UILongPressGestureRecognizer) {
+        (gr.view as StarRating).updateRating(gr.locationInView(gr.view).x)
+    }
+    
+    class RatingLabel: UILabel {
+        
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            self.font = UIFont(name: "Avenir Heavy", size: 18)
+            
+        }
+        
+        required init(coder aDecoder: NSCoder) {
+            super.init(coder: aDecoder)
+        }
     }
 }

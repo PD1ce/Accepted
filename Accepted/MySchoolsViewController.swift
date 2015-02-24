@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 //Need to add DataSource and Delegate of tableview as well, find the overridden methods
+//BUGS: There is a removing favorite school bug, does not show correctly the removed school!
+
 class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var user: User!
