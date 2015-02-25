@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class SchoolViewController : UIViewController, UIScrollViewDelegate {
     
     var user: User!
     var school: School!
+    var rating: Rating!
+    
     var isFavorite: Bool!
     
     var testBool: Bool!
@@ -47,6 +50,71 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
             favButtonView.setImage(UIImage(named: "favSchoolNo"), forState: nil)
         }
         
+        var userHasRatings = false
+        var schoolUserPairFound = false
+        for rating in user.rating {
+            userHasRatings = true
+            if school.rating.member(rating) != nil {
+                schoolUserPairFound = true
+                println("A rating was found for this user/school Pair!")
+                self.rating = rating as Rating
+                break
+            }
+        }
+        
+        //This is the very first rating created for this user
+        if !userHasRatings || !schoolUserPairFound {
+            let newRating = NSEntityDescription.insertNewObjectForEntityForName("Rating", inManagedObjectContext: user.managedObjectContext!) as Rating
+            newRating.user = user
+            newRating.school = school
+            newRating.academicFit = 0
+            newRating.academicFitMult = 1
+            newRating.athletics = 0
+            newRating.athleticsMult = 1
+            newRating.classSize = 0
+            newRating.classSizeMult = 1
+            newRating.cost = 0
+            newRating.costMult = 1
+            newRating.environment = 0
+            newRating.environmentMult = 1
+            newRating.food = 0
+            newRating.foodMult = 1
+            newRating.location = 0
+            newRating.locationMult = 1
+            newRating.residenceHalls = 0
+            newRating.residenceHallsMult = 1
+            newRating.visit = 0
+            newRating.visitMult = 1
+            newRating.totalScore = 0
+            
+            let userRatings = user.rating.mutableCopy() as NSMutableSet
+            userRatings.addObject(newRating)
+            user.rating = userRatings
+            let schoolRatings = school.rating.mutableCopy() as NSMutableSet
+            schoolRatings.addObject(newRating)
+            school.rating = schoolRatings
+            
+            self.rating = newRating
+            
+            if !saveObjects() {
+                println("Error saving objects!")
+            } else {
+                
+            }
+            println("First Rating created!")
+        }
+        
+      
+        
+        //user.rating.member(school)
+        
+        
+        /*
+        if (user.rating.food as Float) > 5 || (user.rating.food as Float) < 0 {
+            // Create rating for school and user
+        }
+        */
+
         backgroundColor = UIColor(red: CGFloat(school.primaryRed), green: CGFloat(school.primaryGreen), blue: CGFloat(school.primaryBlue), alpha: 1)
         self.view.backgroundColor = backgroundColor
         textColor = UIColor(red: CGFloat(school.secondaryRed), green: CGFloat(school.secondaryGreen), blue: CGFloat(school.secondaryBlue), alpha: 1)
@@ -159,9 +227,9 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
         ratingView.font = UIFont(name: "Avenir Heavy", size: 14.0)
         ratingView.textColor = textColor
         
-        /* ugh
+        /*
         let maskLayer = CAShapeLayer()
-        maskLayer.path = UIBezierPath(roundedRect: ratingView.bounds, byRoundingCorners: UIRectCornerTopLeft | UIRectCornerTopRight, cornerRadii: CGSize(width: CGFloat(10.0), height: CGFloat(10.0)))
+        maskLayer.path = UIBezierPath(roundedRect: ratingView.bounds, byRoundingCorners: .TopLeft | .TopRight, cornerRadii: CGSize(width: CGFloat(10.0), height: CGFloat(10.0)))
         */
         
         ratingView.layer.cornerRadius = 10.0
@@ -295,7 +363,8 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
                 foodRatingLabel.text = "Food"
                 infoCardView.addSubview(foodRatingLabel)
                 //Stars!
-                let foodStarRating = StarRating(frame: CGRect(x: 200, y: 50, width: 160, height: 40))
+                let foodStarRating = StarRating(frame: CGRect(x: 200, y: 50, width: 160, height: 40), name: "food")
+                foodStarRating.initialRatingUpdate(rating.food as Float)
                 infoCardView.addSubview(foodStarRating)
                 let foodGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
                 foodGestureRec.numberOfTouchesRequired = 1
@@ -305,10 +374,11 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
                 ///// School Size Rating /////
                 let schoolSizeRatingLabel = RatingLabel(frame: CGRect(x: 10, y: 120, width: 160, height: 20))
                 schoolSizeRatingLabel.textColor = textColor
-                schoolSizeRatingLabel.text = "School Size"
+                schoolSizeRatingLabel.text = "Class Size"
                 infoCardView.addSubview(schoolSizeRatingLabel)
                 //Stars!
-                let schoolSizeStarRating = StarRating(frame: CGRect(x: 200, y: 110, width: 160, height: 40))
+                let schoolSizeStarRating = StarRating(frame: CGRect(x: 200, y: 110, width: 160, height: 40), name: "classSize")
+                schoolSizeStarRating.initialRatingUpdate(rating.classSize as Float)
                 infoCardView.addSubview(schoolSizeStarRating)
                 let schoolSizeGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
                 schoolSizeGestureRec.numberOfTouchesRequired = 1
@@ -321,7 +391,8 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
                 locationRatingLabel.text = "Location"
                 infoCardView.addSubview(locationRatingLabel)
                 //Stars!
-                let locationStarRating = StarRating(frame: CGRect(x: 200, y: 170, width: 160, height: 40))
+                let locationStarRating = StarRating(frame: CGRect(x: 200, y: 170, width: 160, height: 40), name: "location")
+                locationStarRating.initialRatingUpdate(rating.location as Float)
                 infoCardView.addSubview(locationStarRating)
                 let locationGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
                 locationGestureRec.numberOfTouchesRequired = 1
@@ -334,7 +405,8 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
                 residenceHallsRatingLabel.text = "Residence Halls"
                 infoCardView.addSubview(residenceHallsRatingLabel)
                 //Stars!
-                let residenceHallsStarRating = StarRating(frame: CGRect(x: 200, y: 230, width: 160, height: 40))
+                let residenceHallsStarRating = StarRating(frame: CGRect(x: 200, y: 230, width: 160, height: 40), name: "residenceHalls")
+                residenceHallsStarRating.initialRatingUpdate(rating.residenceHalls as Float)
                 infoCardView.addSubview(residenceHallsStarRating)
                 let residenceHallsGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
                 residenceHallsGestureRec.numberOfTouchesRequired = 1
@@ -347,7 +419,8 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
                 schoolCostRatingLabel.text = "Cost"
                 infoCardView.addSubview(schoolCostRatingLabel)
                 //Stars!
-                let schoolCostStarRating = StarRating(frame: CGRect(x: 200, y: 290, width: 160, height: 40))
+                let schoolCostStarRating = StarRating(frame: CGRect(x: 200, y: 290, width: 160, height: 40), name: "cost")
+                schoolCostStarRating.initialRatingUpdate(rating.cost as Float)
                 infoCardView.addSubview(schoolCostStarRating)
                 let costGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
                 costGestureRec.numberOfTouchesRequired = 1
@@ -391,6 +464,12 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
     
     override func viewWillDisappear(animated: Bool) {
         //Save ratings!!
+        if !saveObjects() {
+            println("Error saving objects!")
+        } else {
+            
+        }
+
     }
     
     @IBAction func favSchoolTapped(sender: AnyObject) {
@@ -436,7 +515,7 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
         }
     }
     
-    // Gesture Actions
+    // Gesture Actions - Consolidate to just one!!
     func generalViewTapped(gr: UITapGestureRecognizer) {
         println("tappedG!")
         for header in headerViews {
@@ -506,16 +585,28 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
     }
     
     func starRatingPressed(gr: UILongPressGestureRecognizer) {
-        (gr.view as StarRating).updateRating(gr.locationInView(gr.view).x)
+        let thisRating = gr.view as StarRating
+        thisRating.updateRating(gr.locationInView(gr.view).x)
+        switch thisRating.name {
+            case "food":
+                rating.food = thisRating.rating
+            case "classSize":
+                rating.classSize = thisRating.rating
+            case "location":
+                rating.location = thisRating.rating
+            case "residenceHalls":
+                rating.residenceHalls = thisRating.rating
+            case "cost":
+                rating.cost = thisRating.rating
+            default:
+                println("error in name")
+        }
     }
     
     class RatingLabel: UILabel {
-        
-        
         override init(frame: CGRect) {
             super.init(frame: frame)
             self.font = UIFont(name: "Avenir Heavy", size: 18)
-            
         }
         
         required init(coder aDecoder: NSCoder) {

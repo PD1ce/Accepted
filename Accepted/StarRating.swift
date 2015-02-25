@@ -15,12 +15,13 @@ class StarRating : UIView {
     let starred = UIImage(named: "favSchoolYes")
     let unstarred = UIImage(named: "favSchoolNo")
     var rating: Float!
+    var name: String!
     
     //Width is 160 for these ratings currently
-    override init(frame: CGRect) {
-        rating = 0
+    init(frame: CGRect, name: String) {
         super.init(frame: frame)
-        
+        rating = 0
+        self.name = name
         self.layer.cornerRadius = 10.0
         self.layer.borderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1).CGColor
         self.layer.borderWidth = 2.0
@@ -32,8 +33,50 @@ class StarRating : UIView {
             stars.append(image)
             self.addSubview(image)
         }
-        
-        
+    }
+    
+    func initialRatingUpdate(rating: Float) {
+        if rating == 0 {
+            for star in stars {
+                star.image = unstarred
+            }
+            self.rating = 0
+        } else if rating == 1 {
+            stars[0].image = starred
+            stars[1].image = unstarred
+            stars[2].image = unstarred
+            stars[3].image = unstarred
+            stars[4].image = unstarred
+            self.rating = 1
+        } else if rating == 2 {
+            stars[0].image = starred
+            stars[1].image = starred
+            stars[2].image = unstarred
+            stars[3].image = unstarred
+            stars[4].image = unstarred
+            self.rating = 2
+        } else if rating == 3 {
+            stars[0].image = starred
+            stars[1].image = starred
+            stars[2].image = starred
+            stars[3].image = unstarred
+            stars[4].image = unstarred
+            self.rating = 3
+        } else if rating == 4 {
+            stars[0].image = starred
+            stars[1].image = starred
+            stars[2].image = starred
+            stars[3].image = starred
+            stars[4].image = unstarred
+            self.rating = 4
+        } else if rating == 5 {
+            stars[0].image = starred
+            stars[1].image = starred
+            stars[2].image = starred
+            stars[3].image = starred
+            stars[4].image = starred
+            self.rating = 5
+        }
     }
     
     func updateRating(x: CGFloat) {

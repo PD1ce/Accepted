@@ -1,8 +1,8 @@
 //
 //  School.swift
-//  Accepted
+//  School
 //
-//  Created by Philip Deisinger on 2/20/15.
+//  Created by Philip Deisinger on 2/25/15.
 //  Copyright (c) 2015 PDice. All rights reserved.
 //
 
@@ -28,8 +28,14 @@ class School: NSManagedObject {
     @NSManaged var nickName: String
     @NSManaged var outOfStateTuition: NSNumber
     @NSManaged var presidentOrChancellor: String
+    @NSManaged var primaryBlue: NSNumber
+    @NSManaged var primaryGreen: NSNumber
+    @NSManaged var primaryRed: NSNumber
     @NSManaged var publicPrivate: String
     @NSManaged var schoolName: String
+    @NSManaged var secondaryBlue: NSNumber
+    @NSManaged var secondaryGreen: NSNumber
+    @NSManaged var secondaryRed: NSNumber
     @NSManaged var state: String
     @NSManaged var studentsPostgrad: NSNumber
     @NSManaged var studentsTotal: NSNumber
@@ -39,13 +45,8 @@ class School: NSManagedObject {
     @NSManaged var usNewsRanking: NSNumber
     @NSManaged var varsityTeams: NSNumber
     @NSManaged var website: String
-    @NSManaged var primaryRed: NSNumber
-    @NSManaged var primaryGreen: NSNumber
-    @NSManaged var primaryBlue: NSNumber
-    @NSManaged var secondaryRed: NSNumber
-    @NSManaged var secondaryGreen: NSNumber
-    @NSManaged var secondaryBlue: NSNumber
     @NSManaged var dream: NSSet
     @NSManaged var favoritedByUsers: NSSet
+    @NSManaged var rating: NSSet
 
 }
