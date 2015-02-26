@@ -50,4 +50,5 @@ class School: NSManagedObject {
     @NSManaged var rating: NSSet
 
     var temporaryRating: Rating!
+
 }

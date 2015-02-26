@@ -127,23 +127,6 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
             schoolViewController.user = user
             navigationController?.pushViewController(schoolViewController, animated: true)
             
-            /* Going to move this to the actual school page!
-            
-            let utwo = user.favoriteSchools.mutableCopy() as NSMutableSet
-            utwo.addObject(selectedSchool)
-            user.favoriteSchools = utwo
-            let stwo = selectedSchool.favoritedByUsers.mutableCopy() as NSMutableSet
-            stwo.addObject(user)
-            selectedSchool.favoritedByUsers = stwo
-            
-            if !refreshObjects(selectedSchool) {
-                println("Error refreshing objects!")
-            } else {
-                selectedSchoolLabel.text = "School added!"
-                selectedSchoolLocationLabel.text = ""
-                schoolMapView.deselectAnnotation(schoolMapView.selectedAnnotations.first? as MKAnnotation, animated: true)
-            }
-            */
         } else {
             selectedSchoolLabel.text = "No School selected"
         }
