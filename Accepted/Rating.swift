@@ -33,4 +33,7 @@ class Rating: NSManagedObject {
     @NSManaged var school: Accepted.School
     @NSManaged var user: Accepted.User
 
+    func updateTotal() {
+        totalScore = Float(academicFit) + Float(athletics) + Float(classSize) + Float(cost) + Float(environment) + Float(food) + Float(location) + Float(residenceHalls) + Float(visit)
+    }
 }

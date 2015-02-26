@@ -49,4 +49,5 @@ class School: NSManagedObject {
     @NSManaged var favoritedByUsers: NSSet
     @NSManaged var rating: NSSet
 
+    var temporaryRating: Rating!
 }

@@ -57,6 +57,8 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
         // Each rating is assigned an id
         // this id is just a concatenation of the user id plus
         // the school id.  Will make finding ratings so much faster
+        
+        //Ratings also must be removed from schools?!
         var userHasRatings = false
         var schoolUserPairFound = false
         for rating in user.rating {
@@ -476,6 +478,7 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
     
     override func viewWillDisappear(animated: Bool) {
         //Save ratings!!
+        rating.updateTotal()
         if !saveObjects() {
             println("Error saving objects!")
         } else {

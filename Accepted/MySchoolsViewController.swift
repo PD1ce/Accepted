@@ -17,6 +17,7 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
     var user: User!
     var numSchools:Int!
     var schools: [School]!
+    var orderedSchools: NSMutableArray!
     var currentSchool: School!
     
     
@@ -28,13 +29,50 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         title = "My Schools"
         mySchoolsLabel.text = "\(user.firstName)\'s Schools"
+        
         schools = user.favoriteSchools.allObjects as? [School]
+        orderedSchools = NSMutableArray(array: schools)
         schoolTableView?.rowHeight = 50
         //Gets rid of extra white space in top
         self.automaticallyAdjustsScrollViewInsets = false
         println("\(schoolTableView!.numberOfSections())")
+        
+        for school in schools {
+            for rating in user.rating {
+                if school.rating.member(rating) != nil {
+                    //School and user rating has been matched
+                    school.temporaryRating = rating as Rating
+                    break
+                }
+            }
+            //Should always be found?
+            println("\(school.schoolName)'s Total Score: \(school.temporaryRating.totalScore)")
+        }
+        
+        //PDAlert: This is shitty implementation but is okay for now...
+        /*
+        var tempArray = [School]()
+        var schoolWithMaxScore = schools[0]
+        for var i = 0; i < schools.count; i++ {
+            for school in orderedSchools {
+                if Float((school as School).temporaryRating.totalScore) > Float(schoolWithMaxScore.temporaryRating.totalScore) {
+                    schoolWithMaxScore = school as School
+                }
+            }
+            tempArray.append(schoolWithMaxScore)
+            orderedSchools.removeObject(schoolWithMaxScore)
+            //schoolWithMaxScore.temporaryRating.totalScore = -1
+        }
+        
+        schools = tempArray
+        for school in schools {
+            println("\(school.schoolName)")
+        }
+*/
+       
     }
     
+    //reload data function can be used
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = SchoolTableViewCell(style: UITableViewCellStyle.Value2, reuseIdentifier: nil)
         cell.school = schools[indexPath.row]
