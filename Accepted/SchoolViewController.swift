@@ -50,6 +50,13 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
             favButtonView.setImage(UIImage(named: "favSchoolNo"), forState: nil)
         }
         
+        
+        
+        /// Alert:
+        // Ratings should be handled as follows
+        // Each rating is assigned an id
+        // this id is just a concatenation of the user id plus
+        // the school id.  Will make finding ratings so much faster
         var userHasRatings = false
         var schoolUserPairFound = false
         for rating in user.rating {
@@ -58,10 +65,15 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
                 schoolUserPairFound = true
                 println("A rating was found for this user/school Pair!")
                 self.rating = rating as Rating
+                println("Non self Food: \((rating as Rating).food)")
+                println("Food: \(self.rating.food)")
+                println("Location: \(self.rating.location)")
+                println("Cost: \(self.rating.cost)")
+                println("Class Size: \(self.rating.classSize)")
                 break
             }
+            println("Not matched yet")
         }
-        
         //This is the very first rating created for this user
         if !userHasRatings || !schoolUserPairFound {
             let newRating = NSEntityDescription.insertNewObjectForEntityForName("Rating", inManagedObjectContext: user.managedObjectContext!) as Rating
