@@ -13,6 +13,10 @@
 		4A1B568D1A7EC0A00005A565 /* SchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B568C1A7EC09F0005A565 /* SchoolViewController.swift */; };
 		4A3408501A853AD80019FD45 /* SchoolCurls.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4A34084F1A853AD80019FD45 /* SchoolCurls.txt */; };
 		4A3500171A9BA274009CEA0D /* SchoolCardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3500161A9BA274009CEA0D /* SchoolCardHeaderView.swift */; };
+		4A3A423D1A9E50390038811D /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A423C1A9E50390038811D /* Rating.swift */; };
+		4A3A423F1A9E50510038811D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A423E1A9E50510038811D /* User.swift */; };
+		4A3A42411A9E506C0038811D /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A42401A9E506C0038811D /* School.swift */; };
+		4A4012121A9CFA38004247CB /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4012111A9CFA38004247CB /* StarRating.swift */; };
 		4A4295101A893161002AAEE8 /* WikiExporter.php in Resources */ = {isa = PBXBuildFile; fileRef = 4A42950F1A893161002AAEE8 /* WikiExporter.php */; };
 		4A7A93AD1A81466B0091352D /* SchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A93AC1A81466B0091352D /* SchoolTableViewCell.swift */; };
 		4A7A93AF1A81AA4A0091352D /* UpdateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7A93AE1A81AA4A0091352D /* UpdateUserViewController.swift */; };
@@ -34,9 +38,7 @@
 		4A9933A61A7AC1D100418141 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A99339C1A7AC1D100418141 /* UserModel.swift */; };
 		4A9933A81A7AC1F000418141 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9933A71A7AC1F000418141 /* Main.storyboard */; };
 		4A9933AA1A7AC58600418141 /* MySchoolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9933A91A7AC58600418141 /* MySchoolsViewController.swift */; };
-		4AAE3CC21A97BC4500AF26CC /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE3CC11A97BC4500AF26CC /* School.swift */; };
 		4ABA2A901A953758005F6B26 /* Schools.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ABA2A8F1A953758005F6B26 /* Schools.json */; };
-		4AC1A97D1A83ED8800C083C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1A97C1A83ED8800C083C0 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		4A1B568C1A7EC09F0005A565 /* SchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolViewController.swift; sourceTree = "<group>"; };
 		4A34084F1A853AD80019FD45 /* SchoolCurls.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SchoolCurls.txt; sourceTree = "<group>"; };
 		4A3500161A9BA274009CEA0D /* SchoolCardHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolCardHeaderView.swift; sourceTree = "<group>"; };
+		4A3A423C1A9E50390038811D /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		4A3A423E1A9E50510038811D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4A3A42401A9E506C0038811D /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		4A4012111A9CFA38004247CB /* StarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		4A42950F1A893161002AAEE8 /* WikiExporter.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = WikiExporter.php; sourceTree = "<group>"; };
 		4A7A93AC1A81466B0091352D /* SchoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolTableViewCell.swift; sourceTree = "<group>"; };
 		4A7A93AE1A81AA4A0091352D /* UpdateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserViewController.swift; sourceTree = "<group>"; };
@@ -81,9 +87,7 @@
 		4A99339C1A7AC1D100418141 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		4A9933A71A7AC1F000418141 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4A9933A91A7AC58600418141 /* MySchoolsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySchoolsViewController.swift; sourceTree = "<group>"; };
-		4AAE3CC11A97BC4500AF26CC /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		4ABA2A8F1A953758005F6B26 /* Schools.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Schools.json; sourceTree = "<group>"; };
-		4AC1A97C1A83ED8800C083C0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,13 +131,15 @@
 				4A1B56881A7C35F30005A565 /* CustomPointAnnotation.swift */,
 				4A9933961A7AC1D100418141 /* Location.swift */,
 				4A9933971A7AC1D100418141 /* Major.swift */,
-				4AAE3CC11A97BC4500AF26CC /* School.swift */,
+				4A3A423C1A9E50390038811D /* Rating.swift */,
+				4A3A42401A9E506C0038811D /* School.swift */,
+				4A3500161A9BA274009CEA0D /* SchoolCardHeaderView.swift */,
+				4A83F9531A9AC9290068472B /* SchoolCardTextView.swift */,
 				4A99339A1A7AC1D100418141 /* SchoolModel.swift */,
 				4A7A93AC1A81466B0091352D /* SchoolTableViewCell.swift */,
-				4AC1A97C1A83ED8800C083C0 /* User.swift */,
+				4A4012111A9CFA38004247CB /* StarRating.swift */,
+				4A3A423E1A9E50510038811D /* User.swift */,
 				4A99339C1A7AC1D100418141 /* UserModel.swift */,
-				4A83F9531A9AC9290068472B /* SchoolCardTextView.swift */,
-				4A3500161A9BA274009CEA0D /* SchoolCardHeaderView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -305,7 +311,8 @@
 			files = (
 				4A99339E1A7AC1D100418141 /* CreateAccountViewController.swift in Sources */,
 				4A1B56891A7C35F30005A565 /* CustomPointAnnotation.swift in Sources */,
-				4AC1A97D1A83ED8800C083C0 /* User.swift in Sources */,
+				4A3A423F1A9E50510038811D /* User.swift in Sources */,
+				4A4012121A9CFA38004247CB /* StarRating.swift in Sources */,
 				4A9933761A7ABF1000418141 /* ViewController.swift in Sources */,
 				4A9933741A7ABF1000418141 /* Accepted.xcdatamodeld in Sources */,
 				4A99339D1A7AC1D100418141 /* AccountViewController.swift in Sources */,
@@ -317,8 +324,9 @@
 				4A9933A61A7AC1D100418141 /* UserModel.swift in Sources */,
 				4A9933711A7ABF1000418141 /* AppDelegate.swift in Sources */,
 				4A99339F1A7AC1D100418141 /* HomeViewController.swift in Sources */,
-				4AAE3CC21A97BC4500AF26CC /* School.swift in Sources */,
+				4A3A423D1A9E50390038811D /* Rating.swift in Sources */,
 				4A9933A31A7AC1D100418141 /* SchoolMapViewController.swift in Sources */,
+				4A3A42411A9E506C0038811D /* School.swift in Sources */,
 				4A9933A41A7AC1D100418141 /* SchoolModel.swift in Sources */,
 				4A83F9541A9AC9290068472B /* SchoolCardTextView.swift in Sources */,
 				4A9933A01A7AC1D100418141 /* Location.swift in Sources */,

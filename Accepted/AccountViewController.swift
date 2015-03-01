@@ -15,6 +15,13 @@ class AccountViewController: UIViewController {
     var password: String!
     var user: User!
     
+    
+    @IBOutlet weak var acceptedIconImageView: UIImageView!
+    @IBOutlet weak var mySchoolsImageView: UIImageView!
+    @IBOutlet weak var schoolSearchImageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var settingsImageView: UIImageView!
+    
     @IBOutlet weak var welcomeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +29,19 @@ class AccountViewController: UIViewController {
         username = user.valueForKey("username") as String?
         welcomeLabel.text = "Welcome, \(user.firstName)!"
         // Do any additional setup after loading the view, typically from a nib.
+        
+        acceptedIconImageView.image = UIImage(named: "Accepted Icon")
+        mySchoolsImageView.image = UIImage(named: "mySchoolsImageView")
+        schoolSearchImageView.image = UIImage(named: "schoolSearchImageView")
+        profileImageView.image = UIImage(named: "profileImageView")
+        settingsImageView.image = UIImage(named: "settingsImageView")
+        
+        
+        
+        
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {

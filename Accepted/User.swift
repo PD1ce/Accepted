@@ -1,8 +1,8 @@
 //
 //  User.swift
-//  Accepted
+//  User
 //
-//  Created by Philip Deisinger on 2/5/15.
+//  Created by Philip Deisinger on 2/25/15.
 //  Copyright (c) 2015 PDice. All rights reserved.
 //
 
@@ -22,8 +22,8 @@ class User: NSManagedObject {
     @NSManaged var numberOfUsers: NSNumber
     @NSManaged var password: String
     @NSManaged var username: String
-    
-    @NSManaged var dreamSchool: School
+    @NSManaged var dreamSchool: Accepted.School
     @NSManaged var favoriteSchools: NSSet
+    @NSManaged var rating: NSSet
 
 }

@@ -63,22 +63,20 @@ class DevToolsViewController : UIViewController {
             
             let newSchool = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
             newSchool.schoolName = school.valueForKey("schoolName") as String
-            
             newSchool.latitude = school.valueForKey("latitude") as Float
             newSchool.longitude = school.valueForKey("longitude") as Float
-            
-            //newSchool.establishedDate = school.valueForKey("founded") as NSNumber
+            newSchool.establishedDate = school.valueForKey("founded") as NSNumber
             newSchool.athleticConference = school.valueForKey("athleticConference") as String
-            /*
             newSchool.city = school.valueForKey("city") as String
             newSchool.state = school.valueForKey("state") as String
             newSchool.publicPrivate = school.valueForKey("publicprivate") as String
-            newSchool.inStateTuition = school.valueForKey("inStateTuition") as NSNumber
-            newSchool.outOfStateTuition = school.valueForKey("outOfStateTuition") as NSNumber
-            newSchool.studentsTotal = school.valueForKey("studentPopulation") as NSNumber
+            //newSchool.inStateTuition = school.valueForKey("inStateTuition") as NSNumber
+            //newSchool.outOfStateTuition = school.valueForKey("outOfStateTuition") as NSNumber
+            newSchool.studentsTotal = school.valueForKey("totalEnrollment") as NSNumber
+            newSchool.nickName = school.valueForKey("nickname") as String
             //newSchool.endowment = school.valueForKey("endowment") as String // Number!!
             newSchool.acceptanceRate = school.valueForKey("acceptanceRate") as Float
-            */
+            
             
             //Parsing school colors - Test
             /**********************************/
@@ -248,6 +246,13 @@ class DevToolsViewController : UIViewController {
             case "d": firstDigit = 13
             case "e": firstDigit = 14
             case "f": firstDigit = 15
+            case "A": firstDigit = 10
+            case "B": firstDigit = 11
+            case "C": firstDigit = 12
+            case "D": firstDigit = 13
+            case "E": firstDigit = 14
+            case "F": firstDigit = 15
+
         	default : firstDigit = firstHex.toInt()!
         }
         switch secondHex {
@@ -267,6 +272,12 @@ class DevToolsViewController : UIViewController {
             case "d": secondDigit = 13
         	case "e": secondDigit = 14
             case "f": secondDigit = 15
+            case "A": secondDigit = 10
+            case "B": secondDigit = 11
+            case "C": secondDigit = 12
+            case "D": secondDigit = 13
+            case "E": secondDigit = 14
+            case "F": secondDigit = 15
             default : secondDigit = firstHex.toInt()!
         }
         
