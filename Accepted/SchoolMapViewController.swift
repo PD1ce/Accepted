@@ -98,6 +98,9 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
         //selectedSchoolLocationLabel.text = view.annotation.subtitle
     }
     
+    func mapView(mapView: MKMapView!, didDeselectAnnotationView view: MKAnnotationView!) {
+        selectedSchoolLabel.text = ""
+    }
     
     
     override func didReceiveMemoryWarning() {
@@ -108,6 +111,7 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidDisappear(animated: Bool) {
         selectedSchoolLabel.text = ""
         selectedSchoolLabel.text = ""
+        schoolMapView.selectAnnotation(nil, animated: false)
     }
 
     /**!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -10,8 +10,7 @@ import UIKit
 import CoreData
 
 class CreateAccountViewController: UIViewController {
-
-    var users = [User]() //MODEL
+    
     var user: User!
     var username = String()
     var password = String()
@@ -55,8 +54,6 @@ class CreateAccountViewController: UIViewController {
         //This is terrible and needs to be changed
         if username != "" && password != "" {
             if saveUser() {
-                parentVC.users = users
-                println("parentVC.users: \(parentVC.users!)")
                 
                 let createDetailsVC = storyboard?.instantiateViewControllerWithIdentifier("CreateDetailsViewContoller") as CreateDetailsViewContoller
                 createDetailsVC.user = self.user
@@ -99,7 +96,7 @@ class CreateAccountViewController: UIViewController {
             println("Could not save \(error), \(error?.userInfo)")
             return false
         }
-        users.append(user)
+        
         return true
     }
 }
