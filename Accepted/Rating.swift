@@ -2,7 +2,7 @@
 //  Rating.swift
 //  Rating
 //
-//  Created by Philip Deisinger on 2/25/15.
+//  Created by Philip Deisinger on 3/6/15.
 //  Copyright (c) 2015 PDice. All rights reserved.
 //
 
@@ -30,10 +30,14 @@ class Rating: NSManagedObject {
     @NSManaged var totalScore: NSNumber
     @NSManaged var visit: NSNumber
     @NSManaged var visitMult: NSNumber
+    @NSManaged var schoolName: String
+    @NSManaged var username: String
+    @NSManaged var id: NSNumber
     @NSManaged var school: Accepted.School
     @NSManaged var user: Accepted.User
-
+    
     func updateTotal() {
         totalScore = Float(academicFit) + Float(athletics) + Float(classSize) + Float(cost) + Float(environment) + Float(food) + Float(location) + Float(residenceHalls) + Float(visit)
     }
+
 }

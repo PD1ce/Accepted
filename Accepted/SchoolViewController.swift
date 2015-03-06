@@ -50,34 +50,33 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
             favButtonView.setImage(UIImage(named: "favSchoolNo"), forState: nil)
         }
         
+        let myButton = UIControl(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        //myButton.addt
         
         
-        /// Alert:
+        /// PDAlert:
         // Ratings should be handled as follows
         // Each rating is assigned an id
         // this id is just a concatenation of the user id plus
         // the school id.  Will make finding ratings so much faster
+        /*
+        var fetchRequest = NSFetchRequest();
+        fetchRequest.predicate = NSPredicate("school.name = %@ AND user.name = %@", "user1")
+        user.managedObjectContext!.executeFetchRequest(fetchRequest)
+        */
         
-        //Ratings also must be removed from schools?!
-        var userHasRatings = false
-        var schoolUserPairFound = false
-        for rating in user.rating {
-            userHasRatings = true
-            if school.rating.member(rating) != nil {
-                schoolUserPairFound = true
-                println("A rating was found for this user/school Pair!")
-                self.rating = rating as Rating
-                println("Non self Food: \((rating as Rating).food)")
-                println("Food: \(self.rating.food)")
-                println("Location: \(self.rating.location)")
-                println("Cost: \(self.rating.cost)")
-                println("Class Size: \(self.rating.classSize)")
-                break
-            }
-            println("Not matched yet")
-        }
-        //This is the very first rating created for this user
-        if !userHasRatings || !schoolUserPairFound {
+        let managedContext = user.managedObjectContext!
+        var request = NSFetchRequest(entityName: "Rating")
+        var error: NSError?
+        let predicate = NSPredicate(format: "username = %@ AND schoolName = %@", user.username, school.schoolName)
+        request.predicate = predicate
+        let fetchedResults = managedContext.executeFetchRequest(request, error: &error) as [Rating]?
+        
+        //////////////////////////////////////////////////
+        // PDAlert: Rating, User, and School need ids!!!!
+        if !fetchedResults!.isEmpty {
+            rating = fetchedResults![0]
+        } else {
             let newRating = NSEntityDescription.insertNewObjectForEntityForName("Rating", inManagedObjectContext: user.managedObjectContext!) as Rating
             newRating.user = user
             newRating.school = school
@@ -100,6 +99,8 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
             newRating.visit = 0
             newRating.visitMult = 1
             newRating.totalScore = 0
+            newRating.schoolName = school.schoolName
+            newRating.username = user.username
             
             let userRatings = user.rating.mutableCopy() as NSMutableSet
             userRatings.addObject(newRating)
@@ -118,17 +119,7 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
             println("First Rating created!")
         }
         
-      
         
-        //user.rating.member(school)
-        
-        
-        /*
-        if (user.rating.food as Float) > 5 || (user.rating.food as Float) < 0 {
-            // Create rating for school and user
-        }
-        */
-
         backgroundColor = UIColor(red: CGFloat(school.primaryRed), green: CGFloat(school.primaryGreen), blue: CGFloat(school.primaryBlue), alpha: 1)
         self.view.backgroundColor = backgroundColor
         textColor = UIColor(red: CGFloat(school.secondaryRed), green: CGFloat(school.secondaryGreen), blue: CGFloat(school.secondaryBlue), alpha: 1)
@@ -531,6 +522,7 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
     }
     
     // Gesture Actions - Consolidate to just one!!
+    // PDAlert: These can all be repurposed to UIControl !!
     func generalViewTapped(gr: UITapGestureRecognizer) {
         println("tappedG!")
         for header in headerViews {

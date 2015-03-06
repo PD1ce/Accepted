@@ -19,6 +19,12 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
     var schools: NSMutableArray!
     var currentSchool: School!
     
+    var totalRatingView: UIView!
+    var foodRatingView: UIView!
+    var schoolSizeRatingView: UIView!
+    var locationRatingView: UIView!
+    var residenceHallsRatingView: UIView!
+    var costRatingView: UIView!
     
     @IBOutlet weak var mySchoolsLabel: UILabel!
     @IBOutlet weak var adjustRanksOutlet: UIButton!
@@ -48,6 +54,49 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
             println("\((school as School).schoolName)'s Total Score: \((school as School).temporaryRating.totalScore)")
         }
         
+        //Total
+        totalRatingView = UIView(frame: CGRect(x: 0, y: 200, width: 30, height: 30))
+        totalRatingView.layer.borderWidth = 1
+        let trText = UITextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
+        trText.text = "T"
+        totalRatingView.addSubview(trText)
+        //Food
+        foodRatingView = UIView(frame: CGRect(x: 30, y: 200, width: 30, height: 30))
+        foodRatingView.layer.borderWidth = 1
+        let foodText = UITextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
+        foodText.text = "F"
+        foodRatingView.addSubview(foodText)
+        //Class Size
+        schoolSizeRatingView = UIView(frame: CGRect(x: 60, y: 200, width: 30, height: 30))
+        schoolSizeRatingView.layer.borderWidth = 1
+        let classSizeText = UITextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
+        classSizeText.text = "S"
+        schoolSizeRatingView.addSubview(classSizeText)
+        //Location
+        locationRatingView = UIView(frame: CGRect(x: 90, y: 200, width: 30, height: 30))
+        locationRatingView.layer.borderWidth = 1
+        let locationText = UITextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
+        locationText.text = "L"
+        locationRatingView.addSubview(locationText)
+        //Residence Halls
+        residenceHallsRatingView = UIView(frame: CGRect(x: 120, y: 200, width: 30, height: 30))
+        residenceHallsRatingView.layer.borderWidth = 1
+        let residenceHallsText = UITextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
+        residenceHallsText.text = "R"
+        residenceHallsRatingView.addSubview(residenceHallsText)
+        //Cost
+        costRatingView = UIView(frame: CGRect(x: 150, y: 200, width: 30, height: 30))
+        costRatingView.layer.borderWidth = 1
+        let costText = UITextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
+        costText.text = "C"
+        costRatingView.addSubview(costText)
+        
+        self.view.addSubview(totalRatingView)
+        self.view.addSubview(foodRatingView)
+        self.view.addSubview(schoolSizeRatingView)
+        self.view.addSubview(locationRatingView)
+        self.view.addSubview(residenceHallsRatingView)
+        self.view.addSubview(costRatingView)
         
         var j = 1
         for school in schools {

@@ -13,11 +13,14 @@
         <attribute name="environmentMult" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="food" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="foodMult" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="locationMult" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="residenceHalls" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="residenceHallsMult" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="schoolName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="totalScore" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="visit" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="visitMult" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="school" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="School" inverseName="rating" inverseEntity="School" syncable="YES"/>
@@ -79,7 +82,7 @@
         <relationship name="rating" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rating" inverseName="user" inverseEntity="Rating" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Rating" positionX="-27" positionY="162" width="128" height="358"/>
+        <element name="Rating" positionX="-27" positionY="162" width="128" height="405"/>
         <element name="School" positionX="-36" positionY="9" width="128" height="600"/>
         <element name="User" positionX="-18" positionY="9" width="128" height="253"/>
     </elements>
