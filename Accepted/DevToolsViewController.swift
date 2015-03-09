@@ -62,6 +62,68 @@ class DevToolsViewController : UIViewController {
         for school in schoolArray {
             
             let newSchool = NSEntityDescription.insertNewObjectForEntityForName("School", inManagedObjectContext: managedContext) as School
+            var primaryRed: String; var primaryGreen: String; var primaryBlue: String; var secRed: String; var secGreen: String; var secBlue: String;
+            if let newSchoolName = school.valueForKey("schoolName") as? String {
+                newSchool.schoolName = newSchoolName
+            }
+            if let newSchoolLat = school.valueForKey("latitude") as? Float {
+                newSchool.latitude = newSchoolLat
+            }
+            if let newSchoolLong = school.valueForKey("longitude") as? Float {
+                newSchool.longitude = newSchoolLong
+            }
+            if let newSchoolFounded = school.valueForKey("founded") as? NSNumber {
+                newSchool.establishedDate = newSchoolFounded
+            }
+            if let newSchoolAthleticConference = school.valueForKey("athleticConference") as? String {
+                newSchool.athleticConference = newSchoolAthleticConference
+            }
+            if let newSchoolCity = school.valueForKey("city") as? String {
+                newSchool.city = newSchoolCity
+            } else {
+                newSchool.city = "City"
+            }
+            if let newSchoolState = school.valueForKey("state") as? String {
+                newSchool.state = newSchoolState
+            } else {
+                newSchool.state = "State"
+            }
+            
+            //PDAlert: Color distances! Make sure text is readable for each school by calculating
+            // sqrt(r^2 + g^2 + b^2) and then finding some threshold to determine if it is needed to be set to white/black
+            if let newSchoolPrimaryColorString = school.valueForKey("primaryColor") as? NSString {
+                primaryRed = newSchoolPrimaryColorString.substringWithRange(NSRange(location: 0, length: 2))
+                primaryGreen = newSchoolPrimaryColorString.substringWithRange(NSRange(location: 2, length: 2))
+                primaryBlue = newSchoolPrimaryColorString.substringWithRange(NSRange(location: 4, length: 2))
+                let red1     = hexToDec(primaryRed)
+                let green1   = hexToDec(primaryGreen)
+                let blue1    = hexToDec(primaryBlue)
+                newSchool.primaryRed = red1
+                newSchool.primaryGreen = green1
+                newSchool.primaryBlue = blue1
+            } else {
+                newSchool.primaryRed = 1.0
+                newSchool.primaryGreen = 1.0
+                newSchool.primaryBlue = 1.0
+            }
+            if let newSchoolSecColorString = school.valueForKey("secondaryColor") as? NSString {
+                secRed = newSchoolSecColorString.substringWithRange(NSRange(location: 0, length: 2))
+                secGreen = newSchoolSecColorString.substringWithRange(NSRange(location: 2, length: 2))
+                secBlue = newSchoolSecColorString.substringWithRange(NSRange(location: 4, length: 2))
+                let red2     = hexToDec(secRed)
+                let green2   = hexToDec(secGreen)
+                let blue2    = hexToDec(secBlue)
+                newSchool.secondaryRed = red2
+                newSchool.secondaryGreen = green2
+                newSchool.secondaryBlue = blue2
+            } else {
+                newSchool.secondaryRed = 0.0
+                newSchool.secondaryGreen = 0.0
+                newSchool.secondaryBlue = 0.0
+            }
+            
+            
+            /*
             newSchool.schoolName = school.valueForKey("schoolName") as String
             newSchool.latitude = school.valueForKey("latitude") as Float
             newSchool.longitude = school.valueForKey("longitude") as Float
@@ -82,7 +144,7 @@ class DevToolsViewController : UIViewController {
             /**********************************/
             let primaryColorString = school.valueForKey("primaryColor") as NSString
             let secondaryColorString = school.valueForKey("secondaryColor") as NSString
-            var primaryRed: String; var primaryGreen: String; var primaryBlue: String; var secRed: String; var secGreen: String; var secBlue: String;
+            
             primaryRed = primaryColorString.substringWithRange(NSRange(location: 0, length: 2))
             primaryGreen = primaryColorString.substringWithRange(NSRange(location: 2, length: 2))
             primaryBlue = primaryColorString.substringWithRange(NSRange(location: 4, length: 2))
@@ -104,7 +166,7 @@ class DevToolsViewController : UIViewController {
             newSchool.secondaryGreen = green2
             newSchool.secondaryBlue = blue2
             /***********************************/
-            
+            */
             
             
         }

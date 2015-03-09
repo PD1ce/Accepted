@@ -431,6 +431,65 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
                 costGestureRec.numberOfTouchesRequired = 1
                 costGestureRec.minimumPressDuration = 0.01
                 schoolCostStarRating.addGestureRecognizer(costGestureRec)
+                
+                ///// Academic Fit Rating /////
+                let academicFitRatingLabel = RatingLabel(frame: CGRect(x: 10, y: 360, width: 160, height: 20))
+                academicFitRatingLabel.textColor = textColor
+                academicFitRatingLabel.text = "Academic Fit"
+                infoCardView.addSubview(academicFitRatingLabel)
+                //Stars!
+                let academicFitStarRating = StarRating(frame: CGRect(x: 200, y: 350, width: 160, height: 40), name: "academicFit")
+                academicFitStarRating.initialRatingUpdate(rating.academicFit as Float)
+                infoCardView.addSubview(academicFitStarRating)
+                let academicFitGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
+                academicFitGestureRec.numberOfTouchesRequired = 1
+                academicFitGestureRec.minimumPressDuration = 0.01
+                academicFitStarRating.addGestureRecognizer(academicFitGestureRec)
+                
+                ///// Athletics Rating /////
+                let athleticsRatingLabel = RatingLabel(frame: CGRect(x: 10, y: 420, width: 160, height: 20))
+                athleticsRatingLabel.textColor = textColor
+                athleticsRatingLabel.text = "Athletics"
+                infoCardView.addSubview(athleticsRatingLabel)
+                //Stars!
+                let athleticsStarRating = StarRating(frame: CGRect(x: 200, y: 410, width: 160, height: 40), name: "athletics")
+                athleticsStarRating.initialRatingUpdate(rating.athletics as Float)
+                infoCardView.addSubview(athleticsStarRating)
+                let athleticsGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
+                athleticsGestureRec.numberOfTouchesRequired = 1
+                athleticsGestureRec.minimumPressDuration = 0.01
+                athleticsStarRating.addGestureRecognizer(athleticsGestureRec)
+                
+                ///// Environment Rating /////
+                let environmentRatingLabel = RatingLabel(frame: CGRect(x: 10, y: 480, width: 160, height: 20))
+                environmentRatingLabel.textColor = textColor
+                environmentRatingLabel.text = "Environment"
+                infoCardView.addSubview(environmentRatingLabel)
+                //Stars!
+                let environmentStarRating = StarRating(frame: CGRect(x: 200, y: 470, width: 160, height: 40), name: "environment")
+                environmentStarRating.initialRatingUpdate(rating.environment as Float)
+                infoCardView.addSubview(environmentStarRating)
+                let environmentGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
+                environmentGestureRec.numberOfTouchesRequired = 1
+                environmentGestureRec.minimumPressDuration = 0.01
+                environmentStarRating.addGestureRecognizer(environmentGestureRec)
+                
+                ///// Visit Rating /////
+                let visitRatingLabel = RatingLabel(frame: CGRect(x: 10, y: 540, width: 160, height: 20))
+                visitRatingLabel.textColor = textColor
+                visitRatingLabel.text = "Visit"
+                infoCardView.addSubview(visitRatingLabel)
+                //Stars!
+                let visitStarRating = StarRating(frame: CGRect(x: 200, y: 530, width: 160, height: 40), name: "visit")
+                visitStarRating.initialRatingUpdate(rating.visit as Float)
+                infoCardView.addSubview(visitStarRating)
+                let visitGestureRec = UILongPressGestureRecognizer(target: self, action: "starRatingPressed:")
+                visitGestureRec.numberOfTouchesRequired = 1
+                visitGestureRec.minimumPressDuration = 0.01
+                visitStarRating.addGestureRecognizer(visitGestureRec)
+
+                
+                
 
                 //View Properties!
                 infoCardView.layer.borderColor = textColor.CGColor
@@ -605,6 +664,14 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
                 rating.residenceHalls = thisRating.rating
             case "cost":
                 rating.cost = thisRating.rating
+            case "academicFit":
+                rating.academicFit = thisRating.rating
+            case "athletics":
+                rating.athletics = thisRating.rating
+            case "environment":
+                rating.environment = thisRating.rating
+            case "visit":
+                rating.visit = thisRating.rating
             default:
                 println("error in name")
         }

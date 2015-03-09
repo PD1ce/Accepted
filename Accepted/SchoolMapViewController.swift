@@ -58,7 +58,7 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
         selectedSchoolLocationLabel.text = ""
         
         let madisonLocation = CLLocationCoordinate2D(latitude: 43.076592, longitude:   -89.412487)
-        let span = MKCoordinateSpanMake(1, 1)
+        let span = MKCoordinateSpanMake(15, 15)
         let madisonRegion = MKCoordinateRegion(center: madisonLocation, span: span)
         schoolMapView.setRegion(madisonRegion, animated: true)
        
