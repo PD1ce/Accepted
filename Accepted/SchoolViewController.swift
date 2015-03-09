@@ -234,7 +234,7 @@ class SchoolViewController : UIViewController, UIScrollViewDelegate {
         
         /*
         let maskLayer = CAShapeLayer()
-        maskLayer.path = UIBezierPath(roundedRect: ratingView.bounds, byRoundingCorners: .TopLeft | .TopRight, cornerRadii: CGSize(width: CGFloat(10.0), height: CGFloat(10.0)))
+        maskLayer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 5, height: 5), byRoundingCorners: .TopLeft | .TopRight, cornerRadii: CGSize(width: CGFloat(10.0), height: CGFloat(10.0)))
         */
         
         ratingView.layer.cornerRadius = 10.0

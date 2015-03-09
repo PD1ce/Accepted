@@ -18,13 +18,14 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
     var numSchools:Int!
     var schools: NSMutableArray!
     var currentSchool: School!
+    var selectedControl: UIControl!
     
-    var totalRatingView: UIView!
-    var foodRatingView: UIView!
-    var schoolSizeRatingView: UIView!
-    var locationRatingView: UIView!
-    var residenceHallsRatingView: UIView!
-    var costRatingView: UIView!
+    var totalRatingView: UIControl!
+    var foodRatingView: UIControl!
+    var schoolSizeRatingView: UIControl!
+    var locationRatingView: UIControl!
+    var residenceHallsRatingView: UIControl!
+    var costRatingView: UIControl!
     
     @IBOutlet weak var mySchoolsLabel: UILabel!
     @IBOutlet weak var adjustRanksOutlet: UIButton!
@@ -54,42 +55,64 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
             println("\((school as School).schoolName)'s Total Score: \((school as School).temporaryRating.totalScore)")
         }
         
+        
+        
         //Total
-        totalRatingView = UIView(frame: CGRect(x: 0, y: 200, width: 30, height: 30))
+        totalRatingView = UIControl(frame: CGRect(x: 0, y: 200, width: 30, height: 30))
         totalRatingView.layer.borderWidth = 1
-        let trText = UITextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
+        totalRatingView.layer.cornerRadius = 2
+        totalRatingView.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        let trText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         trText.text = "T"
         totalRatingView.addSubview(trText)
+        selectedControl = totalRatingView // Initialize sorter
         //Food
-        foodRatingView = UIView(frame: CGRect(x: 30, y: 200, width: 30, height: 30))
+        foodRatingView = UIControl(frame: CGRect(x: 30, y: 200, width: 30, height: 30))
         foodRatingView.layer.borderWidth = 1
-        let foodText = UITextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
+        foodRatingView.layer.cornerRadius = 2
+        foodRatingView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let foodText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         foodText.text = "F"
         foodRatingView.addSubview(foodText)
         //Class Size
-        schoolSizeRatingView = UIView(frame: CGRect(x: 60, y: 200, width: 30, height: 30))
+        schoolSizeRatingView = UIControl(frame: CGRect(x: 60, y: 200, width: 30, height: 30))
         schoolSizeRatingView.layer.borderWidth = 1
-        let classSizeText = UITextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
+        schoolSizeRatingView.layer.cornerRadius = 2
+        schoolSizeRatingView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let classSizeText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         classSizeText.text = "S"
         schoolSizeRatingView.addSubview(classSizeText)
         //Location
-        locationRatingView = UIView(frame: CGRect(x: 90, y: 200, width: 30, height: 30))
+        locationRatingView = UIControl(frame: CGRect(x: 90, y: 200, width: 30, height: 30))
         locationRatingView.layer.borderWidth = 1
-        let locationText = UITextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
+        locationRatingView.layer.cornerRadius = 2
+        locationRatingView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let locationText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         locationText.text = "L"
         locationRatingView.addSubview(locationText)
         //Residence Halls
-        residenceHallsRatingView = UIView(frame: CGRect(x: 120, y: 200, width: 30, height: 30))
+        residenceHallsRatingView = UIControl(frame: CGRect(x: 120, y: 200, width: 30, height: 30))
         residenceHallsRatingView.layer.borderWidth = 1
-        let residenceHallsText = UITextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
+        residenceHallsRatingView.layer.cornerRadius = 2
+        residenceHallsRatingView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let residenceHallsText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         residenceHallsText.text = "R"
         residenceHallsRatingView.addSubview(residenceHallsText)
         //Cost
-        costRatingView = UIView(frame: CGRect(x: 150, y: 200, width: 30, height: 30))
+        costRatingView = UIControl(frame: CGRect(x: 150, y: 200, width: 30, height: 30))
         costRatingView.layer.borderWidth = 1
-        let costText = UITextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
+        costRatingView.layer.cornerRadius = 2
+        costRatingView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let costText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         costText.text = "C"
         costRatingView.addSubview(costText)
+        
+        totalRatingView.addTarget(self, action: "totalRatingTapped", forControlEvents: .TouchUpInside)
+        foodRatingView.addTarget(self, action: "foodRatingTapped", forControlEvents: .TouchUpInside)
+        schoolSizeRatingView.addTarget(self, action: "schoolSizeRatingTapped", forControlEvents: .TouchUpInside)
+        locationRatingView.addTarget(self, action: "locationRatingTapped", forControlEvents: .TouchUpInside)
+        residenceHallsRatingView.addTarget(self, action: "residenceHallsRatingTapped", forControlEvents: .TouchUpInside)
+        costRatingView.addTarget(self, action: "costRatingTapped", forControlEvents: .TouchUpInside)
         
         self.view.addSubview(totalRatingView)
         self.view.addSubview(foodRatingView)
@@ -149,6 +172,7 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         schools.removeAllObjects()
         schools = tempSchoolArray
+        selectedControl = totalRatingView
         schoolTableView.reloadData()
     }
     
@@ -163,23 +187,50 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.school = schools.objectAtIndex(indexPath.row) as School
         cell.rank = indexPath.row
         let bgcolor = UIColor(red: 5, green: 5, blue: 5, alpha: 1)
-        cell.backgroundColor = self.view.backgroundColor
+        //cell.backgroundColor = self.view.backgroundColor
+        //Testing
+        cell.backgroundColor = UIColor(red: CGFloat(cell.school.primaryRed), green: CGFloat(cell.school.primaryGreen), blue: CGFloat(cell.school.primaryBlue), alpha: 1.0)
         
         //Currently organized by just total
-        cell.textLabel?.text = "\(Float(cell.school.temporaryRating.totalScore) / 5.0)"
+        /*
+        if selectedControl == totalRatingView {
+            cell.textLabel?.text = "\(Float(cell.school.temporaryRating.totalScore) / 5.0)"
+        }
+        */
+        
+        
+        //PDAlert: When you sort by cost etc then click a school and return it is bugged
+        switch selectedControl {
+            case totalRatingView: cell.textLabel?.text = "\(Float(cell.school.temporaryRating.totalScore) / 5.0)"
+            case foodRatingView: cell.textLabel?.text = "\(Float(cell.school.temporaryRating.food))"
+            case schoolSizeRatingView: cell.textLabel?.text = "\(Float(cell.school.temporaryRating.classSize))"
+            case locationRatingView: cell.textLabel?.text = "\(Float(cell.school.temporaryRating.location))"
+            case residenceHallsRatingView: cell.textLabel?.text = "\(Float(cell.school.temporaryRating.residenceHalls))"
+            case costRatingView: cell.textLabel?.text = "\(Float(cell.school.temporaryRating.cost))"
+            default: cell.textLabel?.text = "\(Float(cell.school.temporaryRating.totalScore) / 5.0)"
+        }
+        
+        //cell.textLabel?.text = "\(Float(cell.school.temporaryRating.totalScore) / 5.0)"
         cell.textLabel?.textColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1)
         cell.textLabel?.font = UIFont(name: "Avenir Heavy", size: 16.0)
+        cell.textLabel?.textColor = UIColor(red: CGFloat(cell.school.secondaryRed), green: CGFloat(cell.school.secondaryGreen), blue: CGFloat(cell.school.secondaryBlue), alpha: 1.0)
         //cell.textLabel?.lineBreakMode = NSLineBreakMode.ByTruncatingTail
         cell.detailTextLabel?.text = "\(cell.school.schoolName)" //Maybe display Rank
         cell.detailTextLabel?.font = UIFont(name: "Avenir Heavy", size: 16.0)
+        //Testing
+        cell.detailTextLabel?.textColor = UIColor(red: CGFloat(cell.school.secondaryRed), green: CGFloat(cell.school.secondaryGreen), blue: CGFloat(cell.school.secondaryBlue), alpha: 1.0)
         return cell
     }
     //Making header title
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Schools by Rank"
-        } else {
-            return ""
+        switch selectedControl {
+            case totalRatingView: return "Schools by Total Score"
+            case foodRatingView: return "Schools by Food Score"
+            case schoolSizeRatingView: return "Schools by Class Size Score"
+            case locationRatingView: return "Schools by Location Score"
+            case residenceHallsRatingView: return "Schools by Residence Halls Score"
+            case costRatingView: return "Schools by Cost Score"
+            default: return "Schools by Total Score"
         }
     }
     //Ranks will also need to be adjusted and saved for the user here so it can order it properly
@@ -193,6 +244,7 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
         println("Index path moved")
         
     }
+    
     /*Header detail  ----- Implement later
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var myView = UIView()
@@ -242,6 +294,158 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
         }
        
     }
+    
+    func totalRatingTapped() {
+        println("TotalTapped")
+        selectedControl.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        selectedControl = totalRatingView
+        selectedControl.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        var tempSchoolArray = NSMutableArray()
+        let totalSchools = schools.count
+        for var i = 0; i < totalSchools; i++ {
+            var highestScore = Float(-1)
+            var highestScoringSchool: School!
+            for school in schools {
+                if Float((school as School).temporaryRating.totalScore) > highestScore {
+                    highestScore = Float((school as School).temporaryRating.totalScore)
+                    highestScoringSchool = (school as School)
+                }
+            }
+            println("Highest Score: \(highestScore)")
+            println("Removed school = \(highestScoringSchool.schoolName)")
+            tempSchoolArray.addObject(highestScoringSchool as School)
+            schools.removeObject(highestScoringSchool as School)
+        }
+        schools.removeAllObjects()
+        schools = tempSchoolArray
+        schoolTableView.reloadData()
+    }
+    func foodRatingTapped() {
+        println("FoodTapped")
+        selectedControl.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        selectedControl = foodRatingView
+        selectedControl.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        var tempSchoolArray = NSMutableArray()
+        let totalSchools = schools.count
+        for var i = 0; i < totalSchools; i++ {
+            var highestScore = Float(-1)
+            var highestScoringSchool: School!
+            for school in schools {
+                if Float((school as School).temporaryRating.food) > highestScore {
+                    highestScore = Float((school as School).temporaryRating.food)
+                    highestScoringSchool = (school as School)
+                }
+            }
+            println("Highest Score: \(highestScore)")
+            println("Removed school = \(highestScoringSchool.schoolName)")
+            tempSchoolArray.addObject(highestScoringSchool as School)
+            schools.removeObject(highestScoringSchool as School)
+        }
+        schools.removeAllObjects()
+        schools = tempSchoolArray
+        schoolTableView.reloadData()
+    }
+    func schoolSizeRatingTapped() {
+        println("schoolsizeTapped")
+        selectedControl.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        selectedControl = schoolSizeRatingView
+        selectedControl.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        var tempSchoolArray = NSMutableArray()
+        let totalSchools = schools.count
+        for var i = 0; i < totalSchools; i++ {
+            var highestScore = Float(-1)
+            var highestScoringSchool: School!
+            for school in schools {
+                if Float((school as School).temporaryRating.classSize) > highestScore {
+                    highestScore = Float((school as School).temporaryRating.classSize)
+                    highestScoringSchool = (school as School)
+                }
+            }
+            println("Highest Score: \(highestScore)")
+            println("Removed school = \(highestScoringSchool.schoolName)")
+            tempSchoolArray.addObject(highestScoringSchool as School)
+            schools.removeObject(highestScoringSchool as School)
+        }
+        schools.removeAllObjects()
+        schools = tempSchoolArray
+        schoolTableView.reloadData()
+        
+    }
+    func locationRatingTapped() {
+        println("locationTapped")
+        selectedControl.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        selectedControl = locationRatingView
+        selectedControl.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        var tempSchoolArray = NSMutableArray()
+        let totalSchools = schools.count
+        for var i = 0; i < totalSchools; i++ {
+            var highestScore = Float(-1)
+            var highestScoringSchool: School!
+            for school in schools {
+                if Float((school as School).temporaryRating.location) > highestScore {
+                    highestScore = Float((school as School).temporaryRating.location)
+                    highestScoringSchool = (school as School)
+                }
+            }
+            println("Highest Score: \(highestScore)")
+            println("Removed school = \(highestScoringSchool.schoolName)")
+            tempSchoolArray.addObject(highestScoringSchool as School)
+            schools.removeObject(highestScoringSchool as School)
+        }
+        schools.removeAllObjects()
+        schools = tempSchoolArray
+        schoolTableView.reloadData()
+    }
+    func residenceHallsRatingTapped() {
+        println("residenceHallsTapped")
+        selectedControl.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        selectedControl = residenceHallsRatingView
+        selectedControl.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        var tempSchoolArray = NSMutableArray()
+        let totalSchools = schools.count
+        for var i = 0; i < totalSchools; i++ {
+            var highestScore = Float(-1)
+            var highestScoringSchool: School!
+            for school in schools {
+                if Float((school as School).temporaryRating.residenceHalls) > highestScore {
+                    highestScore = Float((school as School).temporaryRating.residenceHalls)
+                    highestScoringSchool = (school as School)
+                }
+            }
+            println("Highest Score: \(highestScore)")
+            println("Removed school = \(highestScoringSchool.schoolName)")
+            tempSchoolArray.addObject(highestScoringSchool as School)
+            schools.removeObject(highestScoringSchool as School)
+        }
+        schools.removeAllObjects()
+        schools = tempSchoolArray
+        schoolTableView.reloadData()
+    }
+    func costRatingTapped() {
+        println("costTapped")
+        selectedControl.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        selectedControl = costRatingView
+        selectedControl.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        var tempSchoolArray = NSMutableArray()
+        let totalSchools = schools.count
+        for var i = 0; i < totalSchools; i++ {
+            var highestScore = Float(-1)
+            var highestScoringSchool: School!
+            for school in schools {
+                if Float((school as School).temporaryRating.cost) > highestScore {
+                    highestScore = Float((school as School).temporaryRating.cost)
+                    highestScoringSchool = (school as School)
+                }
+            }
+            println("Highest Score: \(highestScore)")
+            println("Removed school = \(highestScoringSchool.schoolName)")
+            tempSchoolArray.addObject(highestScoringSchool as School)
+            schools.removeObject(highestScoringSchool as School)
+        }
+        schools.removeAllObjects()
+        schools = tempSchoolArray
+        schoolTableView.reloadData()
+    }
    
     
     override func didReceiveMemoryWarning() {
@@ -251,5 +455,24 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBAction func closeSchool(segue: UIStoryboardSegue) {
         //
+    }
+    
+    class SortingTextView : UITextView {
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            
+        }
+        
+        override init(frame: CGRect, textContainer: NSTextContainer?) {
+            super.init(frame: frame, textContainer: textContainer)
+            editable = false
+            selectable = false
+            userInteractionEnabled = false
+        }
+        
+        required init(coder aDecoder: NSCoder) {
+            super.init(coder: aDecoder)
+        }
     }
 }
