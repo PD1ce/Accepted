@@ -28,6 +28,7 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "School Search"
         let managedContext = user.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName: "School")
         var error:NSError?
@@ -47,12 +48,13 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
             }
         }
         
-        mapBorder = UIView(frame: CGRect(x: 12, y: 226, width: 351, height: 425))
+        mapBorder = UIView(frame: CGRect(x: 12, y: 178, width: 351, height: 473))
         mapBorder.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1)
         mapBorder.layer.cornerRadius = 7.5
         schoolMapView.layer.cornerRadius = 7.5
         self.view.addSubview(mapBorder)
         self.view.bringSubviewToFront(schoolMapView)
+        
         
         selectedSchoolLabel.text = ""
         selectedSchoolLocationLabel.text = ""
@@ -66,7 +68,8 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
 
     
     /* Imported, figure this out! */
-    // @ROYALTY - The images in these annotations are not royalty free 
+    // @ROYALTY - The images in these annotations are not royalty free  
+    
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if !(annotation is CustomPointAnnotation) {
             return nil
@@ -91,7 +94,6 @@ class SchoolMapViewController: UIViewController, MKMapViewDelegate {
         
         return annotationView
     }
-
     
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
         selectedSchoolLabel.text = view.annotation.title

@@ -31,14 +31,15 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
     var environmentRatingView: SortingControl!
     var visitRatingView: SortingControl!
     
-    @IBOutlet weak var mySchoolsLabel: UILabel!
+    //@IBOutlet weak var mySchoolsLabel: UILabel!
     @IBOutlet weak var adjustRanksOutlet: UIButton!
     @IBOutlet weak var schoolTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My Schools"
-        mySchoolsLabel.text = "\(user.firstName)\'s Schools"
+        navigationController?.navigationItem.backBarButtonItem?.title = ""
+        //mySchoolsLabel.text = "\(user.firstName)\'s Schools"
         
         schools = NSMutableArray(array: user.favoriteSchools.allObjects)
         
@@ -60,57 +61,55 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         
-        
-        
         //Total
-        totalRatingView = SortingControl(frame: CGRect(x: 0, y: 200, width: 30, height: 30))
+        totalRatingView = SortingControl(frame: CGRect(x: 0, y: 150, width: 30, height: 30))
         totalRatingView.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
         let trText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         trText.text = "T"
         totalRatingView.addSubview(trText)
         selectedControl = totalRatingView // Initialize sorter
         //Food
-        foodRatingView = SortingControl(frame: CGRect(x: 30, y: 200, width: 30, height: 30))
+        foodRatingView = SortingControl(frame: CGRect(x: 30, y: 150, width: 30, height: 30))
         let foodText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         foodText.text = "F"
         foodRatingView.addSubview(foodText)
         //Class Size
-        schoolSizeRatingView = SortingControl(frame: CGRect(x: 60, y: 200, width: 30, height: 30))
+        schoolSizeRatingView = SortingControl(frame: CGRect(x: 60, y: 150, width: 30, height: 30))
         let classSizeText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         classSizeText.text = "S"
         schoolSizeRatingView.addSubview(classSizeText)
         //Location
-        locationRatingView = SortingControl(frame: CGRect(x: 90, y: 200, width: 30, height: 30))
+        locationRatingView = SortingControl(frame: CGRect(x: 90, y: 150, width: 30, height: 30))
         let locationText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         locationText.text = "L"
         locationRatingView.addSubview(locationText)
         //Residence Halls
-        residenceHallsRatingView = SortingControl(frame: CGRect(x: 120, y: 200, width: 30, height: 30))
+        residenceHallsRatingView = SortingControl(frame: CGRect(x: 120, y: 150, width: 30, height: 30))
         let residenceHallsText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         residenceHallsText.text = "R"
         residenceHallsRatingView.addSubview(residenceHallsText)
         //Cost
-        costRatingView = SortingControl(frame: CGRect(x: 150, y: 200, width: 30, height: 30))
+        costRatingView = SortingControl(frame: CGRect(x: 150, y: 150, width: 30, height: 30))
         let costText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         costText.text = "C"
         costRatingView.addSubview(costText)
         //Academic Fit
-        academicFitRatingView = SortingControl(frame: CGRect(x: 180, y: 200, width: 30, height: 30))
+        academicFitRatingView = SortingControl(frame: CGRect(x: 180, y: 150, width: 30, height: 30))
         let academicFitText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         academicFitText.text = "F"
         academicFitRatingView.addSubview(academicFitText)
         //Athletics
-        athleticsRatingView = SortingControl(frame: CGRect(x: 210, y: 200, width: 30, height: 30))
+        athleticsRatingView = SortingControl(frame: CGRect(x: 210, y: 150, width: 30, height: 30))
         let athleticsText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         athleticsText.text = "A"
         athleticsRatingView.addSubview(athleticsText)
         //Environment
-        environmentRatingView = SortingControl(frame: CGRect(x: 240, y: 200, width: 30, height: 30))
+        environmentRatingView = SortingControl(frame: CGRect(x: 240, y: 150, width: 30, height: 30))
         let environmentText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         environmentText.text = "E"
         environmentRatingView.addSubview(environmentText)
         //Visit
-        visitRatingView = SortingControl(frame: CGRect(x: 270, y: 200, width: 30, height: 30))
+        visitRatingView = SortingControl(frame: CGRect(x: 270, y: 150, width: 30, height: 30))
         let visitText = SortingTextView(frame: CGRect(x: 5, y: 5, width: 20, height: 20))
         visitText.text = "V"
         visitRatingView.addSubview(visitText)
@@ -163,9 +162,6 @@ class MySchoolsViewController: UIViewController, UITableViewDelegate, UITableVie
         schools.removeAllObjects()
         schools = tempSchoolArray
         
-        
-        
-       
     }
     
     //PDAlert: There may be a bug that arises if a user unfavorites and then hits back!
